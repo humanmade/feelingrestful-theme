@@ -43,3 +43,25 @@ export function fetchPosts() {
 		})
 	}
 }
+
+export function fetchPostBySlug( slug ) {
+	return ( dispatch, getStore ) => {
+		Api.get( '/wp/v2/posts', { filter: { name: slug } }, ( data, error ) => {
+			dispatch({
+				type: 'UPDATE_POST',
+				post: data[0]
+			})
+		})
+	}
+}
+
+export function fetchPageBySlug( slug ) {
+	return ( dispatch, getStore ) => {
+		Api.get( '/wp/v2/pages', { filter: { name: slug } }, ( data, error ) => {
+			dispatch({
+				type: 'UPDATE_PAGE',
+				page: data[0]
+			})
+		})
+	}
+}

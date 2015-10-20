@@ -31,6 +31,25 @@ function posts( state = [], action ) {
 		case 'UPDATE_POSTS':
 			return action.posts
 			break
+		case 'UPDATE_POST':
+			if ( ! findWhere( state, { id: action.post.id } ) ) {
+				state.push( action.post );
+			}
+			break;
+	}
+	return state
+}
+
+function pages( state = [], action ) {
+	switch ( action.type ) {
+		case 'UPDATE_PAGES':
+			return action.pages
+			break
+		case 'UPDATE_PAGE':
+			if ( ! findWhere( state, { id: action.page.id } ) ) {
+				state.push( action.page );
+			}
+			break
 	}
 	return state
 }
@@ -45,7 +64,7 @@ function menu( state = {}, action ) {
 			},
 			{
 				name: "About",
-				url: "/about/"
+				url: "/page/about/"
 			},
 			{
 				name: "Speakers",
@@ -61,7 +80,7 @@ function menu( state = {}, action ) {
 			},
 			{
 				name: "Hack Day",
-				url: "/hack/"
+				url: "/page/hack-day/"
 			},
 			{
 				name: "Contact",
@@ -75,6 +94,7 @@ var reducers = combineReducers({
 	speakers,
 	sponsors,
 	posts,
+	pages,
 	menu,
 	router: routerStateReducer
 })

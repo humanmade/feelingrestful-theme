@@ -15,6 +15,8 @@ import Speakers from './components/pages/Speakers'
 import Speaker from './components/pages/Speaker'
 import Sponsors from './components/pages/Sponsors'
 import Posts from './components/pages/Posts'
+import Page from './components/pages/Page'
+import Post from './components/pages/Post'
 
 var logger = createLogger({
 	level: 'info',
@@ -27,10 +29,12 @@ const routes = (
 	<ReduxRouter>
 		<Route path="/" component={AppWithReduxConnected}>
 			<Route path="tickets" component={BuyTickets} />
+			<Route path="/page/:slug" component={connect(state=>state)(Page)} />
 			<Route path="speakers" component={connect(state=>state)(Speakers)} />
 			<Route path="/speakers/:id" component={connect(state=>state)(Speaker)} />
 			<Route path="sponsors" component={connect(state=>state)(Sponsors)} />
 			<Route path="news" component={connect(state=>state)(Posts)} />
+			<Route path="news/:slug" component={connect(state=>state)(Post)} />
 			<Route path="" component={Intro} />
 		</Route>
 	</ReduxRouter>
