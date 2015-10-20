@@ -5,7 +5,6 @@
 ```
 npm install
 grunt build
-grunt watch sass # compile sass
 ```
 
 #### Developing
