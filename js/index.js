@@ -1,21 +1,20 @@
 import React from 'react'
-import { Provider } from 'react-redux'
+import ReactDOM from 'react-dom'
+import { compose, createStore, applyMiddleware } from 'redux'
+import { Provider, connect } from 'react-redux'
+import { reduxReactRouter, ReduxRouter } from 'redux-router'
+import { Router, Route } from 'react-router'
+import createLogger from 'redux-logger'
+import thunkMiddleware from 'redux-thunk'
 import App from './components/App'
 import reducers from './reducers'
-// Redux DevTools store enhancers
-import thunkMiddleware from 'redux-thunk'
-// React components for Redux DevTools
-import createLogger from 'redux-logger'
-import { compose, createStore, applyMiddleware } from 'redux'
-import ReactDOM from 'react-dom'
-import { connect } from 'react-redux'
-import { reduxReactRouter, routerStateReducer, ReduxRouter } from 'redux-router'
 import createHistory from 'history/lib/createBrowserHistory';
-import { Router, Route, Link } from 'react-router'
-import BuyTickets from './components/BuyTickets'
-import Intro from './components/Intro'
-import Speakers from './components/Speakers'
-import { fetchSpeakers } from './actions'
+import BuyTickets from './components/pages/BuyTickets'
+import Intro from './components/pages/Intro'
+import Speakers from './components/pages/Speakers'
+import Speaker from './components/pages/Speaker'
+import Sponsors from './components/pages/Sponsors'
+import Posts from './components/pages/Posts'
 
 var logger = createLogger({
 	level: 'info',
@@ -29,6 +28,9 @@ const routes = (
 		<Route path="/" component={AppWithReduxConnected}>
 			<Route path="tickets" component={BuyTickets} />
 			<Route path="speakers" component={connect(state=>state)(Speakers)} />
+			<Route path="/speakers/:id" component={connect(state=>state)(Speaker)} />
+			<Route path="sponsors" component={connect(state=>state)(Sponsors)} />
+			<Route path="news" component={connect(state=>state)(Posts)} />
 			<Route path="" component={Intro} />
 		</Route>
 	</ReduxRouter>

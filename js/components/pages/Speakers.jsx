@@ -1,5 +1,6 @@
 import React from 'react'
-import { fetchSpeakers } from '../actions'
+import { fetchSpeakers } from '../../actions'
+import { Link } from 'react-router'
 
 module.exports = React.createClass({
 
@@ -12,7 +13,7 @@ module.exports = React.createClass({
 		return (
 			<ul className="Speakers">
 				{this.props.speakers.map( speaker => {
-					return <li key={speaker.id}>{speaker.title.rendered}</li>
+					return <li key={speaker.id}><Link to={'/speakers/' + speaker.id}>{speaker.title.rendered}</Link></li>
 				})}
 			</ul>
 		)

@@ -1,7 +1,7 @@
 import React from 'react'
 import Menu from './Menu'
 import BuyTicketsButton from './BuyTicketsButton'
-import Intro from './Intro'
+import Intro from './pages/Intro'
 
 module.exports = React.createClass({
 
