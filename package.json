@@ -24,7 +24,7 @@
     "grunt-sass": "^1.0.0",
     "grunt-webpack": "^1.0.11",
     "history": "^1.12.5",
-    "jquery": "~2.1.4",
+    "jquery": "^2.1.4",
     "object-assign": "~4.0.1",
     "react": "^0.14.0",
     "react-dom": "^0.14.0",

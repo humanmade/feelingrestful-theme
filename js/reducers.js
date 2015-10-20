@@ -3,11 +3,18 @@ import ObjectAssign from 'object-assign'
 import { routerStateReducer } from 'redux-router';
 
 function speakers( state = [], action ) {
-	return [
-	]
+
+	switch ( action.type ) {
+		case 'UPDATE_SPEAKERS':
+			return action.speakers
+			break
+	}
+
+	return state
 }
 
-function menu( state = {} ) {
+function menu( state = {}, action ) {
+
 	return {
 		items: [
 			{

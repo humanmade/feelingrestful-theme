@@ -14,18 +14,22 @@ import createHistory from 'history/lib/createBrowserHistory';
 import { Router, Route, Link } from 'react-router'
 import BuyTickets from './components/BuyTickets'
 import Intro from './components/Intro'
+import Speakers from './components/Speakers'
+import { fetchSpeakers } from './actions'
 
 var logger = createLogger({
 	level: 'info',
 	collapsed: false
 })
 
-var AppWithReduxConnected = connect((state) => { return state } )(App)
+var AppWithReduxConnected = connect(state => state )(App)
 
 const routes = (
 	<ReduxRouter>
 		<Route path="/" component={AppWithReduxConnected}>
 			<Route path="tickets" component={BuyTickets} />
+			<Route path="speakers" component={connect(state=>state)(Speakers)} />
+			<Route path="" component={Intro} />
 		</Route>
 	</ReduxRouter>
 );
