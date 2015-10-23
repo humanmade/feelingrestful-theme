@@ -2,7 +2,7 @@ import Api from './api'
 
 export function fetchSpeakers() {
 	return ( dispatch, getStore ) => {
-		Api.get( '/wp/v2/speaker', {}, ( data, error ) => {
+		Api.get( '/wp/v2/speakers', {}, ( data, error ) => {
 			dispatch({
 				type: 'UPDATE_SPEAKERS',
 				speakers: data
@@ -13,7 +13,7 @@ export function fetchSpeakers() {
 
 export function fetchSpeaker( id ) {
 	return ( dispatch, getStore ) => {
-		Api.get( '/wp/v2/speaker/' + id , {}, ( data, error ) => {
+		Api.get( '/wp/v2/speakers/' + id , {}, ( data, error ) => {
 			dispatch({
 				type: 'UPDATE_SPEAKER',
 				speaker: data
@@ -24,7 +24,7 @@ export function fetchSpeaker( id ) {
 
 export function fetchSponsors() {
 	return ( dispatch, getStore ) => {
-		Api.get( '/wp/v2/sponsor', {}, ( data, error ) => {
+		Api.get( '/wp/v2/sponsors', {}, ( data, error ) => {
 			dispatch({
 				type: 'UPDATE_SPONSORS',
 				sponsors: data
