@@ -65,5 +65,5 @@ module.exports = function( grunt ) {
 	grunt.loadNpmTasks('grunt-autoprefixer');
 
 	grunt.registerTask('default', ['sass', 'watch', 'webpack:watch-dev' ]);
-	grunt.registerTask('build', [ 'sass', 'cssmin', 'webpack:build', 'replace' ]);
+	grunt.registerTask('build', [ 'sass', 'webpack:build']);
 }
