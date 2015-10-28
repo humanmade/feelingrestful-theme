@@ -24,7 +24,7 @@ export function fetchSpeaker( id ) {
 
 export function fetchSponsors() {
 	return ( dispatch, getStore ) => {
-		Api.get( '/wp/v2/sponsors', {}, ( data, error ) => {
+		Api.get( '/wp/v2/sponsors', { _embed: true }, ( data, error ) => {
 			dispatch({
 				type: 'UPDATE_SPONSORS',
 				sponsors: data
