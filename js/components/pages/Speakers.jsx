@@ -13,7 +13,11 @@ module.exports = React.createClass({
 		return (
 			<ul className="Speakers">
 				{this.props.speakers.map( speaker => {
-					return <li key={speaker.id}><Link to={'/speakers/' + speaker.id}>{speaker.title.rendered}</Link></li>
+					return <li key={speaker.id} style={{backgroundImage: 'url(' + speaker._embedded['http://v2.wp-api.org/attachment'][0].source_url + ')'}}>
+						<Link to={'/speakers/' + speaker.id}>
+							<h2>{speaker.title.rendered}</h2>
+						</Link>
+					</li>
 				})}
 			</ul>
 		)

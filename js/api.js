@@ -4,6 +4,8 @@ module.exports = {
 
 	api_url: '/wp-json',
 
+	lastRequest: null,
+
 	get: function( url, data, callback ) {
 
 		return this.request( 'GET', url, data, callback );
@@ -16,10 +18,19 @@ module.exports = {
 
 	request: function( method, url, data, callback ) {
 
+		this.lastRequest = {
+			method: method,
+			url: url,
+			args: data,
+			isLoading: true,
+			data: null
+		}
+
 		var xhr = jQuery.ajax( this.api_url + url, {
 			data: data,
 			success: ( data ) => {
-
+				this.lastRequest.isLoading = false
+				this.lastRequest.data = data
 				if ( ! callback ) {
 					return;
 				}
@@ -28,8 +39,8 @@ module.exports = {
 			method: method
 		} );
 
-		xhr.fail( function( err ) {
-
+		xhr.fail( err => {
+			this.lastRequest.isLoading = false
 			if (xhr.status === 0) {
 				if (xhr.statusText === 'abort') {
 					// Has been aborted
@@ -40,7 +51,7 @@ module.exports = {
 			}
 
 			if ( err.responseJSON && err.responseJSON[0] ) {
-
+				this.lastRequest.data = err.responseJSON[0]
 				if ( ! callback ) {
 					return;
 				}

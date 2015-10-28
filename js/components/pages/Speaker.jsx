@@ -6,6 +6,13 @@ module.exports = React.createClass({
 
 	componentDidMount: function() {
 		this.props.dispatch( fetchSpeaker( Number( this.props.routeParams.id ) ) )
+		window.addEventListener( 'scroll', this.eventListener  = () => {
+			this.refs.parallax.style.backgroundPosition = "0 -" + window.scrollY + 'px'
+		})
+	},
+
+	componentWillUnmount: function() {
+		window.removeEventListener( 'scroll', this.eventListener )
 	},
 
 	render: function() {
@@ -18,7 +25,11 @@ module.exports = React.createClass({
 		return (
 			<div className="Speaker">
 				<h1>{user.title.rendered}</h1>
-
+				<div
+					className="parallax-image"
+					ref="parallax"
+					style={{backgroundImage: 'url(' + user._embedded['http://v2.wp-api.org/attachment'][0].source_url + ')'}}
+					/>
 				<div dangerouslySetInnerHTML={{__html:user.content.rendered}} />
 			</div>
 		)

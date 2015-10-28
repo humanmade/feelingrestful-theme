@@ -1,0 +1,50 @@
+.Intro
+	flex-grow: 1
+	display: flex
+	align-items: center
+	justify-content: center
+	flex-direction: column
+	position: relative
+	overflow: hidden
+	margin: -30px
+
+	> *
+		z-index: 3
+		position: relative
+	h1
+
+	h2
+		color: $primary
+
+	h3
+		color: $primary
+
+	video
+		position: absolute
+		top: 50%
+		left: 50%
+		min-width: 100%
+		min-height: 100%
+		width: auto
+		height: auto
+		z-index: 1
+		-webkit-transform: translateX(-50%) translateY(-50%)
+		transform: translateX(-50%) translateY(-50%)
+		background-color: #333
+		background-size: cover
+
+	&:after
+		content: ' '
+		display: block
+		position: absolute
+		top: 0
+		bottom: 0
+		left: 0
+		right: 0
+		background: rgba(0,0,0,.6)
+		z-index: 2
+
+	.BuyTicketsButton
+		width: 20%
+		border: none
+		padding: 15px 20px

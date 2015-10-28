@@ -3,15 +3,37 @@ $primary: #e24d1f
 @import "./components/App"
 @import "./components/Menu"
 @import "./components/BuyTicketsButton"
+@import "./components/Intro"
 @import "./components/BuyTickets"
+@import "./components/Speakers"
+@import "./components/Speaker"
+@import "./components/APIConsole"
 
 body, html
 	padding: 0
 	margin: 0
-	font-family: sans-serif
+	font-family: "omnes-pro", sans-serif !important
+	color: #fff
 
 body
 	display: flex
 	min-height: 100vh
 	flex-direction: column
 
+.page-content
+	display: flex
+	padding: 30px
+
+h1, h2, h3, h4, h5, h5
+	font-weight: 300
+
+a
+	text-decoration: none
+	color: $primary
+
+.parallax-image
+	margin: 0 -30px
+	height: 300px
+	background-size: cover
+	background-position: 0 0
+	background-repeat: no-repeat

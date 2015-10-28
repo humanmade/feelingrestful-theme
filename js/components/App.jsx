@@ -2,6 +2,7 @@ import React from 'react'
 import Menu from './Menu'
 import BuyTicketsButton from './BuyTicketsButton'
 import Intro from './pages/Intro'
+import APIConsole from './APIConsole'
 
 module.exports = React.createClass({
 
@@ -10,7 +11,7 @@ module.exports = React.createClass({
 	},
 	render: function() {
 		return (
-			<div>
+			<div className="App">
 				<div className="left-menu">
 					<img className="logo" src="https://hmn-uploads.s3.amazonaws.com/humanmade-production/uploads/sites/27/2015/08/LOGO.png" />
 					<BuyTicketsButton>Tickets</BuyTicketsButton>
@@ -19,6 +20,7 @@ module.exports = React.createClass({
 				<div className="page-content">
 					{this.props.children || <Intro />}
 				</div>
+				<APIConsole />
 			</div>
 		)
 	}
