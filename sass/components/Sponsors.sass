@@ -1,4 +1,5 @@
 .Sponsors
+	flex-grow: 1
 
 	h1
 		text-align: center
@@ -18,7 +19,7 @@
 			display: flex
 
 			h3
-				flex-basis: 200px
+				min-width: 200px
 
 			ul
 				flex-grow: 1
@@ -29,8 +30,18 @@
 
 				li
 					flex-basis: 50%
+					cursor: pointer
+					flex-grow: 1
 					min-height: 200px
 					background-size: contain
 					background-repeat: no-repeat
 					background-color: white
 					background-position: center center
+					color: #333
+					flex-direction: column
+					padding: 20px
+					box-sizing: border-box
+
+					h4
+						font-weight: 800
+						margin: 0

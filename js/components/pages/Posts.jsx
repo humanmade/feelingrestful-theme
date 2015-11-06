@@ -1,6 +1,7 @@
 import React from 'react'
 import { fetchPosts } from '../../actions'
 import { Link } from 'react-router'
+import Post from './Post'
 
 module.exports = React.createClass({
 
@@ -12,7 +13,9 @@ module.exports = React.createClass({
 		return (
 			<ul className="Posts">
 				{this.props.posts.map( post => {
-					return <li key={post.id}><Link to={'/news/' + post.slug}>{post.title.rendered}</Link></li>
+					return <li key={post.id}>
+						<Post posts={this.props.posts} routeParams={{slug:post.slug}} />
+					</li>
 				})}
 			</ul>
 		)

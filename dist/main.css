@@ -65,6 +65,9 @@
   width: 100%; }
   .Menu li {
     border-bottom: 1px solid rgba(255, 255, 255, 0.3); }
+    .Menu li.current {
+      background: #333;
+      color: white; }
     .Menu li a {
       text-decoration: none;
       color: white;
@@ -192,7 +195,8 @@
     background-size: cover;
     box-shadow: inset 0 0 300px black; }
     .Speakers li h2 {
-      font-weight: normal; }
+      font-weight: normal;
+      color: white; }
     .Speakers li a {
       display: -webkit-box;
       display: -webkit-flex;
@@ -213,9 +217,94 @@
       color: white;
       text-decoration: none; }
 
+.Posts {
+  margin: 0;
+  list-style: none;
+  padding: 0; }
+  .Posts > li {
+    margin-bottom: 70px; }
+
+.Post {
+  max-width: 900px;
+  margin: 0 auto; }
+  .Post h1 {
+    text-align: center;
+    font-size: 40px; }
+  .Post .date {
+    color: #e24d1f;
+    font-size: 24px;
+    display: block;
+    text-align: center;
+    margin: -25px 0 25px 0; }
+  .Post img {
+    margin: 15px 0; }
+
 .Speaker h1 {
   font-weight: normal;
   text-align: center; }
+
+.Sponsors {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1; }
+  .Sponsors h1 {
+    text-align: center; }
+  .Sponsors .sponsorship-packages {
+    border: 2px solid white;
+    padding: 15px;
+    color: #fff;
+    margin: 0 auto; }
+  .Sponsors ul.sponsor-tiers {
+    list-style: none;
+    margin: 20px 0;
+    padding: 0; }
+    .Sponsors ul.sponsor-tiers li {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex; }
+      .Sponsors ul.sponsor-tiers li h3 {
+        min-width: 200px; }
+      .Sponsors ul.sponsor-tiers li ul {
+        -webkit-box-flex: 1;
+        -webkit-flex-grow: 1;
+            -ms-flex-positive: 1;
+                flex-grow: 1;
+        -webkit-flex-wrap: wrap;
+            -ms-flex-wrap: wrap;
+                flex-wrap: wrap;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        margin: 0;
+        padding: 0; }
+        .Sponsors ul.sponsor-tiers li ul li {
+          -webkit-flex-basis: 50%;
+              -ms-flex-preferred-size: 50%;
+                  flex-basis: 50%;
+          cursor: pointer;
+          -webkit-box-flex: 1;
+          -webkit-flex-grow: 1;
+              -ms-flex-positive: 1;
+                  flex-grow: 1;
+          min-height: 200px;
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-color: white;
+          background-position: center center;
+          color: #333;
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+          -webkit-flex-direction: column;
+              -ms-flex-direction: column;
+                  flex-direction: column;
+          padding: 20px;
+          box-sizing: border-box; }
+          .Sponsors ul.sponsor-tiers li ul li h4 {
+            font-weight: 800;
+            margin: 0; }
 
 .APIConsole {
   position: fixed;
@@ -230,6 +319,9 @@
   text-overflow: clip;
   white-space: nowrap;
   overflow: hidden; }
+
+.Map {
+  margin: 20px -30px; }
 
 body, html {
   padding: 0;
@@ -257,11 +349,16 @@ body {
   padding: 30px; }
 
 h1, h2, h3, h4, h5, h5 {
-  font-weight: 300; }
+  font-weight: 300;
+  color: #e24d1f; }
 
 a {
   text-decoration: none;
   color: #e24d1f; }
+
+img {
+  max-width: 100%;
+  height: auto; }
 
 .parallax-image {
   margin: 0 -30px;
@@ -269,3 +366,6 @@ a {
   background-size: cover;
   background-position: 0 0;
   background-repeat: no-repeat; }
+
+.Page {
+  width: 100%; }

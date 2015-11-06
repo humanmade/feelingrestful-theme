@@ -36,6 +36,7 @@ module.exports = {
 		//but get it from a global 'React' variable
 		//'react': 'React',
 		//'react/addons' : 'React',
+		'google/maps' : 'google.maps'
 	},
 
 	resolve: {

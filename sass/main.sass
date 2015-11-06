@@ -6,9 +6,12 @@ $primary: #e24d1f
 @import "./components/Intro"
 @import "./components/BuyTickets"
 @import "./components/Speakers"
+@import "./components/Posts"
+@import "./components/Post"
 @import "./components/Speaker"
 @import "./components/Sponsors"
 @import "./components/APIConsole"
+@import "./components/modules/Map"
 
 body, html
 	padding: 0
@@ -27,10 +30,14 @@ body
 
 h1, h2, h3, h4, h5, h5
 	font-weight: 300
+	color: $primary
 
 a
 	text-decoration: none
 	color: $primary
+img
+	max-width: 100%
+	height: auto
 
 .parallax-image
 	margin: 0 -30px
@@ -38,3 +45,6 @@ a
 	background-size: cover
 	background-position: 0 0
 	background-repeat: no-repeat
+
+.Page
+	width: 100%

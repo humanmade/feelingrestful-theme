@@ -33,6 +33,17 @@ export function fetchSponsors() {
 	}
 }
 
+export function fetchPointsOfInterets() {
+	return ( dispatch, getStore ) => {
+		Api.get( '/wp/v2/points-of-interest', {}, ( data, error ) => {
+			dispatch({
+				type: 'UPDATE_POINTS_OF_INTEREST',
+				pointsOfInterest: data
+			})
+		})
+	}
+}
+
 export function fetchPosts() {
 	return ( dispatch, getStore ) => {
 		Api.get( '/wp/v2/posts', {}, ( data, error ) => {

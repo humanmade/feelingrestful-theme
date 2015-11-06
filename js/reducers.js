@@ -26,6 +26,15 @@ function sponsors( state = [], action ) {
 	return state
 }
 
+function pointsOfInterest( state = [], action ) {
+	switch ( action.type ) {
+		case 'UPDATE_POINTS_OF_INTEREST':
+			return action.pointsOfInterest
+			break
+	}
+	return state
+}
+
 function posts( state = [], action ) {
 	switch ( action.type ) {
 		case 'UPDATE_POSTS':
@@ -95,6 +104,7 @@ var reducers = combineReducers({
 	sponsors,
 	posts,
 	pages,
+	pointsOfInterest,
 	menu,
 	router: routerStateReducer
 })

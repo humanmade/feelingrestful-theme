@@ -10,12 +10,13 @@ module.exports = React.createClass({
 
 	},
 	render: function() {
+
 		return (
 			<div className="App">
 				<div className="left-menu">
 					<img className="logo" src="https://hmn-uploads.s3.amazonaws.com/humanmade-production/uploads/sites/27/2015/08/LOGO.png" />
 					<BuyTicketsButton>Tickets</BuyTicketsButton>
-					<Menu menu={this.props.menu} onClick={this.handleClickMenuItem} />
+					<Menu currentPath={this.props.location.pathname} menu={this.props.menu} onClick={this.handleClickMenuItem} />
 				</div>
 				<div className="page-content">
 					{this.props.children || <Intro />}

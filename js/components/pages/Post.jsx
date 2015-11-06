@@ -18,7 +18,7 @@ module.exports = React.createClass({
 		return (
 			<div className="Post">
 				<h1>{post.title.rendered}</h1>
-
+				<span className="date">{post.date}</span>
 				<div dangerouslySetInnerHTML={{__html:post.content.rendered}} />
 			</div>
 		)

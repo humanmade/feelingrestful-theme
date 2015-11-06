@@ -5,7 +5,8 @@ module.exports = React.createClass({
 
 	propTypes: {
 		menu: React.PropTypes.object.isRequired,
-		onClick: React.PropTypes.func
+		onClick: React.PropTypes.func,
+		currentPath: React.PropTypes.string
 	},
 
 	render: function() {
@@ -13,7 +14,9 @@ module.exports = React.createClass({
 		return (
 			<ul className="Menu">
 				{this.props.menu.items.map( item => {
-					return <li key={item.name}><Link to={item.url}>{item.name}</Link></li>
+					console.log( this.props.currentPath )
+					console.log( item.url )
+					return <li className={this.props.currentPath === item.url ? 'current' : ''} key={item.name}><Link to={item.url}>{item.name}</Link></li>
 				})}
 			</ul>
 		)
