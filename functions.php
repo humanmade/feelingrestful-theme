@@ -23,6 +23,11 @@ add_action( 'admin_init', function() {
 });
 
 add_action( 'init', function() {
+
+	if ( ! class_exists( 'ModularPageBuilder\\Plugin' ) ) {
+		return;
+	}
+
 	$plugin = ModularPageBuilder\Plugin::get_instance();
 	$plugin->register_module( 'map', 'FeelingRESTful\\Page_Builder_Modules\\Map' );
 });
