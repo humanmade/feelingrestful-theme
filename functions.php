@@ -36,3 +36,7 @@ add_filter( 'modular_page_builder_allowed_modules_for_page', function( $allowed 
 	$allowed[] = 'map';
 	return $allowed;
 });
+
+add_filter( 'rest_url', function() {
+	return 'https://feelingrestful.hmn.md/wp-json';
+});

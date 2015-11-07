@@ -35845,70 +35845,38 @@
 	
 	var _underscore = __webpack_require__(252);
 	
-	function speakers(state, action) {
-		if (state === undefined) state = [];
+	function posts(state, action) {
+		if (state === undefined) state = { speakers: [], posts: [], pages: [], pointsOfInterest: [], sponsors: [] };
 	
 		switch (action.type) {
 			case 'UPDATE_SPEAKERS':
-				return action.speakers;
+				state.speakers = action.speakers;
 				break;
 			case 'UPDATE_SPEAKER':
-				if (!(0, _underscore.findWhere)(state, { id: action.speaker.id })) {
-					state.push(action.speaker);
+				if (!(0, _underscore.findWhere)(state.speakers, { id: action.speaker.id })) {
+					state.speakers.push(action.speaker);
 				}
 				break;
-		}
-		return state;
-	}
-	
-	function sponsors(state, action) {
-		if (state === undefined) state = [];
-	
-		switch (action.type) {
 			case 'UPDATE_SPONSORS':
-				return action.sponsors;
+				state.sponsors = action.sponsors;
 				break;
-		}
-		return state;
-	}
-	
-	function pointsOfInterest(state, action) {
-		if (state === undefined) state = [];
-	
-		switch (action.type) {
 			case 'UPDATE_POINTS_OF_INTEREST':
-				return action.pointsOfInterest;
+				state.pointsOfInterest = action.pointsOfInterest;
 				break;
-		}
-		return state;
-	}
-	
-	function posts(state, action) {
-		if (state === undefined) state = [];
-	
-		switch (action.type) {
 			case 'UPDATE_POSTS':
-				return action.posts;
+				state.posts = action.posts;
 				break;
 			case 'UPDATE_POST':
-				if (!(0, _underscore.findWhere)(state, { id: action.post.id })) {
-					state.push(action.post);
+				if (!(0, _underscore.findWhere)(state.posts, { id: action.post.id })) {
+					state.posts.push(action.post);
 				}
 				break;
-		}
-		return state;
-	}
-	
-	function pages(state, action) {
-		if (state === undefined) state = [];
-	
-		switch (action.type) {
 			case 'UPDATE_PAGES':
-				return action.pages;
+				state.pages = action.pages;
 				break;
 			case 'UPDATE_PAGE':
-				if (!(0, _underscore.findWhere)(state, { id: action.page.id })) {
-					state.push(action.page);
+				if (!(0, _underscore.findWhere)(state.pages, { id: action.page.id })) {
+					state.pages.push(action.page);
 				}
 				break;
 		}
@@ -35945,13 +35913,9 @@
 	}
 	
 	var reducers = (0, _redux.combineReducers)({
-		speakers: speakers,
-		sponsors: sponsors,
-		posts: posts,
-		pages: pages,
-		pointsOfInterest: pointsOfInterest,
 		menu: menu,
-		router: _reduxRouter.routerStateReducer
+		router: _reduxRouter.routerStateReducer,
+		posts: posts
 	});
 	
 	module.exports = reducers;
@@ -38717,7 +38681,7 @@
 			return _react2['default'].createElement(
 				'ul',
 				{ className: 'Speakers' },
-				this.props.speakers.map(function (speaker) {
+				this.props.posts.speakers.map(function (speaker) {
 					return _react2['default'].createElement(
 						'li',
 						{ key: speaker.id, style: { backgroundImage: 'url(' + speaker._embedded['http://v2.wp-api.org/attachment'][0].source_url + ')' } },
@@ -38869,7 +38833,7 @@
 		},
 	
 		render: function render() {
-			var user = (0, _underscore.findWhere)(this.props.speakers, { id: Number(this.props.routeParams.id) });
+			var user = (0, _underscore.findWhere)(this.props.posts.speakers, { id: Number(this.props.routeParams.id) });
 	
 			if (!user) {
 				return _react2['default'].createElement(
@@ -38968,7 +38932,7 @@
 						_react2['default'].createElement(
 							'ul',
 							{ className: 'sponsors' },
-							this.props.sponsors.map(function (sponsor) {
+							this.props.posts.sponsors.map(function (sponsor) {
 								return _this.state.showingSponsor !== sponsor.id ? _react2['default'].createElement('li', { onClick: _this.handleClickSponsor.bind(null, sponsor), key: sponsor.id, style: { backgroundImage: 'url(' + sponsor._embedded['http://v2.wp-api.org/attachment'][0].source_url + ')' } }) : _react2['default'].createElement(
 									'li',
 									{ onClick: _this.handleClickSponsor.bind(null, sponsor), key: sponsor.id },
@@ -39037,11 +39001,11 @@
 			return _react2['default'].createElement(
 				'ul',
 				{ className: 'Posts' },
-				this.props.posts.map(function (post) {
+				this.props.posts.posts.map(function (post) {
 					return _react2['default'].createElement(
 						'li',
 						{ key: post.id },
-						_react2['default'].createElement(_Post2['default'], { posts: _this.props.posts, routeParams: { slug: post.slug } })
+						_react2['default'].createElement(_Post2['default'], { posts: _this.props.posts, dispatch: _this.props.dispatch, routeParams: { slug: post.slug } })
 					);
 				})
 			);
@@ -39072,7 +39036,7 @@
 		},
 	
 		render: function render() {
-			var post = (0, _underscore.findWhere)(this.props.posts, { slug: this.props.routeParams.slug });
+			var post = (0, _underscore.findWhere)(this.props.posts.posts, { slug: this.props.routeParams.slug });
 	
 			if (!post) {
 				return _react2['default'].createElement(
@@ -39144,7 +39108,7 @@
 		},
 	
 		render: function render() {
-			var page = (0, _underscore.findWhere)(this.props.pages, { slug: this.props.routeParams.slug });
+			var page = (0, _underscore.findWhere)(this.props.posts.pages, { slug: this.props.routeParams.slug });
 	
 			if (!page) {
 				return _react2['default'].createElement(

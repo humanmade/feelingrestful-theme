@@ -16,7 +16,7 @@ module.exports = React.createClass({
 	},
 
 	render: function() {
-		var user = findWhere( this.props.speakers, { id: Number( this.props.routeParams.id ) } )
+		var user = findWhere( this.props.posts.speakers, { id: Number( this.props.routeParams.id ) } )
 
 		if ( ! user ) {
 			return <p>Loading</p>

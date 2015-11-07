@@ -36,7 +36,7 @@ module.exports = React.createClass({
 					<li>
 						<h3>Gold Sponsors</h3>
 						<ul className="sponsors">
-							{this.props.sponsors.map( sponsor => {
+							{this.props.posts.sponsors.map( sponsor => {
 								return this.state.showingSponsor !== sponsor.id
 									?	<li onClick={this.handleClickSponsor.bind( null, sponsor )} key={sponsor.id} style={{backgroundImage: 'url(' + sponsor._embedded['http://v2.wp-api.org/attachment'][0].source_url + ')'}}>
 										</li>

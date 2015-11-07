@@ -12,9 +12,9 @@ module.exports = React.createClass({
 	render: function() {
 		return (
 			<ul className="Posts">
-				{this.props.posts.map( post => {
+				{this.props.posts.posts.map( post => {
 					return <li key={post.id}>
-						<Post posts={this.props.posts} routeParams={{slug:post.slug}} />
+						<Post posts={this.props.posts} dispatch={this.props.dispatch} routeParams={{slug:post.slug}} />
 					</li>
 				})}
 			</ul>

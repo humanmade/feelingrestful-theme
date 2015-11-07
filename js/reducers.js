@@ -3,62 +3,38 @@ import ObjectAssign from 'object-assign'
 import { routerStateReducer } from 'redux-router';
 import { findWhere } from 'underscore'
 
-function speakers( state = [], action ) {
-	switch ( action.type ) {
+function posts( state = { speakers: [], posts: [], pages: [], pointsOfInterest: [], sponsors: [] }, action ) {
+	switch( action.type ) {
 		case 'UPDATE_SPEAKERS':
-			return action.speakers
+			state.speakers = action.speakers
 			break
 		case 'UPDATE_SPEAKER':
-			if ( ! findWhere( state, { id: action.speaker.id } ) ) {
-				state.push( action.speaker );
+			if ( ! findWhere( state.speakers, { id: action.speaker.id } ) ) {
+				state.speakers.push( action.speaker );
 			}
 			break
-	}
-	return state
-}
-
-function sponsors( state = [], action ) {
-	switch ( action.type ) {
 		case 'UPDATE_SPONSORS':
-			return action.sponsors
+			state.sponsors = action.sponsors
 			break
-	}
-	return state
-}
-
-function pointsOfInterest( state = [], action ) {
-	switch ( action.type ) {
 		case 'UPDATE_POINTS_OF_INTEREST':
-			return action.pointsOfInterest
+			state.pointsOfInterest = action.pointsOfInterest
 			break
-	}
-	return state
-}
-
-function posts( state = [], action ) {
-	switch ( action.type ) {
 		case 'UPDATE_POSTS':
-			return action.posts
+			state.posts = action.posts
 			break
 		case 'UPDATE_POST':
-			if ( ! findWhere( state, { id: action.post.id } ) ) {
-				state.push( action.post );
+			if ( ! findWhere( state.posts, { id: action.post.id } ) ) {
+				state.posts.push( action.post );
 			}
 			break;
-	}
-	return state
-}
-
-function pages( state = [], action ) {
-	switch ( action.type ) {
 		case 'UPDATE_PAGES':
-			return action.pages
+			state.pages = action.pages
 			break
 		case 'UPDATE_PAGE':
-			if ( ! findWhere( state, { id: action.page.id } ) ) {
-				state.push( action.page );
+			if ( ! findWhere( state.pages, { id: action.page.id } ) ) {
+				state.pages.push( action.page );
 			}
-			break
+			break;
 	}
 	return state
 }
@@ -100,13 +76,9 @@ function menu( state = {}, action ) {
 }
 
 var reducers = combineReducers({
-	speakers,
-	sponsors,
-	posts,
-	pages,
-	pointsOfInterest,
 	menu,
-	router: routerStateReducer
+	router: routerStateReducer,
+	posts
 })
 
 module.exports = reducers

@@ -14,7 +14,7 @@ module.exports = React.createClass({
 	},
 
 	render: function() {
-		var page = findWhere( this.props.pages, { slug: this.props.routeParams.slug } )
+		var page = findWhere( this.props.posts.pages, { slug: this.props.routeParams.slug } )
 
 		if ( ! page ) {
 			return <p>Loading</p>
