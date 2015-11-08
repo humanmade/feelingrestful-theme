@@ -26820,28 +26820,32 @@
 			var _this = this;
 	
 			return _react2['default'].createElement(
-				'ul',
-				{ className: 'menu' },
-				this.props.menu.items.map(function (item) {
-					console.log(_this.props.currentPath);
-					console.log(item.url);
-					return _react2['default'].createElement(
-						'li',
-						{ className: _this.props.currentPath === item.url ? 'current' : '', key: item.name },
-						_react2['default'].createElement(
-							_reactRouter.Link,
-							{ to: item.url },
-							item.name
-						)
-					);
-				}),
+				'div',
+				{ className: 'menu-wrap' },
 				_react2['default'].createElement(
-					'li',
-					{ className: 'powered-by' },
+					'ul',
+					{ className: 'menu' },
+					this.props.menu.items.map(function (item) {
+						console.log(_this.props.currentPath);
+						console.log(item.url);
+						return _react2['default'].createElement(
+							'li',
+							{ className: _this.props.currentPath === item.url ? 'current' : '', key: item.name },
+							_react2['default'].createElement(
+								_reactRouter.Link,
+								{ to: item.url },
+								item.name
+							)
+						);
+					}),
 					_react2['default'].createElement(
-						'a',
-						{ href: 'http://wordpress.org', target: '_blank' },
-						_react2['default'].createElement('span', { className: 'fa fa-wordpress' })
+						'li',
+						{ className: 'powered-by' },
+						_react2['default'].createElement(
+							'a',
+							{ href: 'http://wordpress.org', target: '_blank' },
+							_react2['default'].createElement('span', { className: 'fa fa-wordpress' })
+						)
 					)
 				)
 			);

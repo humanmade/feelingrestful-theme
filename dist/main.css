@@ -6,7 +6,8 @@
   flex-direction: column;
   position: relative;
   overflow: hidden;
-  margin: -30px; }
+  margin: -30px;
+  padding: 0 10%; }
   .Intro > * {
     z-index: 3;
     position: relative; }
@@ -387,19 +388,25 @@ img {
     background: #22303f; }
 
 /* Menu */
-.menu {
+.menu-wrap {
   background: #e24d1f;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   height: 50px;
-  line-height: 50px;
+  line-height: 1;
   padding: 0;
   margin: 0;
+  z-index: 100; }
+
+.menu {
   font-family: "futura-pt", sans-serif;
   font-weight: 600;
   list-style: none;
+  height: 50px;
+  line-height: 50px;
+  margin: 0;
   color: white;
   letter-spacing: 0.05rem;
   text-transform: uppercase;
@@ -418,8 +425,7 @@ img {
   -ms-justify-content: center;
   -o-justify-content: center;
   justify-content: center;
-  -ms-flex-pack: center;
-  z-index: 100; }
+  -ms-flex-pack: center; }
   .menu li {
     -webkit-box-flex: 1;
     -moz-box-flex: 1;
