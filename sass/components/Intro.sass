@@ -12,12 +12,30 @@
 		z-index: 3
 		position: relative
 	h1
+		text-transform: uppercase
+		font-weight: 600
+		font-size: 5rem
+		color: #fff
+		margin: 0
 
 	h2
-		color: $primary
+		color: #fff
+		font-family: $f_sans
+		font-weight: 200
+		letter-spacing: 1px
+		text-align: center
 
+		span.highlight
+			background: fade-out($primary, 0.3)
+			padding: 0 8px
+			
 	h3
-		color: $primary
+		font-weight: 400
+		color: #fff
+		letter-spacing: 1px
+
+		span.highlight
+			color: $primary
 
 	video
 		position: absolute
@@ -41,7 +59,7 @@
 		bottom: 0
 		left: 0
 		right: 0
-		background: rgba(0,0,0,.6)
+		background: fade-out($sec, 0.15)
 		z-index: 2
 
 	.BuyTicketsButton

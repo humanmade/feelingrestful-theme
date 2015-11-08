@@ -12,7 +12,7 @@ module.exports = React.createClass({
 	render: function() {
 
 		return (
-			<ul className="Menu">
+			<ul className="menu">
 				{this.props.menu.items.map( item => {
 					console.log( this.props.currentPath )
 					console.log( item.url )

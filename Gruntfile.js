@@ -39,18 +39,10 @@ module.exports = function( grunt ) {
 			}
 		},
 
-		autoprefixer:{
-			dist:{
-				files:{
-					'dist/main.css':'dist/main.css'
-				}
-			}
-		},
-
 		watch:  {
 			sass: {
 				files: ['sass/**/*.sass'],
-				tasks: ['sass', 'autoprefixer']
+				tasks: ['sass']
 			},
 			liverelaod: {
 				options: { livereload: true },
@@ -62,7 +54,6 @@ module.exports = function( grunt ) {
 	grunt.loadNpmTasks('grunt-sass');
 	grunt.loadNpmTasks('grunt-webpack');
 	grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.loadNpmTasks('grunt-autoprefixer');
 
 	grunt.registerTask('default', ['sass', 'watch', 'webpack:watch-dev' ]);
 	grunt.registerTask('build', [ 'sass', 'webpack:build']);
