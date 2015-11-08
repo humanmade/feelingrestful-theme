@@ -10,7 +10,7 @@
   flex-direction: column;
   position: relative;
   overflow: hidden;
-  margin: -30px;
+  margin: 0;
   padding: 0 10%; }
   @media all and (max-width: 440px) {
     .Intro {
@@ -106,7 +106,12 @@
     line-height: 80px;
     text-transform: uppercase;
     border: 2px solid #fff;
-    color: #fff; }
+    color: #fff;
+    -webkit-transition: all 150ms linear;
+    -moz-transition: all 150ms linear;
+    transition: all 150ms linear; }
+    .Intro .BuyTicketsButton:hover {
+      opacity: 0.6; }
     @media all and (max-width: 440px) {
       .Intro .BuyTicketsButton {
         padding: 0 24px;

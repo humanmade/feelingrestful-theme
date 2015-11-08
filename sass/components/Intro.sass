@@ -8,7 +8,7 @@
 	flex-direction: column
 	position: relative
 	overflow: hidden
-	margin: -30px
+	margin: 0
 	padding: 0 10%
 
 	@media #{$mobile_mq}
@@ -113,6 +113,10 @@
 		text-transform: uppercase
 		border: 2px solid #fff
 		color: #fff
+		@include transition(all 150ms linear)
+
+		&:hover
+			opacity: 0.6
 
 		@media #{$mobile_mq}
 			padding: 0 24px
