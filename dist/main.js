@@ -38651,27 +38651,31 @@
 	
 			return _react2['default'].createElement(
 				'div',
-				{ className: 'Page' },
+				{ className: 'Posts' },
 				_react2['default'].createElement(
-					'h1',
-					null,
-					page.title.rendered
-				),
-				page.page_builder.modules.map(function (Module) {
-					switch (Module.type) {
-						case 'text':
-							return _react2['default'].createElement(_modulesText2['default'], Module.data);
-						case 'blockquote':
-							return _react2['default'].createElement(_modulesBlockquote2['default'], Module.data);
-						case 'image':
-							return _react2['default'].createElement(_modulesImage2['default'], Module.data);
-						case 'header':
-							return _react2['default'].createElement(_modulesHeader2['default'], Module.data);
-						case 'map':
-							return _react2['default'].createElement(_modulesMap2['default'], Module.data);
-					}
-					return _react2['default'].createElement('div', null);
-				})
+					'div',
+					{ className: 'Post' },
+					_react2['default'].createElement(
+						'h1',
+						null,
+						page.title.rendered
+					),
+					page.page_builder.modules.map(function (Module) {
+						switch (Module.type) {
+							case 'text':
+								return _react2['default'].createElement(_modulesText2['default'], Module.data);
+							case 'blockquote':
+								return _react2['default'].createElement(_modulesBlockquote2['default'], Module.data);
+							case 'image':
+								return _react2['default'].createElement(_modulesImage2['default'], Module.data);
+							case 'header':
+								return _react2['default'].createElement(_modulesHeader2['default'], Module.data);
+							case 'map':
+								return _react2['default'].createElement(_modulesMap2['default'], Module.data);
+						}
+						return _react2['default'].createElement('div', null);
+					})
+				)
 			);
 		}
 	});
@@ -42642,42 +42646,46 @@
 				"div",
 				{ className: "Page" },
 				_react2["default"].createElement(
-					"h1",
-					null,
-					"Contact Us"
-				),
-				_react2["default"].createElement(
-					"form",
-					null,
+					"div",
+					{ className: "Post" },
 					_react2["default"].createElement(
-						"p",
+						"h1",
+						null,
+						"Contact Us"
+					),
+					_react2["default"].createElement(
+						"form",
 						null,
 						_react2["default"].createElement(
-							"label",
+							"p",
 							null,
-							"Name"
+							_react2["default"].createElement(
+								"label",
+								null,
+								"Name"
+							),
+							_react2["default"].createElement("input", { type: "text" })
 						),
-						_react2["default"].createElement("input", { type: "text" })
-					),
-					_react2["default"].createElement(
-						"p",
-						null,
 						_react2["default"].createElement(
-							"labe",
+							"p",
 							null,
-							"Email"
+							_react2["default"].createElement(
+								"labe",
+								null,
+								"Email"
+							),
+							_react2["default"].createElement("input", { type: "text" })
 						),
-						_react2["default"].createElement("input", { type: "text" })
-					),
-					_react2["default"].createElement(
-						"p",
-						null,
-						_react2["default"].createElement("textarea", null)
-					),
-					_react2["default"].createElement(
-						"p",
-						{ className: "submit" },
-						_react2["default"].createElement("input", { type: "submit", value: "Send!" })
+						_react2["default"].createElement(
+							"p",
+							null,
+							_react2["default"].createElement("textarea", null)
+						),
+						_react2["default"].createElement(
+							"p",
+							{ className: "submit" },
+							_react2["default"].createElement("input", { type: "submit", value: "Send!" })
+						)
 					)
 				)
 			);

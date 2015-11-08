@@ -21,23 +21,25 @@ module.exports = React.createClass({
 		}
 
 		return (
-			<div className="Page">
-				<h1>{page.title.rendered}</h1>
-				{page.page_builder.modules.map( Module => {
-					switch ( Module.type ) {
-						case 'text':
-							return <Text {...Module.data} />
-						case 'blockquote':
-							return <Blockquote {...Module.data} />
-						case 'image':
-							return <Image {...Module.data} />
-						case 'header':
-							return <Header {...Module.data} />
-						case 'map':
-							return <Map {...Module.data} />
-					}
-					return <div></div>
-				})}
+			<div className="Posts">
+				<div className="Post">
+					<h1>{page.title.rendered}</h1>
+					{page.page_builder.modules.map( Module => {
+						switch ( Module.type ) {
+							case 'text':
+								return <Text {...Module.data} />
+							case 'blockquote':
+								return <Blockquote {...Module.data} />
+							case 'image':
+								return <Image {...Module.data} />
+							case 'header':
+								return <Header {...Module.data} />
+							case 'map':
+								return <Map {...Module.data} />
+						}
+						return <div></div>
+					})}
+				</div>
 			</div>
 		)
 	}

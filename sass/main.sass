@@ -33,9 +33,11 @@ body, html
 body
 	-webkit-font-smoothing: antialiased
 
+figure
+	margin: 1em 0
+
 .page-content
-	display: flex
-	padding: 30px
+	padding: 30px 0 80px
 
 h1, h2, h3, h4, h5, h5
 	font-weight: 300
@@ -61,10 +63,18 @@ img
 
 /* App */
 
-.App, #app
-	height: 100%
+.page-content
+	position: relative
+	min-height: 100%
+	@include display(flex)
+	@include flex-direction(column)
 
-.App, #app, .page-content
+	& > div
+		@include flex(1 1 auto)
+
+.App, #app
+	position: relative
+	height: 100%
 	min-height: 100%
 
 #app
@@ -88,7 +98,6 @@ img
 			margin: 20px 0
 
 	.page-content
-		flex-grow: 1
 		background: #22303f
 
 
