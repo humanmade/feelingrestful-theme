@@ -26967,25 +26967,29 @@
 				'div',
 				{ className: 'APIConsole' },
 				_react2['default'].createElement(
-					'span',
-					null,
-					'API Request'
+					'div',
+					{ className: 'api-cta' },
+					_react2['default'].createElement('span', { className: 'fa fa-chevron-up' }),
+					' View API Request'
 				),
-				' ',
-				_api2['default'].lastRequest.method,
-				' ',
 				_react2['default'].createElement(
-					'a',
-					{ href: '/wp-json' + _api2['default'].lastRequest.url },
-					_api2['default'].lastRequest.url
-				),
-				_api2['default'].lastRequest.isLoading ? 'Loading...' : _react2['default'].createElement(
-					'span',
-					null,
+					'div',
+					{ className: 'api-output' },
+					_api2['default'].lastRequest.method,
 					' ',
-					_react2['default'].createElement('span', { className: 'fa fa-long-arrow-right' }),
-					' ',
-					JSON.stringify(_api2['default'].lastRequest.data)
+					_react2['default'].createElement(
+						'a',
+						{ href: '/wp-json' + _api2['default'].lastRequest.url },
+						_api2['default'].lastRequest.url
+					),
+					_api2['default'].lastRequest.isLoading ? 'Loading...' : _react2['default'].createElement(
+						'span',
+						null,
+						' ',
+						_react2['default'].createElement('span', { className: 'fa fa-long-arrow-right' }),
+						' ',
+						JSON.stringify(_api2['default'].lastRequest.data)
+					)
 				)
 			);
 		}

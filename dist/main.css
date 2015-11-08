@@ -345,13 +345,43 @@
   line-height: 50px;
   height: 50px;
   font-size: 14px;
-  padding: 0 10px;
+  padding: 0;
   font-family: "ocr-b-std", monospace;
   letter-spacing: -0.1rem;
   z-index: 110;
-  text-overflow: clip;
-  white-space: nowrap;
-  overflow: scroll; }
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex; }
+  .APIConsole .api-cta {
+    -webkit-box-flex: 0;
+    -moz-box-flex: 0;
+    box-flex: 0;
+    -webkit-flex: 0 0 200px;
+    -moz-flex: 0 0 200px;
+    -ms-flex: 0 0 200px;
+    flex: 0 0 200px;
+    text-align: center;
+    background: #fff;
+    color: #2f4358;
+    cursor: pointer; }
+    .APIConsole .api-cta:hover {
+      color: #415c79; }
+  .APIConsole .api-output {
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    box-flex: 1;
+    -webkit-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    padding: 0 10px;
+    text-overflow: clip;
+    white-space: nowrap;
+    overflow: scroll; }
   .APIConsole a {
     color: #fff;
     font-weight: 600; }

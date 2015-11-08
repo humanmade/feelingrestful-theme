@@ -3,18 +3,34 @@
 	bottom: 0
 	left: 0
 	right: 0
-	background: fade-out(lighten($sec, 2%), 0.1)
+	background: fade-out(lighten($sec, 2%), 0.05)
 	color: rgba(255,255,255,0.7)
 	line-height: 50px
 	height: 50px
 	font-size: 14px
-	padding: 0 10px
+	padding: 0
 	font-family: $f_mono
 	letter-spacing: -0.1rem
 	z-index: 110
-	text-overflow: clip
-	white-space: nowrap
-	overflow: scroll
+	@include display(flex)
+	.transition(all 100ms linear)
+
+	.api-cta
+		@include flex(0 0 200px)
+		text-align: center
+		background: #fff
+		color: $sec
+		cursor: pointer
+
+		&:hover
+			color: lighten($sec,10%)
+
+	.api-output
+		@include flex(1)
+		padding: 0 10px
+		text-overflow: clip
+		white-space: nowrap
+		overflow: scroll
 
 	a
 		color: #fff
