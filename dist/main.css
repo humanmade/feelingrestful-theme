@@ -33,6 +33,7 @@
         padding-left: 70px; } }
     @media all and (max-width: 440px) {
       .Intro h1 {
+        font-size: 38px;
         background-position: top center;
         background-size: 90px auto;
         padding-left: 0;
@@ -433,7 +434,8 @@ img {
   color: #fff;
   line-height: 50px;
   font-size: 20px;
-  padding: 0 16px; }
+  padding: 0 16px;
+  cursor: pointer; }
   @media all and (max-width: 950px) {
     .menu-toggle {
       display: inline-block;
