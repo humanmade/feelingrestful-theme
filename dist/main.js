@@ -26823,6 +26823,11 @@
 				'div',
 				{ className: 'menu-wrap' },
 				_react2['default'].createElement(
+					'div',
+					{ className: 'menu-toggle' },
+					_react2['default'].createElement('span', { className: 'fa fa-bars' })
+				),
+				_react2['default'].createElement(
 					'ul',
 					{ className: 'menu' },
 					this.props.menu.items.map(function (item) {

@@ -1,3 +1,7 @@
+/* colours */
+/* fonts */
+/* responsive */
+/* imports */
 .Intro {
   flex-grow: 1;
   display: flex;
@@ -291,6 +295,7 @@
 .Map {
   margin: 20px -30px; }
 
+/* universal */
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -309,9 +314,6 @@ body {
 
 figure {
   margin: 1em 0; }
-
-.page-content {
-  padding: 30px 0 80px; }
 
 h1, h2, h3, h4, h5, h5 {
   font-weight: 300;
@@ -336,7 +338,10 @@ img {
 .Page {
   width: 100%; }
 
-/* App */
+/* scaffolding */
+.page-content {
+  padding: 30px 0 80px; }
+
 .page-content {
   position: relative;
   min-height: 100%;
@@ -400,6 +405,17 @@ img {
   margin: 0;
   z-index: 100; }
 
+.menu-toggle {
+  display: none;
+  color: #fff;
+  line-height: 50px;
+  font-size: 20px;
+  padding: 0 16px; }
+  @media all and (max-width: 950px) {
+    .menu-toggle {
+      display: inline-block;
+      background: #e55f36; } }
+
 .menu {
   font-family: "futura-pt", sans-serif;
   font-weight: 600;
@@ -407,6 +423,7 @@ img {
   height: 50px;
   line-height: 50px;
   margin: 0;
+  padding: 0;
   color: white;
   letter-spacing: 0.05rem;
   text-transform: uppercase;
@@ -426,6 +443,19 @@ img {
   -o-justify-content: center;
   justify-content: center;
   -ms-flex-pack: center; }
+  @media all and (max-width: 950px) {
+    .menu {
+      display: block;
+      min-height: 50px;
+      position: absolute;
+      top: 50px;
+      left: 0;
+      max-width: 500px;
+      min-width: 320px; } }
+  @media all and (max-width: 400px) {
+    .menu {
+      max-width: 100%;
+      min-width: 100%; } }
   .menu li {
     -webkit-box-flex: 1;
     -moz-box-flex: 1;
@@ -435,6 +465,12 @@ img {
     -ms-flex: 1;
     flex: 1;
     max-width: 120px; }
+    @media all and (max-width: 950px) {
+      .menu li {
+        display: block;
+        width: 100%;
+        background: #e24d1f;
+        max-width: 100%; } }
     .menu li.powered-by {
       -webkit-box-flex: 0;
       -moz-box-flex: 0;

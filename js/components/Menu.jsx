@@ -13,6 +13,9 @@ module.exports = React.createClass({
 
 		return (
 			<div className="menu-wrap">
+				<div className="menu-toggle">
+					<span className="fa fa-bars"></span>
+				</div>
 				<ul className="menu">
 					{this.props.menu.items.map( item => {
 						console.log( this.props.currentPath )
