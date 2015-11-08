@@ -38376,18 +38376,22 @@
 	
 			return _react2['default'].createElement(
 				'div',
-				{ className: 'Speaker' },
+				{ className: 'Posts' },
 				_react2['default'].createElement(
-					'h1',
-					null,
-					user.title.rendered
-				),
-				_react2['default'].createElement('div', {
-					className: 'parallax-image',
-					ref: 'parallax',
-					style: { backgroundImage: 'url(' + user._embedded['http://v2.wp-api.org/attachment'][0].source_url + ')' }
-				}),
-				_react2['default'].createElement('div', { dangerouslySetInnerHTML: { __html: user.content.rendered } })
+					'div',
+					{ className: 'Post' },
+					_react2['default'].createElement(
+						'h1',
+						null,
+						user.title.rendered
+					),
+					_react2['default'].createElement('div', {
+						className: 'parallax-image',
+						ref: 'parallax',
+						style: { backgroundImage: 'url(' + user._embedded['http://v2.wp-api.org/attachment'][0].source_url + ')' }
+					}),
+					_react2['default'].createElement('div', { dangerouslySetInnerHTML: { __html: user.content.rendered } })
+				)
 			);
 		}
 	});
@@ -38430,7 +38434,6 @@
 		},
 	
 		render: function render() {
-			var _this = this;
 	
 			return _react2['default'].createElement(
 				'div',
@@ -38464,15 +38467,24 @@
 							'ul',
 							{ className: 'sponsors' },
 							this.props.posts.sponsors.map(function (sponsor) {
-								return _this.state.showingSponsor !== sponsor.id ? _react2['default'].createElement('li', { onClick: _this.handleClickSponsor.bind(null, sponsor), key: sponsor.id, style: { backgroundImage: 'url(' + sponsor._embedded['http://v2.wp-api.org/attachment'][0].source_url + ')' } }) : _react2['default'].createElement(
+								return _react2['default'].createElement(
 									'li',
-									{ onClick: _this.handleClickSponsor.bind(null, sponsor), key: sponsor.id },
+									null,
 									_react2['default'].createElement(
-										'h4',
-										null,
-										sponsor.title.rendered
+										'div',
+										{ className: 'sponsor-logo' },
+										_react2['default'].createElement('img', { src: sponsor._embedded['http://v2.wp-api.org/attachment'][0].source_url })
 									),
-									_react2['default'].createElement('div', { dangerouslySetInnerHTML: { __html: sponsor.content.rendered } })
+									_react2['default'].createElement(
+										'div',
+										{ className: 'sponsor-desc' },
+										_react2['default'].createElement(
+											'h4',
+											null,
+											sponsor.title.rendered
+										),
+										_react2['default'].createElement('div', { dangerouslySetInnerHTML: { __html: sponsor.content.rendered } })
+									)
 								);
 							})
 						)

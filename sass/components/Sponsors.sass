@@ -1,8 +1,22 @@
 .Sponsors
-	flex-grow: 1
+	max-width: 800px
+	margin: 20px auto
+	padding: 0 5%
 
 	h1
+		font-weight: 600
 		text-align: center
+		font-size: 40px
+		line-height: 1.2
+		color: #fff
+		margin-bottom: 20px
+
+	h3 
+		font-weight: 600
+		text-align: center
+		font-size: 28px
+		line-height: 1.2
+		margin: 80px 0 30px
 
 	.sponsorship-packages
 		border: 2px solid white
@@ -12,35 +26,36 @@
 
 	ul.sponsor-tiers
 		list-style: none
-		margin: 20px 0
 		padding: 0
+		margin: 0
 
 		li
-			display: flex
-
-			h3
-				min-width: 200px
 
 			ul
-				flex-grow: 1
-				flex-wrap: wrap
-				display: flex
 				margin: 0
 				padding: 0
 
-				li
-					flex-basis: 50%
-					cursor: pointer
-					flex-grow: 1
-					min-height: 200px
-					background-size: contain
-					background-repeat: no-repeat
-					background-color: white
-					background-position: center center
-					color: #333
-					flex-direction: column
-					padding: 20px
-					box-sizing: border-box
+				li	
+					@include display(flex)
+					padding: 10px
+
+					.sponsor-logo
+						background: #fff
+						border-radius: 5px
+						padding: 20px
+						margin-right: 20px
+						@include flex(0 0 200px)
+						height: 200px
+						@include display(flex)
+						@include align-items(center)
+						@include justify-content(center)
+
+						img
+							max-width: 100%
+							height: auto!important
+
+					.sponsor-desc
+						@include flex(1)
 
 					h4
 						font-weight: 800

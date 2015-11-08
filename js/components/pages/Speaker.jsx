@@ -23,14 +23,16 @@ module.exports = React.createClass({
 		}
 
 		return (
-			<div className="Speaker">
-				<h1>{user.title.rendered}</h1>
-				<div
-					className="parallax-image"
-					ref="parallax"
-					style={{backgroundImage: 'url(' + user._embedded['http://v2.wp-api.org/attachment'][0].source_url + ')'}}
-					/>
-				<div dangerouslySetInnerHTML={{__html:user.content.rendered}} />
+			<div className="Posts">
+				<div className="Post">
+					<h1>{user.title.rendered}</h1>
+					<div
+						className="parallax-image"
+						ref="parallax"
+						style={{backgroundImage: 'url(' + user._embedded['http://v2.wp-api.org/attachment'][0].source_url + ')'}}
+						/>
+					<div dangerouslySetInnerHTML={{__html:user.content.rendered}} />
+				</div>
 			</div>
 		)
 	}
