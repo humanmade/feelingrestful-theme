@@ -124,7 +124,7 @@
 .Speakers {
   list-style: none;
   padding: 0;
-  margin: -30px;
+  margin: 0;
   display: flex;
   flex-wrap: wrap;
   align-items: stretch;
@@ -149,7 +149,12 @@
     -webkit-transition: all 100ms linear;
     -moz-transition: all 100ms linear;
     transition: all 100ms linear;
-    min-height: 250px; }
+    min-height: 250px;
+    min-width: 300px; }
+    @media all and (max-width: 440px) {
+      .Speakers li {
+        width: 100%;
+        min-width: 100%; } }
     .Speakers li:hover {
       -webkit-filter: brightness(1.1);
       filter: brightness(1.1); }
