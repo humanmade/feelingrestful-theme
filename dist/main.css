@@ -340,7 +340,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(51, 72, 95, 0.9);
+  background: rgba(51, 72, 95, 0.95);
   color: rgba(255, 255, 255, 0.7);
   line-height: 50px;
   height: 50px;
@@ -355,7 +355,10 @@
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flexbox;
-  display: flex; }
+  display: flex;
+  -webkit-transition: all 100ms linear;
+  -moz-transition: all 100ms linear;
+  transition: all 100ms linear; }
   .APIConsole .api-cta {
     -webkit-box-flex: 0;
     -moz-box-flex: 0;
@@ -385,6 +388,23 @@
   .APIConsole a {
     color: #fff;
     font-weight: 600; }
+
+.api-display-wrap {
+  display: none;
+  position: fixed;
+  top: 50px;
+  left: 0;
+  right: 0;
+  bottom: 50px;
+  background: rgba(51, 72, 95, 0.95);
+  color: #fff;
+  z-index: 10000;
+  overflow: scroll; }
+
+.api-display {
+  max-width: 800px;
+  list-style: none;
+  padding: 20px 20px; }
 
 .Map {
   margin: 20px -30px; }

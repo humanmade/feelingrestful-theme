@@ -13,7 +13,7 @@
 	letter-spacing: -0.1rem
 	z-index: 110
 	@include display(flex)
-	.transition(all 100ms linear)
+	@include transition(all 100ms linear)
 
 	.api-cta
 		@include flex(0 0 200px)
@@ -35,3 +35,20 @@
 	a
 		color: #fff
 		font-weight: 600
+
+.api-display-wrap
+	display: none /* remove this */
+	position: fixed
+	top: 50px
+	left: 0
+	right: 0
+	bottom: 50px
+	background: fade-out(lighten($sec, 2%), 0.05)
+	color: #fff
+	z-index: 10000
+	overflow: scroll
+
+.api-display
+	max-width: 800px
+	list-style: none
+	padding: 20px 20px
