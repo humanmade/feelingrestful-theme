@@ -12,7 +12,7 @@ module.exports = React.createClass({
 				<span>API Request</span> {Api.lastRequest.method} <a href={'/wp-json' + Api.lastRequest.url}>{Api.lastRequest.url}</a>
 				{Api.lastRequest.isLoading
 					?	'Loading...'
-					:	' -> ' + JSON.stringify( Api.lastRequest.data )
+					:	<span> <span className="fa fa-long-arrow-right"></span> {JSON.stringify( Api.lastRequest.data )}</span>
 				}
 			</div>
 		)

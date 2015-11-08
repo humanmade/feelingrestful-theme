@@ -18,6 +18,7 @@ module.exports = React.createClass({
 					console.log( item.url )
 					return <li className={this.props.currentPath === item.url ? 'current' : ''} key={item.name}><Link to={item.url}>{item.name}</Link></li>
 				})}
+				<li className="powered-by"><a href="http://wordpress.org" target="_blank"><span className="fa fa-wordpress"></span></a></li>
 			</ul>
 		)
 	}

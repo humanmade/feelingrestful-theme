@@ -5,6 +5,7 @@
 		<title>A Day of REST</title>
 
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 		<script src="//use.typekit.net/yjd8lkq.js"></script><script>try{Typekit.load();}catch(e){}</script>
 		<script src="https://maps.googleapis.com/maps/api/js"></script>
 		<script src="//localhost:35729/livereload.js"></script>

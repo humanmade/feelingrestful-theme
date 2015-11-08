@@ -26834,7 +26834,16 @@
 							item.name
 						)
 					);
-				})
+				}),
+				_react2['default'].createElement(
+					'li',
+					{ className: 'powered-by' },
+					_react2['default'].createElement(
+						'a',
+						{ href: 'http://wordpress.org', target: '_blank' },
+						_react2['default'].createElement('span', { className: 'fa fa-wordpress' })
+					)
+				)
 			);
 		}
 	});
@@ -26961,7 +26970,14 @@
 					{ href: '/wp-json' + _api2['default'].lastRequest.url },
 					_api2['default'].lastRequest.url
 				),
-				_api2['default'].lastRequest.isLoading ? 'Loading...' : ' -> ' + JSON.stringify(_api2['default'].lastRequest.data)
+				_api2['default'].lastRequest.isLoading ? 'Loading...' : _react2['default'].createElement(
+					'span',
+					null,
+					' ',
+					_react2['default'].createElement('span', { className: 'fa fa-long-arrow-right' }),
+					' ',
+					JSON.stringify(_api2['default'].lastRequest.data)
+				)
 			);
 		}
 	});

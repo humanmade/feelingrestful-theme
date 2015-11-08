@@ -2,7 +2,8 @@ $primary: #e24d1f
 $sec: #2f4358
 
 $f_sans: "futura-pt", sans-serif
-$f_serif: "freight-display-pro", serif
+$f_body: "proxima-nova", sans-serif
+$f_mono: "ocr-b-std", monospace
 
 @import "bourbon/_bourbon"
 @import "./components/App"
@@ -24,10 +25,13 @@ $f_serif: "freight-display-pro", serif
 body, html
 	padding: 0
 	margin: 0
-	font-family: $f_sans
+	font-family: $f_body
 	color: #fff
 	height: 100%
 	min-height: 100%
+
+body
+	-webkit-font-smoothing: antialiased
 
 .page-content
 	display: flex
@@ -57,8 +61,10 @@ img
 
 /* App */
 
-.App, #app, .page-content
+.App, #app
 	height: 100%
+
+.App, #app, .page-content
 	min-height: 100%
 
 #app
@@ -98,8 +104,11 @@ img
 	line-height: 50px
 	padding: 0
 	margin: 0
+	font-family: $f_sans
+	font-weight: 600
 	list-style: none
 	color: white
+	letter-spacing: 0.05rem
 	text-transform: uppercase
 	@include display(flex)
 	@include justify-content(center)
@@ -109,9 +118,15 @@ img
 		@include flex(1)
 		max-width: 120px
 
+		&.powered-by
+			@include flex(0 0 50px)
+			font-size: 22px
+			text-align: center
+
 		&.current
 			background: lighten($primary, 5%)
 			color: white
+
 		a
 			text-decoration: none
 			color: white

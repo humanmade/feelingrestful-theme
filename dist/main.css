@@ -1,15 +1,3 @@
-.BuyTicketsButton {
-  border: 2px solid white;
-  background: #e24d1f;
-  color: white;
-  width: 100%;
-  height: 40px;
-  text-transform: uppercase;
-  font-size: 16px;
-  cursor: pointer;
-  line-height: 40px;
-  text-align: center; }
-
 .Intro {
   flex-grow: 1;
   display: flex;
@@ -23,6 +11,11 @@
     z-index: 3;
     position: relative; }
   .Intro h1 {
+    background-image: url("https://hmn-uploads.s3.amazonaws.com/humanmade-production/uploads/sites/27/2015/08/LOGO.png");
+    background-position: left center;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    padding-left: 120px;
     text-transform: uppercase;
     font-weight: 600;
     font-size: 5rem;
@@ -35,7 +28,9 @@
     letter-spacing: 1px;
     text-align: center; }
     .Intro h2 span.highlight {
-      background: rgba(226, 77, 31, 0.7);
+      border-radius: 2px;
+      background: rgba(65, 92, 121, 0.3);
+      font-weight: 600;
       padding: 0 8px; }
   .Intro h3 {
     font-weight: 400;
@@ -64,12 +59,20 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(47, 67, 88, 0.85);
+    background: rgba(29, 42, 55, 0.85);
     z-index: 2; }
   .Intro .BuyTicketsButton {
-    width: 20%;
-    border: none;
-    padding: 15px 20px; }
+    display: inline-block;
+    font-family: "futura-pt", sans-serif;
+    font-weight: 600;
+    padding: 0 30px;
+    font-size: 22px;
+    letter-spacing: 0.05rem;
+    height: 80px;
+    line-height: 80px;
+    text-transform: uppercase;
+    border: 2px solid #fff;
+    color: #fff; }
 
 .BuyTickets {
   padding: 30px;
@@ -106,24 +109,32 @@
       text-decoration: none; }
 
 .Posts {
-  margin: 0;
+  max-width: 800px;
+  margin: 0 auto;
   list-style: none;
-  padding: 0; }
+  padding: 0 5%; }
   .Posts > li {
     margin-bottom: 70px; }
 
 .Post {
-  max-width: 900px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  font-size: 18px;
+  line-height: 1.6; }
   .Post h1 {
+    font-weight: 600;
     text-align: center;
-    font-size: 40px; }
+    font-size: 40px;
+    line-height: 1.2;
+    color: #fff;
+    margin-bottom: 20px; }
   .Post .date {
     color: #e24d1f;
     font-size: 24px;
     display: block;
     text-align: center;
-    margin: -25px 0 25px 0; }
+    margin-bottom: 40px;
+    line-height: 1;
+    font-family: "ocr-b-std", monospace; }
   .Post img {
     margin: 15px 0; }
 
@@ -176,13 +187,14 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: #e24d1f;
+  background: rgba(51, 72, 95, 0.9);
   color: rgba(255, 255, 255, 0.7);
   line-height: 50px;
   height: 50px;
   font-size: 14px;
   padding: 0 10px;
-  font-family: monospace;
+  font-family: "ocr-b-std", monospace;
+  letter-spacing: -0.1rem;
   z-index: 110;
   text-overflow: clip;
   white-space: nowrap;
@@ -202,10 +214,13 @@
 body, html {
   padding: 0;
   margin: 0;
-  font-family: "futura-pt", sans-serif;
+  font-family: "proxima-nova", sans-serif;
   color: #fff;
   height: 100%;
   min-height: 100%; }
+
+body {
+  -webkit-font-smoothing: antialiased; }
 
 .page-content {
   display: flex;
@@ -235,8 +250,10 @@ img {
   width: 100%; }
 
 /* App */
+.App, #app {
+  height: 100%; }
+
 .App, #app, .page-content {
-  height: 100%;
   min-height: 100%; }
 
 #app {
@@ -270,8 +287,11 @@ img {
   line-height: 50px;
   padding: 0;
   margin: 0;
+  font-family: "futura-pt", sans-serif;
+  font-weight: 600;
   list-style: none;
   color: white;
+  letter-spacing: 0.05rem;
   text-transform: uppercase;
   display: -webkit-box;
   display: -moz-box;
@@ -299,6 +319,16 @@ img {
     -ms-flex: 1;
     flex: 1;
     max-width: 120px; }
+    .menu li.powered-by {
+      -webkit-box-flex: 0;
+      -moz-box-flex: 0;
+      box-flex: 0;
+      -webkit-flex: 0 0 50px;
+      -moz-flex: 0 0 50px;
+      -ms-flex: 0 0 50px;
+      flex: 0 0 50px;
+      font-size: 22px;
+      text-align: center; }
     .menu li.current {
       background: #e55f36;
       color: white; }

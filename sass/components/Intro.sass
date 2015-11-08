@@ -12,11 +12,17 @@
 		z-index: 3
 		position: relative
 	h1
+		background-image: url('https://hmn-uploads.s3.amazonaws.com/humanmade-production/uploads/sites/27/2015/08/LOGO.png')
+		background-position: left center
+		background-size: auto 100%
+		background-repeat: no-repeat
+		padding-left: 120px
 		text-transform: uppercase
 		font-weight: 600
 		font-size: 5rem
 		color: #fff
 		margin: 0
+
 
 	h2
 		color: #fff
@@ -26,7 +32,9 @@
 		text-align: center
 
 		span.highlight
-			background: fade-out($primary, 0.3)
+			border-radius: 2px
+			background: fade-out(lighten($sec, 10%), 0.7)
+			font-weight: 600
 			padding: 0 8px
 			
 	h3
@@ -59,10 +67,18 @@
 		bottom: 0
 		left: 0
 		right: 0
-		background: fade-out($sec, 0.15)
+		background: fade-out(darken($sec,10%), 0.15)
 		z-index: 2
 
 	.BuyTicketsButton
-		width: 20%
-		border: none
-		padding: 15px 20px
+		display: inline-block
+		font-family: $f_sans
+		font-weight: 600
+		padding: 0 30px
+		font-size: 22px
+		letter-spacing: 0.05rem
+		height: 80px
+		line-height: 80px
+		text-transform: uppercase
+		border: 2px solid #fff
+		color: #fff
