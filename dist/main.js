@@ -38461,15 +38461,6 @@
 					'Meet Our Fabulous Sponsors'
 				),
 				_react2['default'].createElement(
-					'p',
-					{ style: { textAlign: 'center', margin: '40px' } },
-					_react2['default'].createElement(
-						'a',
-						{ className: 'sponsorship-packages', href: 'https://hmn-uploads.s3.amazonaws.com/humanmade-production/uploads/sites/27/2015/04/RESTDaySponsorPackages.pdf' },
-						'Download the sponsorship packages'
-					)
-				),
-				_react2['default'].createElement(
 					'ul',
 					{ className: 'sponsor-tiers' },
 					_react2['default'].createElement(
@@ -38508,8 +38499,8 @@
 					)
 				),
 				_react2['default'].createElement(
-					'p',
-					null,
+					'div',
+					{ className: 'sponsor-packages' },
 					'We’d love to see your company name here. ',
 					_react2['default'].createElement(
 						'a',

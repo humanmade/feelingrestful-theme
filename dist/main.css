@@ -231,12 +231,14 @@
     text-align: center;
     font-size: 28px;
     line-height: 1.2;
-    margin: 80px 0 30px; }
-  .Sponsors .sponsorship-packages {
+    margin: 50px 0 30px; }
+  .Sponsors .sponsor-packages {
+    display: block;
+    text-align: center;
     border: 2px solid white;
     padding: 15px;
     color: #fff;
-    margin: 0 auto; }
+    margin: 20px auto; }
   .Sponsors ul.sponsor-tiers {
     list-style: none;
     padding: 0;
@@ -253,6 +255,9 @@
         display: -ms-flexbox;
         display: flex;
         padding: 10px; }
+        @media all and (max-width: 600px) {
+          .Sponsors ul.sponsor-tiers li ul li {
+            display: block; } }
         .Sponsors ul.sponsor-tiers li ul li .sponsor-logo {
           background: #fff;
           border-radius: 5px;
@@ -291,9 +296,15 @@
           -o-justify-content: center;
           justify-content: center;
           -ms-flex-pack: center; }
+          @media all and (max-width: 600px) {
+            .Sponsors ul.sponsor-tiers li ul li .sponsor-logo {
+              margin-right: 0; } }
           .Sponsors ul.sponsor-tiers li ul li .sponsor-logo img {
             max-width: 100%;
             height: auto !important; }
+            @media all and (max-width: 600px) {
+              .Sponsors ul.sponsor-tiers li ul li .sponsor-logo img {
+                max-height: 100% !important; } }
         .Sponsors ul.sponsor-tiers li ul li .sponsor-desc {
           -webkit-box-flex: 1;
           -moz-box-flex: 1;
@@ -302,9 +313,14 @@
           -moz-flex: 1;
           -ms-flex: 1;
           flex: 1; }
-        .Sponsors ul.sponsor-tiers li ul li h4 {
-          font-weight: 800;
-          margin: 0; }
+          .Sponsors ul.sponsor-tiers li ul li .sponsor-desc h4 {
+            font-size: 24px;
+            font-weight: 800;
+            margin: 0; }
+            @media all and (max-width: 600px) {
+              .Sponsors ul.sponsor-tiers li ul li .sponsor-desc h4 {
+                margin-top: 20px;
+                text-align: center; } }
 
 .APIConsole {
   position: fixed;

@@ -16,13 +16,15 @@
 		text-align: center
 		font-size: 28px
 		line-height: 1.2
-		margin: 80px 0 30px
+		margin: 50px 0 30px
 
-	.sponsorship-packages
+	.sponsor-packages
+		display: block
+		text-align: center
 		border: 2px solid white
 		padding: 15px
 		color: #fff
-		margin: 0 auto
+		margin: 20px auto
 
 	ul.sponsor-tiers
 		list-style: none
@@ -39,6 +41,10 @@
 					@include display(flex)
 					padding: 10px
 
+					@media #{$phablet_mq}
+						display: block
+
+
 					.sponsor-logo
 						background: #fff
 						border-radius: 5px
@@ -50,13 +56,24 @@
 						@include align-items(center)
 						@include justify-content(center)
 
+						@media #{$phablet_mq}
+							margin-right: 0
+
 						img
 							max-width: 100%
 							height: auto!important
 
+							@media #{$phablet_mq}
+								max-height: 100%!important
+
 					.sponsor-desc
 						@include flex(1)
 
-					h4
-						font-weight: 800
-						margin: 0
+						h4
+							font-size: 24px
+							font-weight: 800
+							margin: 0
+
+							@media #{$phablet_mq}
+								margin-top: 20px
+								text-align: center

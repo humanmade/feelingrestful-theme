@@ -28,10 +28,6 @@ module.exports = React.createClass({
 			<div className="Sponsors">
 				<h1>Meet Our Fabulous Sponsors</h1>
 
-				<p style={{textAlign: 'center', margin: '40px'}}>
-					<a className="sponsorship-packages" href="https://hmn-uploads.s3.amazonaws.com/humanmade-production/uploads/sites/27/2015/04/RESTDaySponsorPackages.pdf">Download the sponsorship packages</a>
-				</p>
-
 				<ul className="sponsor-tiers">
 					<li>
 						<h3>Gold Sponsors</h3>
@@ -54,7 +50,7 @@ module.exports = React.createClass({
 					</li>
 				</ul>
 
-				<p>We’d love to see your company name here. <a href="https://hmn-uploads.s3.amazonaws.com/humanmade-production/uploads/sites/27/2015/04/RESTDaySponsorPackages.pdf">Download The Sponsorship packages</a> and <a href="mailto:events@humanmade.co.uk">Get in touch</a> to reserve your preferred sponsor option for A Day of REST.</p>
+				<div className="sponsor-packages">We’d love to see your company name here. <a href="https://hmn-uploads.s3.amazonaws.com/humanmade-production/uploads/sites/27/2015/04/RESTDaySponsorPackages.pdf">Download The Sponsorship packages</a> and <a href="mailto:events@humanmade.co.uk">Get in touch</a> to reserve your preferred sponsor option for A Day of REST.</div>
 			</div>
 		)
 	}
