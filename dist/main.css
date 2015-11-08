@@ -25,13 +25,30 @@
     font-weight: 600;
     font-size: 5rem;
     color: #fff;
-    margin: 0; }
+    margin: 0;
+    text-align: center; }
+    @media all and (max-width: 950px) {
+      .Intro h1 {
+        font-size: 50px;
+        padding-left: 70px; } }
+    @media all and (max-width: 440px) {
+      .Intro h1 {
+        background-position: top center;
+        background-size: 90px auto;
+        padding-left: 0;
+        padding-top: 90px; } }
   .Intro h2 {
     color: #fff;
     font-family: "futura-pt", sans-serif;
     font-weight: 200;
     letter-spacing: 1px;
     text-align: center; }
+    @media all and (max-width: 950px) {
+      .Intro h2 {
+        font-size: 22px; } }
+    @media all and (max-width: 440px) {
+      .Intro h2 {
+        font-size: 18px; } }
     .Intro h2 span.highlight {
       border-radius: 2px;
       background: rgba(65, 92, 121, 0.3);
@@ -78,6 +95,12 @@
     text-transform: uppercase;
     border: 2px solid #fff;
     color: #fff; }
+    @media all and (max-width: 440px) {
+      .Intro .BuyTicketsButton {
+        padding: 0 24px;
+        height: 64px;
+        line-height: 64px;
+        font-size: 18px; } }
 
 .BuyTickets {
   padding: 30px;
@@ -445,14 +468,14 @@ img {
   -ms-flex-pack: center; }
   @media all and (max-width: 950px) {
     .menu {
-      display: block;
+      display: none;
       min-height: 50px;
       position: absolute;
       top: 50px;
       left: 0;
       max-width: 500px;
       min-width: 320px; } }
-  @media all and (max-width: 400px) {
+  @media all and (max-width: 440px) {
     .menu {
       max-width: 100%;
       min-width: 100%; } }

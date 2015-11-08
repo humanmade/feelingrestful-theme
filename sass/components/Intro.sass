@@ -25,7 +25,18 @@
 		font-size: 5rem
 		color: #fff
 		margin: 0
+		text-align: center
 
+		@media #{$tablet_mq}
+			font-size: 50px
+			padding-left: 70px
+
+		@media #{$mobile_mq}
+
+			background-position: top center
+			background-size: 90px auto
+			padding-left: 0
+			padding-top: 90px
 
 	h2
 		color: #fff
@@ -33,6 +44,12 @@
 		font-weight: 200
 		letter-spacing: 1px
 		text-align: center
+
+		@media #{$tablet_mq}
+			font-size: 22px
+
+		@media #{$mobile_mq}
+			font-size: 18px
 
 		span.highlight
 			border-radius: 2px
@@ -85,3 +102,9 @@
 		text-transform: uppercase
 		border: 2px solid #fff
 		color: #fff
+
+		@media #{$mobile_mq}
+			padding: 0 24px
+			height: 64px
+			line-height: 64px
+			font-size: 18px
