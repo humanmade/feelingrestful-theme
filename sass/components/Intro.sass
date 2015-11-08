@@ -11,6 +11,11 @@
 	margin: -30px
 	padding: 0 10%
 
+	@media #{$mobile_mq}
+		background-image: url(http://i.imgur.com/Sf772dD.jpg) /* ../images/mobile_bg.jpg */
+		background-size: cover
+		margin: 0
+
 	> *
 		z-index: 3
 		position: relative
@@ -79,6 +84,9 @@
 		background-color: #333
 		background-size: cover
 
+		@media #{$mobile_mq}
+			display: none
+
 	&:after
 		content: ' '
 		display: block
@@ -87,8 +95,11 @@
 		bottom: 0
 		left: 0
 		right: 0
-		background: fade-out(darken($sec,10%), 0.15)
+		background-color: fade-out(darken(saturate($sec,6%), 10%), 0.15)
 		z-index: 2
+
+		@media #{$mobile_mq}
+			background-color: transparent
 
 	.BuyTicketsButton
 		display: inline-block

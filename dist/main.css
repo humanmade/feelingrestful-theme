@@ -12,6 +12,11 @@
   overflow: hidden;
   margin: -30px;
   padding: 0 10%; }
+  @media all and (max-width: 440px) {
+    .Intro {
+      background-image: url(http://i.imgur.com/Sf772dD.jpg);
+      background-size: cover;
+      margin: 0; } }
   .Intro > * {
     z-index: 3;
     position: relative; }
@@ -74,6 +79,9 @@
     transform: translateX(-50%) translateY(-50%);
     background-color: #333;
     background-size: cover; }
+    @media all and (max-width: 440px) {
+      .Intro video {
+        display: none; } }
   .Intro:after {
     content: ' ';
     display: block;
@@ -82,8 +90,11 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(29, 42, 55, 0.85);
+    background-color: rgba(27, 42, 57, 0.85);
     z-index: 2; }
+    @media all and (max-width: 440px) {
+      .Intro:after {
+        background-color: transparent; } }
   .Intro .BuyTicketsButton {
     display: inline-block;
     font-family: "futura-pt", sans-serif;
@@ -169,7 +180,7 @@
   max-width: 800px;
   margin: 0 auto;
   list-style: none;
-  padding: 0 5%; }
+  padding: 20px 5%; }
   .Posts > li {
     margin-bottom: 70px; }
   .Posts.Post-Ticket {
@@ -364,7 +375,7 @@ img {
 
 /* scaffolding */
 .page-content {
-  padding: 30px 0 80px; }
+  padding: 0 0 50px; }
 
 .page-content {
   position: relative;
