@@ -67,7 +67,10 @@ img
 	height: auto
 
 iframe
+	display: block
 	max-width: 100%!important
+	margin-left: auto
+	margin-right: auto
 
 .parallax-image
 	margin: 0 -30px
@@ -92,6 +95,17 @@ iframe
 
 	& > div
 		@include flex(1 1 auto)
+
+.loading-wrap
+	  @include display(flex)
+	  @include align-items(center)
+	  @include justify-content(center)
+
+	  .loading
+	  	font-weight: 600
+	  	font-family: $f_sans
+	  	font-size: 35px
+	  	opacity: 0.2
 
 .App, #app
 	position: relative

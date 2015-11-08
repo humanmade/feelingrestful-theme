@@ -38663,9 +38663,14 @@
 	
 			if (!page) {
 				return _react2['default'].createElement(
-					'p',
-					null,
-					'Loading'
+					'div',
+					{ className: 'loading-wrap' },
+					_react2['default'].createElement(
+						'div',
+						{ className: 'loading' },
+						_react2['default'].createElement('span', { className: 'fa fa-heart' }),
+						' LOADING'
+					)
 				);
 			}
 	
