@@ -8,7 +8,7 @@ module.exports = React.createClass({
 		return (
 			<div className="Intro">
 				<h1>A DAY OF REST</h1>
-				<h2>Learn about the <span className="highlight">WordPress REST API</span> from the team building it and the people using it.<br />
+				<h2>Learn about the <a href="http://wp-api.org/" target="_blank" className="highlight">WordPress REST API</a> from the team building it and the people using it.<br />
 				28th January 2016, Conway Hall, London</h2>
 				<BuyTicketsButton>Get your ticket</BuyTicketsButton>
 				<video webkit-playsinline="" autoPlay="yes" loop="yes">

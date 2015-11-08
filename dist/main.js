@@ -26926,8 +26926,8 @@
 					null,
 					'Learn about the ',
 					_react2['default'].createElement(
-						'span',
-						{ className: 'highlight' },
+						'a',
+						{ href: 'http://wp-api.org/', target: '_blank', className: 'highlight' },
 						'WordPress REST API'
 					),
 					' from the team building it and the people using it.',
