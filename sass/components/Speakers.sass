@@ -1,16 +1,17 @@
 .Speakers
+	@include display(flex)
+	@include align-items(stretch)
+  	@include flex-wrap(wrap)
 	list-style: none
 	padding: 0
 	margin: 0
-	display: flex
-	flex-wrap: wrap
-	align-items: stretch
+
 	flex-grow: 1
 
 	li
-		position: relative
 		@include display(flex)
 		@include flex (1 1 33%)
+		position: relative
 		background-size: cover
 		@include transition(all 100ms linear)
 		min-height: 250px
@@ -41,9 +42,9 @@
 			z-index: 10
 
 		a
-			display: flex
-			align-items: center
-			justify-content: center
+			@include display(flex)
+			@include align-items(center)
+			@include justify-content(center)
 			flex-grow: 1
 			color: white
 			text-decoration: none

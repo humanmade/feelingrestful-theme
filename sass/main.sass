@@ -115,26 +115,8 @@ iframe
 #app
 	padding-top: 50px
 
-	.left-menu
-		display: flex
-		flex-grow: 0
-		background: $primary
-		align-items: center
-		flex-direction: column
-
-		img.logo
-			flex-basis: 80%
-			flex-grow: 0
-			max-width: 80%
-			margin: 20px 0
-
-		.BuyTicketsButton
-			width: 80%
-			margin: 20px 0
-
-	.page-content
-		background: #22303f
-
+.page-content
+	background: #22303f /* slightly darker then $sec */
 
 /* Menu */	
 
@@ -163,6 +145,8 @@ iframe
 		background: lighten($primary, 5%)
 
 .menu
+	@include display(flex)
+	@include justify-content(center)
 	font-family: $f_sans
 	font-weight: 600
 	list-style: none
@@ -173,8 +157,6 @@ iframe
 	color: white
 	letter-spacing: 0.05rem
 	text-transform: uppercase
-	@include display(flex)
-	@include justify-content(center)
 
 	@media #{$tablet_mq}
 		display: none /* change to block */

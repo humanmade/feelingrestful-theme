@@ -46,15 +46,15 @@
 
 
 					.sponsor-logo
+						@include display(flex)
+						@include align-items(center)
+						@include justify-content(center)
 						background: #fff
 						border-radius: 5px
 						padding: 20px
 						margin-right: 20px
 						@include flex(0 0 200px)
 						height: 200px
-						@include display(flex)
-						@include align-items(center)
-						@include justify-content(center)
 
 						@media #{$phablet_mq}
 							margin-right: 0

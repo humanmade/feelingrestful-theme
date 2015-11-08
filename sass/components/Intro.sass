@@ -1,11 +1,8 @@
-.intro-wrap
-
 .Intro
-	flex-grow: 1
-	display: flex
-	align-items: center
-	justify-content: center
-	flex-direction: column
+	@include display(flex)
+	@include align-items(center)
+	@include flex-direction(column)
+	@include justify-content(center)
 	position: relative
 	overflow: hidden
 	margin: 0
@@ -19,6 +16,7 @@
 	> *
 		z-index: 3
 		position: relative
+
 	h1
 		background-image: url('https://hmn-uploads.s3.amazonaws.com/humanmade-production/uploads/sites/27/2015/08/LOGO.png')
 		background-position: left center
@@ -79,8 +77,7 @@
 		width: auto
 		height: auto
 		z-index: 1
-		-webkit-transform: translateX(-50%) translateY(-50%)
-		transform: translateX(-50%) translateY(-50%)
+		@include transform(translateX(-50%) translateY(-50%))
 		background-color: #333
 		background-size: cover
 
