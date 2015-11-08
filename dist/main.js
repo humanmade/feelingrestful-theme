@@ -38163,22 +38163,30 @@
 		render: function render() {
 			return _react2["default"].createElement(
 				"div",
-				{ className: "BuyTickets" },
+				{ className: "Posts Post-Ticket" },
 				_react2["default"].createElement(
-					"h1",
-					null,
-					"BUY YOUR TICKET!"
-				),
-				_react2["default"].createElement(
-					"h2",
-					null,
-					"28th January 2016, Bishopsgate Institute, London"
-				),
-				_react2["default"].createElement("iframe", { src: "//eventbrite.co.uk/tickets-external?eid=17964929588&ref=etckt", width: "100%", height: "245", scrolling: "auto" }),
-				_react2["default"].createElement(
-					"p",
-					null,
-					"WANT TO JOIN US FOR SOME REST IN JANUARY? WHO WOULDN’T? GENERAL TICKETS COVER THE EVENT ITSELF, INCLUDING LUNCH, BREAKS, AND SWAG, AND A FUN AFTER-PARTY."
+					"div",
+					{ className: "Post" },
+					_react2["default"].createElement(
+						"div",
+						{ className: "BuyTickets" },
+						_react2["default"].createElement(
+							"h1",
+							null,
+							"BUY YOUR TICKET!"
+						),
+						_react2["default"].createElement(
+							"h2",
+							null,
+							"28th January 2016, Bishopsgate Institute, London"
+						),
+						_react2["default"].createElement("iframe", { src: "//eventbrite.co.uk/tickets-external?eid=17964929588&ref=etckt", width: "100%", height: "315", scrolling: "auto" }),
+						_react2["default"].createElement(
+							"p",
+							null,
+							"WANT TO JOIN US FOR SOME REST IN JANUARY? WHO WOULDN’T? GENERAL TICKETS COVER THE EVENT ITSELF, INCLUDING LUNCH, BREAKS, AND SWAG, AND A FUN AFTER-PARTY."
+						)
+					)
 				)
 			);
 		}

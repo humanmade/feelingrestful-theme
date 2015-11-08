@@ -143,6 +143,8 @@
   padding: 0 5%; }
   .Posts > li {
     margin-bottom: 70px; }
+  .Posts.Post-Ticket {
+    max-width: 1000px; }
 
 .Post {
   margin: 0 auto;
