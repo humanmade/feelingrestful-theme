@@ -40111,7 +40111,7 @@
 		displayName: 'exports',
 
 		componentDidMount: function componentDidMount() {
-			this.props.dispatch((0, _actions.fetchPostBySlug)(this.props.routeParams.slug));
+			//this.props.dispatch( fetchPostBySlug( this.props.routeParams.slug ) )
 		},
 
 		render: function render() {

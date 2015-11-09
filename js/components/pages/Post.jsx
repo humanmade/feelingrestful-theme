@@ -5,7 +5,7 @@ import { fetchPostBySlug } from '../../actions'
 module.exports = React.createClass({
 
 	componentDidMount: function() {
-		this.props.dispatch( fetchPostBySlug( this.props.routeParams.slug ) )
+		//this.props.dispatch( fetchPostBySlug( this.props.routeParams.slug ) )
 	},
 
 	render: function() {
