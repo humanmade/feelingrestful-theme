@@ -387,6 +387,7 @@
               margin-right: 0; } }
           .Sponsors ul.sponsor-tiers li ul li .sponsor-logo img {
             max-width: 100%;
+            width: 200px;
             height: auto !important; }
             @media all and (max-width: 600px) {
               .Sponsors ul.sponsor-tiers li ul li .sponsor-logo img {
