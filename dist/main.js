@@ -26679,7 +26679,7 @@
 
 	module.exports = {
 
-		api_url: 'https://feelingrestful.hmn.md/wp-json',
+		api_url: 'https://feelingrestful.com/wp-json',
 
 		lastRequest: null,
 

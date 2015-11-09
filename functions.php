@@ -8,6 +8,8 @@ add_action( 'wp_enqueue_scripts', function() {
 	wp_enqueue_style( 'app', get_template_directory_uri() . '/dist/main.css' );
 });
 
+show_admin_bar( false );
+
 add_filter( 'redirect_canonical', function( $redirect_url, $requested_url ) {
 	return null;
 }, 10, 2 );
