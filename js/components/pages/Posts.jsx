@@ -10,7 +10,7 @@ module.exports = React.createClass({
 	},
 
 	render: function() {
-		if ( ! this.props.posts.posts ) {
+		if ( ! this.props.posts.posts.length ) {
 			return (
 				<div className="loading-wrap">
 					<div className="loading"><span className="fa fa-heart"></span> LOADING</div>

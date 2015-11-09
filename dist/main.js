@@ -40065,7 +40065,7 @@
 		render: function render() {
 			var _this = this;
 
-			if (!this.props.posts.posts) {
+			if (!this.props.posts.posts.length) {
 				return _react2['default'].createElement(
 					'div',
 					{ className: 'loading-wrap' },
