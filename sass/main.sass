@@ -198,3 +198,43 @@ iframe
 
 			&:hover
 				background: rgba(255, 255, 255, .2)
+
+.page-content > div
+	@include display(flex)
+
+.page-transition
+	transform: perspective(150px)
+	flex-grow: 1
+	@include display(flex)
+	
+	> *
+		flex: 1
+
+.card-enter
+	background: #22303f
+	position: relative
+	z-index: 2
+	transform: translate3d(150px,0,0)
+	transform-style: preserve-3d
+	opacity: 0
+
+	&.card-enter-active
+		transition: all 300ms ease-out
+		transform: translate3d(0,0,0)
+		opacity: 1
+
+.card-leave
+	background: #22303f
+	position: absolute
+	z-index: 1
+	transform: translate3d(0,0,0)
+	top: 0
+	left: 0
+	opacity: 1
+	width: 100%
+
+
+	&.card-leave-active
+		transition: all 300ms ease-out
+		transform: translate3d(-150px,0,0)
+		opacity: 0

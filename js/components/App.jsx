@@ -3,6 +3,7 @@ import Menu from './Menu'
 import BuyTicketsButton from './BuyTicketsButton'
 import Intro from './pages/Intro'
 import APIConsole from './APIConsole'
+import RouteCSSTransition from './RouteCSSTransitionGroup'
 
 module.exports = React.createClass({
 
@@ -18,7 +19,12 @@ module.exports = React.createClass({
 			<div className="App">
 				<Menu isExpanded={this.props.display.showingMenu} onToggle={this.handleToggleMenu} currentPath={this.props.location.pathname} menu={this.props.menu} onClick={this.handleClickMenuItem} />
 				<div className="page-content">
-					{this.props.children || <Intro />}
+					<RouteCSSTransition
+						component="div" transitionName="card"
+						transitionEnterTimeout={500} transitionLeaveTimeout={500}
+						>
+						<div className="page-transition">{this.props.children || <Intro />}</div>
+					</RouteCSSTransition>
 				</div>
 				<APIConsole onExpand={this.handleToggleExpandConsole} isExpanded={this.props.display.consoleExpanded} />
 			</div>
