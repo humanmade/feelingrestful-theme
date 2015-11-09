@@ -23,6 +23,13 @@ module.exports = React.createClass({
 	},
 
 	render: function() {
+		if ( ! this.props.posts.sponsors.length ) {
+			return (
+				<div className="loading-wrap">
+					<div className="loading"><span className="fa fa-heart"></span> LOADING</div>
+				</div>
+			)
+		}
 
 		return (
 			<div className="Sponsors">
@@ -44,8 +51,6 @@ module.exports = React.createClass({
 									</li>
 								)
 							})}
-
-							
 						</ul>
 					</li>
 				</ul>

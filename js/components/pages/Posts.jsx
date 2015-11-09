@@ -10,6 +10,13 @@ module.exports = React.createClass({
 	},
 
 	render: function() {
+		if ( ! this.props.posts.posts ) {
+			return (
+				<div className="loading-wrap">
+					<div className="loading"><span className="fa fa-heart"></span> LOADING</div>
+				</div>
+			)
+		}
 		return (
 			<ul className="Posts">
 				{this.props.posts.posts.map( post => {

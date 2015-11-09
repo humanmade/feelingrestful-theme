@@ -69,16 +69,30 @@ function menu( state = {}, action ) {
 			},
 			{
 				name: "Contact",
-				url: "/contact/"
+				url: "/page/contact/"
 			}
 		]
 	}
 }
 
+function display( state = { consoleExpanded: false, showingMenu: false }, action ) {
+	switch( action.type ) {
+		case 'TOGGLED_CONSOLE':
+			state.consoleExpanded = ! state.consoleExpanded
+			break
+		case 'TOGGLE_MENU':
+			state.showingMenu = ! state.showingMenu
+			break
+	}
+
+	return state
+}
+
 var reducers = combineReducers({
 	menu,
 	router: routerStateReducer,
-	posts
+	posts,
+	display
 })
 
 module.exports = reducers

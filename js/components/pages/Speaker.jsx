@@ -19,7 +19,11 @@ module.exports = React.createClass({
 		var user = findWhere( this.props.posts.speakers, { id: Number( this.props.routeParams.id ) } )
 
 		if ( ! user ) {
-			return <p>Loading</p>
+			return (
+				<div className="loading-wrap">
+					<div className="loading"><span className="fa fa-heart"></span> LOADING</div>
+				</div>
+			)
 		}
 
 		return (

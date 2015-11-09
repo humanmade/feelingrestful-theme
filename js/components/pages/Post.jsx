@@ -12,7 +12,11 @@ module.exports = React.createClass({
 		var post = findWhere( this.props.posts.posts, { slug: this.props.routeParams.slug } )
 
 		if ( ! post ) {
-			return <p>Loading</p>
+			return (
+				<div className="loading-wrap">
+					<div className="loading"><span className="fa fa-heart"></span> LOADING</div>
+				</div>
+			)
 		}
 
 		return (

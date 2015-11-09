@@ -6,17 +6,19 @@ module.exports = React.createClass({
 	propTypes: {
 		menu: React.PropTypes.object.isRequired,
 		onClick: React.PropTypes.func,
-		currentPath: React.PropTypes.string
+		currentPath: React.PropTypes.string,
+		onToggle: React.PropTypes.func,
+		isExpanded: React.PropTypes.bool
 	},
 
 	render: function() {
 
 		return (
 			<div className="menu-wrap">
-				<div className="menu-toggle">
+				<div onClick={this.props.onToggle} className="menu-toggle">
 					<span className="fa fa-bars"></span>
 				</div>
-				<ul className="menu">
+				<ul className="menu" style={ this.props.isExpanded ? { display: 'block' } : {}}>
 					{this.props.menu.items.map( item => {
 						console.log( this.props.currentPath )
 						console.log( item.url )
