@@ -24,7 +24,7 @@ module.exports = React.createClass({
 
 								<h2><strong>Response Data</strong></h2>
 
-								<pre style={{padding: '10px', background: 'rgba(255,255,255,.1)', overflow: 'hidden'}}>{JSON.stringify( Api.lastRequest.data, null, 2 )}</pre>
+								<pre>{JSON.stringify( Api.lastRequest.data, null, 2 )}</pre>
 							</div>
 						</div>
 					:	''
