@@ -26627,7 +26627,7 @@
 						),
 						_react2['default'].createElement(
 							'pre',
-							{ style: { padding: '10px', background: 'rgba(255,255,255,.1)', overflow: 'hidden' } },
+							null,
 							JSON.stringify(_api2['default'].lastRequest.data, null, 2)
 						)
 					)

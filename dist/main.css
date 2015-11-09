@@ -387,6 +387,7 @@
               margin-right: 0; } }
           .Sponsors ul.sponsor-tiers li ul li .sponsor-logo img {
             max-width: 100%;
+            width: 200px;
             height: auto !important; }
             @media all and (max-width: 600px) {
               .Sponsors ul.sponsor-tiers li ul li .sponsor-logo img {
@@ -468,15 +469,24 @@
   left: 0;
   right: 0;
   bottom: 50px;
-  background: rgba(51, 72, 95, 0.95);
+  background: #22303f;
   color: #fff;
   z-index: 10000;
   overflow: scroll; }
 
 .api-display {
-  max-width: 800px;
   list-style: none;
   padding: 20px 20px; }
+  .api-display pre {
+    background: #22303f;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+    color: #fff;
+    font-family: "ocr-b-std", monospace;
+    font-size: 14px;
+    line-height: 1.4;
+    letter-spacing: -0.1rem;
+    padding: 10px;
+    overflow: hidden; }
 
 .Map {
   margin: 20px -30px; }
