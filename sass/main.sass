@@ -118,87 +118,6 @@ iframe
 .page-content
 	background: #22303f /* slightly darker then $sec */
 
-/* Menu */	
-
-.menu-wrap
-	background: $primary
-	position: fixed
-	top: 0
-	left: 0
-	right: 0
-	height: 50px
-	line-height: 1
-	padding: 0
-	margin: 0
-	z-index: 100
-
-.menu-toggle
-	display: none
-	color: #fff
-	line-height: 50px
-	font-size: 20px
-	padding: 0 16px
-	cursor: pointer
-
-	@media #{$tablet_mq}
-		display: inline-block
-		background: lighten($primary, 5%)
-
-.menu
-	@include display(flex)
-	@include justify-content(center)
-	font-family: $f_sans
-	font-weight: 600
-	list-style: none
-	height: 50px
-	line-height: 50px
-	margin: 0
-	padding: 0
-	color: white
-	letter-spacing: 0.05rem
-	text-transform: uppercase
-
-	@media #{$tablet_mq}
-		display: none /* change to block */
-		min-height: 50px
-		position: absolute
-		top: 50px
-		left: 0
-		max-width: 500px
-		min-width: 320px
-
-	@media #{$mobile_mq}
-		max-width: 100%
-		min-width: 100%
-
-	li
-		@include flex(1)
-		max-width: 120px
-
-		@media #{$tablet_mq}
-			display: block
-			width: 100%
-			background: $primary
-			max-width: 100%
-
-		&.powered-by
-			@include flex(0 0 50px)
-			font-size: 22px
-			text-align: center
-
-		&.current
-			background: lighten($primary, 5%)
-			color: white
-
-		a
-			text-decoration: none
-			color: white
-			text-align: center
-			display: block
-
-			&:hover
-				background: rgba(255, 255, 255, .2)
-
 .page-content > div
 	@include display(flex)
 
@@ -215,8 +134,7 @@ iframe
 	position: relative
 	z-index: 2
 	transform: translate3d(150px,0,0)
-	transform-style: preserve-3d
-	opacity: 0
+	opacity: 0.1
 
 	&.card-enter-active
 		transition: all 300ms ease-out
@@ -226,15 +144,41 @@ iframe
 .card-leave
 	background: #22303f
 	position: absolute
-	z-index: 1
+	z-index: 3
 	transform: translate3d(0,0,0)
 	top: 0
 	left: 0
 	opacity: 1
 	width: 100%
 
-
 	&.card-leave-active
 		transition: all 300ms ease-out
 		transform: translate3d(-150px,0,0)
+		opacity: 0
+
+.card-back-enter
+	background: #22303f
+	position: relative
+	z-index: 2
+	transform: translate3d(-150px,0,0)
+	opacity: 0.1
+
+	&.card-back-enter-active
+		transition: all 300ms ease-out
+		transform: translate3d(0,0,0)
+		opacity: 1
+
+.card-back-leave
+	background: #22303f
+	position: absolute
+	z-index: 3
+	transform: translate3d(0,0,0)
+	top: 0
+	left: 0
+	opacity: 1
+	width: 100%
+
+	&.card-back-leave-active
+		transition: all 300ms ease-out
+		transform: translate3d(150px,0,0)
 		opacity: 0

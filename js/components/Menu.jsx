@@ -14,17 +14,16 @@ module.exports = React.createClass({
 	render: function() {
 
 		return (
-			<div className="menu-wrap">
+			<div className="menu-wrap Menu">
 				<div onClick={this.props.onToggle} className="menu-toggle">
 					<span className="fa fa-bars"></span>
 				</div>
 				<ul className="menu" style={ this.props.isExpanded ? { display: 'block' } : {}}>
 					{this.props.menu.items.map( item => {
-						console.log( this.props.currentPath )
-						console.log( item.url )
 						return <li className={this.props.currentPath === item.url ? 'current' : ''} key={item.name}><Link to={item.url}>{item.name}</Link></li>
 					})}
 					<li className="powered-by"><a href="http://wordpress.org" target="_blank"><span className="fa fa-wordpress"></span></a></li>
+					<li className="buy-ticket"><Link to="/tickets">Buy Tickets</Link></li>
 				</ul>
 			</div>
 		)

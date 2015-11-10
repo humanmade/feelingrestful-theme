@@ -28,8 +28,9 @@ module.exports = React.createClass({
 
 		return (
 			<div className="Posts">
-				<div className="Post">
+				<div className="Speaker">
 					<h1>{user.title.rendered}</h1>
+					<h2>{user.company}</h2>
 					<div
 						className="parallax-image"
 						ref="parallax"

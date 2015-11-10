@@ -3,16 +3,11 @@
 HM\Autoloader\register_class_path( 'FeelingRESTful', dirname( __FILE__ ) . '/inc' );
 
 add_action( 'wp_enqueue_scripts', function() {
-
-	wp_enqueue_script( 'app', get_template_directory_uri() . '/dist/main.js', array(), false, true );
-	wp_enqueue_style( 'app', get_template_directory_uri() . '/dist/main.css' );
+	wp_enqueue_script( 'app', get_template_directory_uri() . '/dist/main.js', array(), wp_get_theme()->Version, true );
+	wp_enqueue_style( 'app', get_template_directory_uri() . '/dist/main.css', array(), wp_get_theme()->Version );
 });
 
 show_admin_bar( false );
-
-add_filter( 'redirect_canonical', function( $redirect_url, $requested_url ) {
-	return null;
-}, 10, 2 );
 
 add_post_type_support( 'page', 'modular-page-builder' );
 add_action( 'admin_init', function() {
@@ -38,3 +33,14 @@ add_filter( 'modular_page_builder_allowed_modules_for_page', function( $allowed 
 	$allowed[] = 'map';
 	return $allowed;
 });
+
+add_action( 'init', function() {
+	global $wp_rewrite;
+	$wp_rewrite->page_structure = $wp_rewrite->root . 'page/%pagename%';
+});
+
+add_filter( 'pre_option_permalink_structure', function() {
+	return '/news/%postname%';
+});
+
+add_filter( 'qm/dispatch/html', '__return_false' );

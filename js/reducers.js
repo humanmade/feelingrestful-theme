@@ -75,13 +75,17 @@ function menu( state = {}, action ) {
 	}
 }
 
-function display( state = { consoleExpanded: false, showingMenu: false }, action ) {
+function display( state = { consoleExpanded: false, showingMenu: false, isGoingBack: false }, action ) {
+
 	switch( action.type ) {
 		case 'TOGGLED_CONSOLE':
 			state.consoleExpanded = ! state.consoleExpanded
 			break
 		case 'TOGGLE_MENU':
 			state.showingMenu = ! state.showingMenu
+			break
+		case '@@reduxReactRouter/routerDidChange':
+			state.showingMenu = false
 			break
 	}
 

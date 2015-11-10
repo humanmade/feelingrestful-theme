@@ -39,12 +39,17 @@
 			font-weight: 600
 			text-transform: uppercase
 			color: white
-			z-index: 10
+
+		h3
+			margin-top: 0
+			font-weight: 600
 
 		a
 			@include display(flex)
 			@include align-items(center)
 			@include justify-content(center)
+			@include flex-direction(column)
 			flex-grow: 1
 			color: white
 			text-decoration: none
+			z-index: 10
