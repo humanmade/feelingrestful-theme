@@ -3,9 +3,8 @@
 HM\Autoloader\register_class_path( 'FeelingRESTful', dirname( __FILE__ ) . '/inc' );
 
 add_action( 'wp_enqueue_scripts', function() {
-
-	wp_enqueue_script( 'app', get_template_directory_uri() . '/dist/main.js', array(), false, true );
-	wp_enqueue_style( 'app', get_template_directory_uri() . '/dist/main.css' );
+	wp_enqueue_script( 'app', get_template_directory_uri() . '/dist/main.js', array(), wp_get_theme()->Version, true );
+	wp_enqueue_style( 'app', get_template_directory_uri() . '/dist/main.css', array(), wp_get_theme()->Version );
 });
 
 show_admin_bar( false );
