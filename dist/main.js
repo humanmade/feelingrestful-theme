@@ -26443,8 +26443,6 @@
 					'ul',
 					{ className: 'menu', style: this.props.isExpanded ? { display: 'block' } : {} },
 					this.props.menu.items.map(function (item) {
-						console.log(_this.props.currentPath);
-						console.log(item.url);
 						return _react2['default'].createElement(
 							'li',
 							{ className: _this.props.currentPath === item.url ? 'current' : '', key: item.name },
@@ -39874,7 +39872,8 @@
 	function fetchSpeaker(id) {
 		return function (dispatch, getStore) {
 			_api2['default'].get('/wp/v2/speakers/' + id, { _embed: true }, function (data, error) {
-				if (!data.length || error) {
+
+				if (!data || error) {
 					return;
 				}
 				dispatch({
@@ -39930,7 +39929,7 @@
 	function fetchPostBySlug(slug) {
 		return function (dispatch, getStore) {
 			_api2['default'].get('/wp/v2/posts', { filter: { name: slug } }, function (data, error) {
-				if (!data.length || error) {
+				if (!data || error) {
 					return;
 				}
 				dispatch({

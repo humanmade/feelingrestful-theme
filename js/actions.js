@@ -17,7 +17,8 @@ export function fetchSpeakers() {
 export function fetchSpeaker( id ) {
 	return ( dispatch, getStore ) => {
 		Api.get( '/wp/v2/speakers/' + id, { _embed: true }, ( data, error ) => {
-			if ( ! data.length || error ) {
+
+			if ( ! data || error ) {
 				return;
 			}
 			dispatch({
@@ -73,7 +74,7 @@ export function fetchPosts() {
 export function fetchPostBySlug( slug ) {
 	return ( dispatch, getStore ) => {
 		Api.get( '/wp/v2/posts', { filter: { name: slug } }, ( data, error ) => {
-			if ( ! data.length || error ) {
+			if ( ! data || error ) {
 				return;
 			}
 			dispatch({
