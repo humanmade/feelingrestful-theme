@@ -20,7 +20,7 @@ module.exports = React.createClass({
 				<Menu isExpanded={this.props.display.showingMenu} onToggle={this.handleToggleMenu} currentPath={this.props.location.pathname} menu={this.props.menu} onClick={this.handleClickMenuItem} />
 				<div className="page-content">
 					<RouteCSSTransition
-						component="div" transitionName="card"
+						component="div" transitionName={this.props.router.location.action === 'POP' ? 'card-back' : 'card' }
 						transitionEnterTimeout={500} transitionLeaveTimeout={500}
 						>
 						<div className="page-transition">{this.props.children || <Intro />}</div>

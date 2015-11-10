@@ -26388,7 +26388,7 @@
 					_react2['default'].createElement(
 						_RouteCSSTransitionGroup2['default'],
 						{
-							component: 'div', transitionName: 'card',
+							component: 'div', transitionName: this.props.router.location.action === 'POP' ? 'card-back' : 'card',
 							transitionEnterTimeout: 500, transitionLeaveTimeout: 500
 						},
 						_react2['default'].createElement(
@@ -37002,7 +37002,7 @@
 	}
 
 	function display(state, action) {
-		if (state === undefined) state = { consoleExpanded: false, showingMenu: false };
+		if (state === undefined) state = { consoleExpanded: false, showingMenu: false, isGoingBack: false };
 
 		switch (action.type) {
 			case 'TOGGLED_CONSOLE':
