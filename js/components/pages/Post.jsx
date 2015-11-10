@@ -1,11 +1,12 @@
 import React from 'react'
 import { findWhere } from 'underscore'
 import { fetchPostBySlug } from '../../actions'
+import Post from '../Post'
 
 module.exports = React.createClass({
 
 	componentDidMount: function() {
-		//this.props.dispatch( fetchPostBySlug( this.props.routeParams.slug ) )
+		this.props.dispatch( fetchPostBySlug( this.props.routeParams.slug ) )
 	},
 
 	render: function() {
@@ -20,11 +21,11 @@ module.exports = React.createClass({
 		}
 
 		return (
-			<div className="Post">
-				<h1>{post.title.rendered}</h1>
-				<span className="date">{post.date}</span>
-				<div dangerouslySetInnerHTML={{__html:post.content.rendered}} />
-			</div>
+			<ul className="Posts">
+				<li>
+					<Post {...post} />
+				</li>
+			</ul>
 		)
 	}
 })

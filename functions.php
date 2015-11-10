@@ -10,10 +10,6 @@ add_action( 'wp_enqueue_scripts', function() {
 
 show_admin_bar( false );
 
-add_filter( 'redirect_canonical', function( $redirect_url, $requested_url ) {
-	return null;
-}, 10, 2 );
-
 add_post_type_support( 'page', 'modular-page-builder' );
 add_action( 'admin_init', function() {
 	remove_post_type_support( 'page', 'editor' );
@@ -43,3 +39,9 @@ add_action( 'init', function() {
 	global $wp_rewrite;
 	$wp_rewrite->page_structure = $wp_rewrite->root . 'page/%pagename%';
 });
+
+add_filter( 'pre_option_permalink_structure', function() {
+	return '/news/%postname%';
+});
+
+add_filter( 'qm/dispatch/html', '__return_false' );
