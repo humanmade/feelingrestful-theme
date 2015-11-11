@@ -296,8 +296,7 @@
   flex-wrap: wrap;
   list-style: none;
   padding: 0;
-  margin: 0;
-  flex-grow: 1; }
+  margin: 0; }
   .Speakers li {
     display: -webkit-box;
     display: -moz-box;
@@ -320,10 +319,24 @@
     transition: all 100ms linear;
     min-height: 250px;
     min-width: 300px; }
+    @media all and (max-width: 600px) {
+      .Speakers li {
+        -webkit-box-flex: 1;
+        -moz-box-flex: 1;
+        box-flex: 1;
+        -webkit-flex: 1 1 50%;
+        -moz-flex: 1 1 50%;
+        -ms-flex: 1 1 50%;
+        flex: 1 1 50%; } }
     @media all and (max-width: 440px) {
       .Speakers li {
-        width: 100%;
-        min-width: 100%; } }
+        -webkit-box-flex: 1;
+        -moz-box-flex: 1;
+        box-flex: 1;
+        -webkit-flex: 1 1 100%;
+        -moz-flex: 1 1 100%;
+        -ms-flex: 1 1 100%;
+        flex: 1 1 100%; } }
     .Speakers li:hover {
       -webkit-filter: brightness(1.1);
       filter: brightness(1.1); }

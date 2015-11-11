@@ -6,8 +6,6 @@
 	padding: 0
 	margin: 0
 
-	flex-grow: 1
-
 	li
 		@include display(flex)
 		@include flex (1 1 33%)
@@ -17,9 +15,11 @@
 		min-height: 250px
 		min-width: 300px
 
+		@media #{$phablet_mq}
+			@include flex (1 1 50%)
+
 		@media #{$mobile_mq}
-			width: 100%
-			min-width: 100%
+			@include flex (1 1 100%)
 
 		&:hover
 			@include filter(brightness(1.1))
