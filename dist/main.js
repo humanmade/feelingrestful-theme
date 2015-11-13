@@ -40506,7 +40506,10 @@
 		displayName: "exports",
 
 		propTypes: {
-			pointsOfInterest: _react2["default"].PropTypes.object
+			latitude: _react2["default"].PropTypes.string,
+			longitude: _react2["default"].PropTypes.string,
+			place_id: _react2["default"].PropTypes.string,
+			zoom: _react2["default"].PropTypes.string
 		},
 		render: function render() {
 			return _react2["default"].createElement(
@@ -40516,12 +40519,12 @@
 					_reactGoogleMaps.GoogleMap,
 					{
 						containerProps: { style: { height: '400px' } },
-						defaultCenter: { lat: 51.5186864, lng: -0.0809329 },
-						defaultZoom: 16,
+						defaultCenter: { lat: Number(this.props.latitude), lng: Number(this.props.longitude) },
+						defaultZoom: Number(this.props.zoom),
 						options: { scrollwheel: false },
 						ref: "map"
 					},
-					_react2["default"].createElement(_reactGoogleMaps.Marker, { place: { placeId: "ChIJu8wKS7IcdkgRHZScIsrv-yw", location: { lat: 51.5186864, lng: -0.0809329 } } })
+					_react2["default"].createElement(_reactGoogleMaps.Marker, { place: { placeId: this.props.place_id, location: { lat: Number(this.props.latitude), lng: Number(this.props.longitude) } } })
 				)
 			);
 		}

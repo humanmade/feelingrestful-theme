@@ -3,18 +3,21 @@ import { GoogleMap, Marker } from "react-google-maps";
 
 module.exports = React.createClass({
 	propTypes: {
-		pointsOfInterest: React.PropTypes.object
+		latitude: React.PropTypes.string,
+		longitude: React.PropTypes.string,
+		place_id: React.PropTypes.string,
+		zoom: React.PropTypes.string
 	},
 	render: function() {
 		return <div className="Map">
 			<GoogleMap
 				containerProps={{style:{height:'400px'}}}
-				defaultCenter={{lat: 51.5186864, lng: -0.0809329}}
-				defaultZoom={16}
+				defaultCenter={{lat: Number(this.props.latitude), lng: Number(this.props.longitude)}}
+				defaultZoom={Number(this.props.zoom)}
 				options={{scrollwheel: false}}
 				ref="map"
 				>
-				<Marker place={{placeId:"ChIJu8wKS7IcdkgRHZScIsrv-yw", location: {lat: 51.5186864, lng: -0.0809329}}} />
+				<Marker place={{placeId: this.props.place_id, location: {lat: Number(this.props.latitude), lng: Number(this.props.longitude) }}} />
 			</GoogleMap>
 		</div>
 	}
