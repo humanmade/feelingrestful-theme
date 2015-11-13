@@ -119,7 +119,7 @@
 
 	var _componentsPagesPage2 = _interopRequireDefault(_componentsPagesPage);
 
-	var _componentsPagesPost = __webpack_require__(336);
+	var _componentsPagesPost = __webpack_require__(337);
 
 	var _componentsPagesPost2 = _interopRequireDefault(_componentsPagesPost);
 
@@ -40303,6 +40303,10 @@
 
 	var _modulesMap2 = _interopRequireDefault(_modulesMap);
 
+	var _modulesTwitterTimeline = __webpack_require__(336);
+
+	var _modulesTwitterTimeline2 = _interopRequireDefault(_modulesTwitterTimeline);
+
 	module.exports = _react2['default'].createClass({
 		displayName: 'exports',
 
@@ -40349,6 +40353,8 @@
 								return _react2['default'].createElement(_modulesHeader2['default'], Module.data);
 							case 'map':
 								return _react2['default'].createElement(_modulesMap2['default'], Module.data);
+							case 'twitter_timeline':
+								return _react2['default'].createElement(_modulesTwitterTimeline2['default'], Module.data);
 						}
 						return _react2['default'].createElement('div', null);
 					})
@@ -44305,6 +44311,61 @@
 
 /***/ },
 /* 336 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	module.exports = _react2["default"].createClass({
+		displayName: "exports",
+
+		propTypes: {
+			username: _react2["default"].PropTypes.string,
+			widget_id: _react2["default"].PropTypes.string
+		},
+		componentDidMount: function componentDidMount() {
+			window.twttr = (function (d, s, id) {
+				var js,
+				    fjs = d.getElementsByTagName(s)[0],
+				    t = window.twttr || {};
+				if (d.getElementById(id)) return t;
+				js = d.createElement(s);
+				js.id = id;
+				js.src = "https://platform.twitter.com/widgets.js";
+				fjs.parentNode.insertBefore(js, fjs);
+
+				t._e = [];
+				t.ready = function (f) {
+					t._e.push(f);
+				};
+
+				return t;
+			})(document, "script", "twitter-wjs");
+		},
+		componentDidUpdate: function componentDidUpdate() {
+			twttr.widgets.load();
+		},
+		render: function render() {
+			return _react2["default"].createElement(
+				"div",
+				{ className: "TwitterTimeline" },
+				_react2["default"].createElement(
+					"a",
+					{ className: "twitter-timeline", href: 'https://twitter.com/' + this.props.username, "data-widget-id": this.props.widget_id },
+					"Tweets by @",
+					this.props.username
+				)
+			);
+		}
+	});
+
+/***/ },
+/* 337 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';

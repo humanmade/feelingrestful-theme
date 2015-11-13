@@ -6,6 +6,7 @@ import Image from '../modules/Image'
 import Blockquote from '../modules/Blockquote'
 import Header from '../modules/Header'
 import Map from '../modules/Map'
+import TwitterTimeline from '../modules/TwitterTimeline'
 
 module.exports = React.createClass({
 
@@ -40,6 +41,8 @@ module.exports = React.createClass({
 								return <Header {...Module.data} />
 							case 'map':
 								return <Map {...Module.data} />
+							case 'twitter_timeline':
+								return <TwitterTimeline {...Module.data} />
 						}
 						return <div></div>
 					})}

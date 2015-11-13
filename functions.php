@@ -30,10 +30,12 @@ add_action( 'init', function() {
 
 	$plugin = ModularPageBuilder\Plugin::get_instance();
 	$plugin->register_module( 'map', 'FeelingRESTful\\Page_Builder_Modules\\Map' );
+	$plugin->register_module( 'twitter_timeline', 'FeelingRESTful\\Page_Builder_Modules\\Twitter_Timeline' );
 });
 
 add_filter( 'modular_page_builder_allowed_modules_for_page', function( $allowed ) {
 	$allowed[] = 'map';
+	$allowed[] = 'twitter_timeline';
 	return $allowed;
 });
 
