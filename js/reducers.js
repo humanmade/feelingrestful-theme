@@ -68,6 +68,10 @@ function menu( state = {}, action ) {
 				url: "/page/hack-day/"
 			},
 			{
+				name: "Press",
+				url: "/page/press/"
+			},
+			{
 				name: "Contact",
 				url: "/page/contact/"
 			}
