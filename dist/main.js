@@ -40121,11 +40121,11 @@
 									return _react2['default'].createElement(
 										'li',
 										{ key: sponsor.id },
-										_react2['default'].createElement(
+										sponsor._embedded['http://v2.wp-api.org/attachment'] ? _react2['default'].createElement(
 											'div',
 											{ className: 'sponsor-logo' },
 											_react2['default'].createElement('img', { src: sponsor._embedded['http://v2.wp-api.org/attachment'][0].source_url })
-										),
+										) : '',
 										_react2['default'].createElement(
 											'div',
 											{ className: 'sponsor-desc' },

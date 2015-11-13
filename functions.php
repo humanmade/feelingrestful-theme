@@ -10,6 +10,9 @@ add_action( 'wp_enqueue_scripts', function() {
 show_admin_bar( false );
 
 add_post_type_support( 'page', 'modular-page-builder' );
+
+add_theme_support( 'post-thumbnails' );
+
 add_action( 'admin_init', function() {
 	remove_post_type_support( 'page', 'editor' );
 	remove_post_type_support( 'page', 'comments' );
