@@ -40151,7 +40151,7 @@
 					'We’d love to see your company name here. ',
 					_react2['default'].createElement(
 						'a',
-						{ href: 'https://hmn-uploads.s3.amazonaws.com/humanmade-production/uploads/sites/27/2015/04/RESTDaySponsorPackages.pdf' },
+						{ href: 'https://hmn-uploads.s3.amazonaws.com/humanmade-production/uploads/sites/28/2015/11/DAYRESTSponsor.pdf' },
 						'Download The Sponsorship packages'
 					),
 					' and ',
