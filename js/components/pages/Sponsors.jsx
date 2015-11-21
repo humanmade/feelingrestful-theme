@@ -52,6 +52,28 @@ module.exports = React.createClass({
 			return carry
 		}, [] )
 
+		var levelOrder = [
+			'Titanium',
+			'Platinum',
+			'Diamon',
+			'Gold',
+			'Silver',
+			'Bronze'
+		]
+
+		sponsorTiers.sort( ( a, b ) => {
+
+			if ( levelOrder.indexOf( a.name ) === -1 ) {
+				return 1
+			}
+
+			if ( levelOrder.indexOf( b.name ) === -1 ) {
+				return -1
+			}
+
+			return levelOrder.indexOf( a.name ) > levelOrder.indexOf( b.name )
+		} )
+
 		return (
 			<div className="Sponsors">
 				<h1>Meet Our Fabulous Sponsors</h1>
