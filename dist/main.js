@@ -39805,7 +39805,7 @@
 				this.props.posts.speakers.map(function (speaker) {
 					return _react2['default'].createElement(
 						'li',
-						{ key: speaker.id, style: { backgroundImage: 'url(' + speaker._embedded['http://v2.wp-api.org/featuredmedia'][0].source_url + ')' } },
+						{ key: speaker.id, style: { backgroundImage: 'url(' + speaker._embedded['https://api.w.org/featuredmedia'][0].source_url + ')' } },
 						_react2['default'].createElement(
 							_reactRouter.Link,
 							{ to: '/speakers/' + speaker.id },

@@ -19,7 +19,7 @@ module.exports = React.createClass({
 		return (
 			<ul className="Speakers">
 				{this.props.posts.speakers.map( speaker => {
-					return <li key={speaker.id} style={{backgroundImage: 'url(' + speaker._embedded['http://v2.wp-api.org/featuredmedia'][0].source_url + ')'}}>
+					return <li key={speaker.id} style={{backgroundImage: 'url(' + speaker._embedded['https://api.w.org/featuredmedia'][0].source_url + ')'}}>
 						<Link to={'/speakers/' + speaker.id}>
 							<h2>{speaker.title.rendered}</h2>
 							<h3>{speaker.company}</h3>
