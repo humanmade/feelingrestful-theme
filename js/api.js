@@ -2,7 +2,7 @@ import jQuery from 'jquery';
 
 module.exports = {
 
-	api_url: '/wp-json',
+	api_url: 'https://feelingrestful.com/wp-json',
 
 	lastRequest: null,
 

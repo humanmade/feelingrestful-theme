@@ -34,10 +34,10 @@ module.exports = React.createClass({
 
 		var sponsorTiers = this.props.posts.sponsors.reduce( ( carry, sponsor ) => {
 
-			if ( ! sponsor._embedded['http://v2.wp-api.org/term'] ) {
+			if ( ! sponsor._embedded['https://api.w.org/term'] ) {
 				var tier = ''
 			} else {
-				var tier = sponsor._embedded['http://v2.wp-api.org/term'][0][0].name
+				var tier = sponsor._embedded['https://api.w.org/term'][0][0].name
 			}
 
 			if ( findWhere( carry, { name: tier } ) ) {
@@ -87,8 +87,8 @@ module.exports = React.createClass({
 								{tier.sponsors.map( sponsor => {
 									return (
 										<li key={sponsor.id}>
-											{ sponsor._embedded['http://v2.wp-api.org/featuredmedia']
-												?	<div className="sponsor-logo"><img src={sponsor._embedded['http://v2.wp-api.org/featuredmedia'][0].source_url} /></div>
+											{ sponsor._embedded['https://api.w.org/featuredmedia']
+												?	<div className="sponsor-logo"><img src={sponsor._embedded['https://api.w.org/featuredmedia'][0].source_url} /></div>
 												:	''
 											}
 											<div className="sponsor-desc">

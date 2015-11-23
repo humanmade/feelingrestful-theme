@@ -26677,7 +26677,7 @@
 
 	module.exports = {
 
-		api_url: '/wp-json',
+		api_url: 'https://feelingrestful.com/wp-json',
 
 		lastRequest: null,
 
@@ -40015,7 +40015,7 @@
 					_react2['default'].createElement('div', {
 						className: 'parallax-image',
 						ref: 'parallax',
-						style: { backgroundImage: 'url(' + user._embedded['http://v2.wp-api.org/attachment'][0].source_url + ')' }
+						style: { backgroundImage: 'url(' + user._embedded['https://api.w.org/attachment'][0].source_url + ')' }
 					}),
 					_react2['default'].createElement('div', { dangerouslySetInnerHTML: { __html: user.content.rendered } })
 				)
@@ -40078,10 +40078,10 @@
 
 			var sponsorTiers = this.props.posts.sponsors.reduce(function (carry, sponsor) {
 
-				if (!sponsor._embedded['http://v2.wp-api.org/term']) {
+				if (!sponsor._embedded['https://api.w.org/term']) {
 					var tier = '';
 				} else {
-					var tier = sponsor._embedded['http://v2.wp-api.org/term'][0][0].name;
+					var tier = sponsor._embedded['https://api.w.org/term'][0][0].name;
 				}
 
 				if ((0, _underscore.findWhere)(carry, { name: tier })) {
@@ -40139,10 +40139,10 @@
 									return _react2['default'].createElement(
 										'li',
 										{ key: sponsor.id },
-										sponsor._embedded['http://v2.wp-api.org/featuredmedia'] ? _react2['default'].createElement(
+										sponsor._embedded['https://api.w.org/featuredmedia'] ? _react2['default'].createElement(
 											'div',
 											{ className: 'sponsor-logo' },
-											_react2['default'].createElement('img', { src: sponsor._embedded['http://v2.wp-api.org/featuredmedia'][0].source_url })
+											_react2['default'].createElement('img', { src: sponsor._embedded['https://api.w.org/featuredmedia'][0].source_url })
 										) : '',
 										_react2['default'].createElement(
 											'div',

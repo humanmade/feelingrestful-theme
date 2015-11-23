@@ -34,7 +34,7 @@ module.exports = React.createClass({
 					<div
 						className="parallax-image"
 						ref="parallax"
-						style={{backgroundImage: 'url(' + user._embedded['http://v2.wp-api.org/attachment'][0].source_url + ')'}}
+						style={{backgroundImage: 'url(' + user._embedded['https://api.w.org/attachment'][0].source_url + ')'}}
 						/>
 					<div dangerouslySetInnerHTML={{__html:user.content.rendered}} />
 				</div>
