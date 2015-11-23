@@ -40015,7 +40015,7 @@
 					_react2['default'].createElement('div', {
 						className: 'parallax-image',
 						ref: 'parallax',
-						style: { backgroundImage: 'url(' + user._embedded['https://api.w.org/attachment'][0].source_url + ')' }
+						style: { backgroundImage: 'url(' + user._embedded['https://api.w.org/featuredmedia'][0].source_url + ')' }
 					}),
 					_react2['default'].createElement('div', { dangerouslySetInnerHTML: { __html: user.content.rendered } })
 				)
