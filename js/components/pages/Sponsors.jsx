@@ -87,8 +87,8 @@ module.exports = React.createClass({
 								{tier.sponsors.map( sponsor => {
 									return (
 										<li key={sponsor.id}>
-											{ sponsor._embedded['http://v2.wp-api.org/attachment']
-												?	<div className="sponsor-logo"><img src={sponsor._embedded['http://v2.wp-api.org/attachment'][0].source_url} /></div>
+											{ sponsor._embedded['http://v2.wp-api.org/featuredmedia']
+												?	<div className="sponsor-logo"><img src={sponsor._embedded['http://v2.wp-api.org/featuredmedia'][0].source_url} /></div>
 												:	''
 											}
 											<div className="sponsor-desc">

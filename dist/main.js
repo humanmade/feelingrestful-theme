@@ -39805,7 +39805,7 @@
 				this.props.posts.speakers.map(function (speaker) {
 					return _react2['default'].createElement(
 						'li',
-						{ key: speaker.id, style: { backgroundImage: 'url(' + speaker._embedded['http://v2.wp-api.org/attachment'][0].source_url + ')' } },
+						{ key: speaker.id, style: { backgroundImage: 'url(' + speaker._embedded['http://v2.wp-api.org/featuredmedia'][0].source_url + ')' } },
 						_react2['default'].createElement(
 							_reactRouter.Link,
 							{ to: '/speakers/' + speaker.id },
@@ -40139,10 +40139,10 @@
 									return _react2['default'].createElement(
 										'li',
 										{ key: sponsor.id },
-										sponsor._embedded['http://v2.wp-api.org/attachment'] ? _react2['default'].createElement(
+										sponsor._embedded['http://v2.wp-api.org/featuredmedia'] ? _react2['default'].createElement(
 											'div',
 											{ className: 'sponsor-logo' },
-											_react2['default'].createElement('img', { src: sponsor._embedded['http://v2.wp-api.org/attachment'][0].source_url })
+											_react2['default'].createElement('img', { src: sponsor._embedded['http://v2.wp-api.org/featuredmedia'][0].source_url })
 										) : '',
 										_react2['default'].createElement(
 											'div',
