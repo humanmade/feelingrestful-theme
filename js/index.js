@@ -17,6 +17,7 @@ import Sponsors from './components/pages/Sponsors'
 import Posts from './components/pages/Posts'
 import Page from './components/pages/Page'
 import Post from './components/pages/Post'
+import Home from './components/pages/Home'
 
 var logger = createLogger({
 	level: 'info',
@@ -35,7 +36,7 @@ const routes = (
 			<Route path="sponsors" component={connect(state=>state)(Sponsors)} />
 			<Route path="news" component={connect(state=>state)(Posts)} />
 			<Route path="news/:slug" component={connect(state=>state)(Post)} />
-			<Route path="" component={Intro} />
+			<Route path="" component={connect(state=>state)(Home)} />
 		</Route>
 	</ReduxRouter>
 );
