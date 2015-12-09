@@ -89,9 +89,6 @@ add_filter( 'rest_prepare_page', function( WP_REST_Response $response, WP_Post $
 		);
 
 		$response->set_data( $data );
-		$response->header( 'Cache-control', 'no-cache, no-store, must-revalidate', true );
-		$response->header( 'Pragma', 'no-cache', true );
-		$response->header( 'Expires', '0', true );
 	}
 
 	return $response;
