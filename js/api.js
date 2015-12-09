@@ -2,7 +2,7 @@ import jQuery from 'jquery';
 
 module.exports = {
 
-	api_url: 'http://feelingrestful.hmn.dev/wp-json',
+	api_url: app_data.api_url,
 
 	lastRequest: null,
 
@@ -40,7 +40,7 @@ module.exports = {
 			},
 			method: method,
 			beforeSend: ( jqxhr ) => {
-				jqxhr.setRequestHeader( 'X-WP-Nonce', jQuery( 'meta[name="rest-nonce"]' ).attr( 'content' ) )
+				jqxhr.setRequestHeader( 'X-WP-Nonce', app_data.nonce )
 			}
 		} );
 
