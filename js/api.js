@@ -2,7 +2,7 @@ import jQuery from 'jquery';
 
 module.exports = {
 
-	api_url: 'https://feelingrestful.com/wp-json',
+	api_url: 'http://feelingrestful.hmn.dev/wp-json',
 
 	lastRequest: null,
 
@@ -26,6 +26,8 @@ module.exports = {
 			data: null
 		}
 
+		console.log(data)
+
 		var xhr = jQuery.ajax( this.api_url + url, {
 			data: data,
 			success: ( data ) => {
@@ -36,7 +38,10 @@ module.exports = {
 				}
 				callback( data, null, xhr.getAllResponseHeaders() );
 			},
-			method: method
+			method: method,
+			beforeSend: ( jqxhr ) => {
+				jqxhr.setRequestHeader( 'X-WP-Nonce', jQuery( 'meta[name="rest-nonce"]' ).attr( 'content' ) )
+			}
 		} );
 
 		xhr.fail( err => {
