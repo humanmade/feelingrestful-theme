@@ -5,7 +5,7 @@ HM\Autoloader\register_class_path( 'FeelingRESTful', dirname( __FILE__ ) . '/inc
 add_action( 'wp_enqueue_scripts', function() {
 	wp_enqueue_script( 'app', get_template_directory_uri() . '/dist/main.js', array(), wp_get_theme()->Version, true );
 	wp_localize_script( 'app', 'app_data', array(
-		'api_url' => home_url( '/wp-json' ),
+		'api_url' => rest_url(),
 		'nonce'   => wp_create_nonce( 'wp_rest' ),
 	) );
 	wp_enqueue_style( 'app', get_template_directory_uri() . '/dist/main.css', array(), wp_get_theme()->Version );
