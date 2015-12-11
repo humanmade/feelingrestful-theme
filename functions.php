@@ -1,5 +1,9 @@
 <?php
 
+if ( ! function_exists( 'HM\\Autoloader\\register_class_path' ) ) {
+	require_once 'inc/autoloader.php';
+}
+
 HM\Autoloader\register_class_path( 'FeelingRESTful', dirname( __FILE__ ) . '/inc' );
 
 add_action( 'wp_enqueue_scripts', function() {
