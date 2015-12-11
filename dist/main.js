@@ -26207,7 +26207,7 @@
 				),
 				_react2['default'].createElement(
 					'ul',
-					{ className: 'menu', style: this.props.isExpanded ? { display: 'block' } : {} },
+					{ className: this.props.isExpanded ? 'menu expanded' : 'menu' },
 					this.props.menu.items.map(function (item) {
 						return _react2['default'].createElement(
 							'li',
