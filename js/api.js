@@ -26,8 +26,6 @@ module.exports = {
 			data: null
 		}
 
-		console.log(data)
-
 		var xhr = jQuery.ajax( this.api_url + url, {
 			data: data,
 			success: ( data ) => {
