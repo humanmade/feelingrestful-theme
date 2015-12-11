@@ -27,7 +27,7 @@ class Preview_Postmeta {
 		}
 
 		if ( is_admin() ) {
-			return ! $this->doing_preview && isset( $_POST['wp-preview'] );
+			return ! $this->doing_preview && isset( $_POST['wp-preview'] ) && 'dopreview' === $_POST['wp-preview'];
 		}
 
 		// And on the front end: (props @yrosen)
