@@ -23,7 +23,7 @@ module.exports = React.createClass({
 						component="div" transitionName={this.props.router.location.action === 'POP' ? 'card-back' : 'card' }
 						transitionEnterTimeout={500} transitionLeaveTimeout={500}
 						>
-						<div className="page-transition">{this.props.children || <Intro />}</div>
+						<div className="page-transition">{this.props.children}</div>
 					</RouteCSSTransition>
 				</div>
 				<APIConsole onExpand={this.handleToggleExpandConsole} isExpanded={this.props.display.consoleExpanded} />
