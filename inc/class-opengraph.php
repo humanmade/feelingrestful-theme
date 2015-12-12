@@ -12,13 +12,9 @@ class OpenGraph {
 
 	}
 
-	public function opengraph( $wp ) {
+	public function opengraph() {
 
-		$tags = [
-			'og:type' => 'website',
-		];
-
-		$tags['og:title'] = get_bloginfo( 'name' );
+		$tags = [ ];
 
 		if ( is_singular() ) {
 			$tags['og:title'] = get_the_title();
@@ -26,13 +22,9 @@ class OpenGraph {
 			$tags['og:title'] = get_the_archive_title();
 		}
 
-		$tags['og:description'] = get_bloginfo( 'description' );
-
 		if ( is_singular() ) {
 			$tags['og:description'] = get_the_excerpt();
 		}
-
-		$tags['og:url'] = home_url( '/' );
 
 		if ( is_singular() ) {
 			$tags['og:url'] = get_permalink();
@@ -40,11 +32,17 @@ class OpenGraph {
 			$tags['og:url'] = get_term_link( get_queried_object(), get_queried_object()->taxonomy );
 		}
 
-		$tags['og:image'] = get_site_icon_url();
-
 		if ( is_singular() && has_post_thumbnail() ) {
 			$tags['og:image'] = get_the_post_thumbnail_url( 'full' );
 		}
+
+		$tags = wp_parse_args( $tags, [
+			'og:type'        => 'website',
+			'og:title'       => get_bloginfo( 'name' ),
+			'og:description' => get_bloginfo( 'description' ),
+			'og:url'         => home_url( '/' ),
+			'og:image'       => get_site_icon_url(),
+		] );
 
 		$tags = array_filter( $tags );
 
