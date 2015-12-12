@@ -57,6 +57,11 @@ add_filter( 'pre_option_permalink_structure', function() {
 
 add_filter( 'qm/dispatch/html', '__return_false' );
 
+add_filter( 'mpb_wysiwyg_args', function( $args ) {
+	$args['teeny'] = false;
+	return $args;
+} );
+
 /**
  * Send preview data instead.
  */
