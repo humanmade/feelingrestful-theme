@@ -11,6 +11,7 @@
 		<?php if ( defined( 'HM_DEV' ) ) : ?>
 			<script src="//localhost:35729/livereload.js"></script>
 		<?php endif; ?>
+		<?php do_action( 'opengraph' ); ?>
 	</head>
 
 	<body>
