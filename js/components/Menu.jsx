@@ -18,7 +18,7 @@ module.exports = React.createClass({
 				<div onClick={this.props.onToggle} className="menu-toggle">
 					<span className="fa fa-bars"></span>
 				</div>
-				<ul className="menu" style={ this.props.isExpanded ? { display: 'block' } : {}}>
+				<ul className={ this.props.isExpanded ? 'menu expanded' : 'menu' }>
 					{this.props.menu.items.map( item => {
 						return <li className={this.props.currentPath === item.url ? 'current' : ''} key={item.name}><Link to={item.url}>{item.name}</Link></li>
 					})}
