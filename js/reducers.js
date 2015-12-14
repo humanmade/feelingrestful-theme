@@ -56,6 +56,10 @@ function menu( state = {}, action ) {
 				url: "/speakers/"
 			},
 			{
+				name: "Schedule",
+				url: "/news/schedule/"
+			},
+			{
 				name: "News",
 				url: "/news/"
 			},
