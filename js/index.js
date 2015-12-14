@@ -35,7 +35,7 @@ const routes = (
 			<Route path="sponsors" component={connect(state=>state)(Sponsors)} />
 			<Route path="news" component={connect(state=>state)(Posts)} />
 			<Route path="news/:slug" component={connect(state=>state)(Post)} />
-			<Route path="" component={Intro} />
+			<Route path="" component={connect(state=>state)(Intro)} />
 		</Route>
 	</ReduxRouter>
 );

@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<?php wp_head() ?>
-		<title>A Day of REST</title>
+		<title><?php wp_title( '&middot;', true, 'right' ); ?> A Day of REST</title>
 
 		<meta name="viewport" content="width=device-width, user-scalable=no">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -11,6 +11,7 @@
 		<?php if ( defined( 'HM_DEV' ) ) : ?>
 			<script src="//localhost:35729/livereload.js"></script>
 		<?php endif; ?>
+		<?php do_action( 'opengraph' ); ?>
 	</head>
 
 	<body>
