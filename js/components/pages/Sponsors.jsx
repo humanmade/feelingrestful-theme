@@ -78,6 +78,10 @@ module.exports = React.createClass({
 			<div className="Sponsors">
 				<h1>Meet Our Fabulous Sponsors</h1>
 
+				<p className="sponsor-message clear">
+					Interested in sponsoring A DAY OF REST? <a href="https://hmn-uploads.s3.amazonaws.com/humanmade-production/uploads/sites/27/2015/11/DAYRESTSponsor.pdf" title="Download sponsorship PDF">Download The Sponsorship packages</a>
+				</p>
+
 				<ul className="sponsor-tiers">
 					{sponsorTiers.map( tier => {
 						return <li key={tier.name}>
