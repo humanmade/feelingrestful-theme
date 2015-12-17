@@ -24,7 +24,7 @@ module.exports = function( grunt ) {
 					new webpack.optimize.UglifyJsPlugin()
 				),
 				output: {
-					path: "js/dist/"
+					path: "dist/"
 				}
 			},
 			"build-dev": {
