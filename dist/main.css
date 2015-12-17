@@ -520,6 +520,15 @@
     font-size: 28px;
     line-height: 1.2;
     margin: 50px 0 30px; }
+  .Sponsors .sponsor-message {
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+    margin: -15px auto -25px auto; }
+    .Sponsors .sponsor-message a {
+      font-weight: 600; }
+    .Sponsors .sponsor-message a:hover {
+      color: white; }
   .Sponsors .sponsor-packages {
     display: block;
     text-align: center;
