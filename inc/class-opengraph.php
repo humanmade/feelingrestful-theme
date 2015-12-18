@@ -52,7 +52,7 @@ class OpenGraph {
 
 		foreach ( $tags as $property => $content ) {
 			printf( '
-			<meta name="%s" content="%s">',
+			<meta property="%s" content="%s">',
 				esc_attr( $property ),
 				esc_attr( $content )
 			);
