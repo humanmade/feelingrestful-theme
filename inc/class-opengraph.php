@@ -10,6 +10,8 @@ class OpenGraph {
 
 		add_filter( 'opengraph_tags', array( $this, 'pagebuilder_tags' ) );
 
+		add_filter( 'opengraph_tags', array( $this, 'js_page_tags' ) );
+
 	}
 
 	public function opengraph() {
@@ -85,4 +87,15 @@ class OpenGraph {
 		return $tags;
 	}
 
+	public function js_page_tags( $tags ) {
+
+		if ( is_404() ) {
+
+			$tags['og:title'] = trim( wp_title( '', false, 'right' ) );
+			$tags['og:url']   = home_url( $_SERVER['REQUEST_URI'] );
+
+		}
+
+		return $tags;
+	}
 }

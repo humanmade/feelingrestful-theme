@@ -74,7 +74,7 @@ add_filter( 'rest_prepare_page', function( WP_REST_Response $response, WP_Post $
 	$post_type  = get_post_type_object( $post->post_type );
 
 	$_GET['preview']     = 'true';
-	$_POST['wp-preview'] = '';
+	$_POST['wp-preview'] = 'dopreview';
 
 	if ( 'GET' === $request->get_method() && current_user_can( $post_type->cap->edit_post, $post->ID ) && $is_preview ) {
 		$post = _set_preview( $post );
@@ -113,8 +113,21 @@ add_filter( 'rest_enabled', function( $enabled ) {
 		false !== strpos( $_SERVER['HTTP_REFERER'], 'preview=true' )
 	) {
 		$_GET['preview']     = 'true';
-		$_POST['wp-preview'] = '';
+		$_POST['wp-preview'] = 'dopreview';
 	}
 
 	return $enabled;
 }, 10 );
+
+/**
+ * Polyfill for wp_title()
+ */
+add_filter( 'wp_title', function( $title, $sep, $seplocation ) {
+
+	if ( false !== strpos( $title, __( 'Page not found' ) ) ) {
+		$replacement = ucwords( str_replace( '/', ' ', $_SERVER['REQUEST_URI'] ) );
+		$title = str_replace( __( 'Page not found' ), $replacement, $title );
+	}
+
+	return $title;
+} );
