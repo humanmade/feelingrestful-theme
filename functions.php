@@ -130,4 +130,4 @@ add_filter( 'wp_title', function( $title, $sep, $seplocation ) {
 	}
 
 	return $title;
-} );
+}, 10, 3 );
