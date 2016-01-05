@@ -2,7 +2,7 @@ import Api from './api'
 
 export function fetchSpeakers() {
 	return ( dispatch, getStore ) => {
-		Api.get( '/wp/v2/speakers', { _embed: true }, ( data, error ) => {
+		Api.get( '/wp/v2/speakers', { _embed: true, per_page: 100 }, ( data, error ) => {
 			if ( ! data.length || error ) {
 				return;
 			}
@@ -31,7 +31,7 @@ export function fetchSpeaker( id ) {
 
 export function fetchSponsors() {
 	return ( dispatch, getStore ) => {
-		Api.get( '/wp/v2/sponsors', { _embed: true }, ( data, error ) => {
+		Api.get( '/wp/v2/sponsors', { _embed: true, per_page: 100 }, ( data, error ) => {
 			if ( ! data.length || error ) {
 				return;
 			}
@@ -59,7 +59,7 @@ export function fetchPointsOfInterets() {
 
 export function fetchPosts() {
 	return ( dispatch, getStore ) => {
-		Api.get( '/wp/v2/posts', {}, ( data, error ) => {
+		Api.get( '/wp/v2/posts', { per_page: 100 }, ( data, error ) => {
 			if ( ! data.length || error ) {
 				return;
 			}
