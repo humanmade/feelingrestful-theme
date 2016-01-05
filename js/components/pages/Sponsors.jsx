@@ -92,7 +92,9 @@ module.exports = React.createClass({
 									return (
 										<li key={sponsor.id}>
 											{ sponsor._embedded['https://api.w.org/featuredmedia']
-												?	<div className="sponsor-logo"><img src={sponsor._embedded['https://api.w.org/featuredmedia'][0].source_url} /></div>
+												?	sponsor.url
+														?	<div className="sponsor-logo"><a href={sponsor.url} target="_blank"><img src={sponsor._embedded['https://api.w.org/featuredmedia'][0].source_url} /></a></div>
+														:	<div className="sponsor-logo"><img src={sponsor._embedded['https://api.w.org/featuredmedia'][0].source_url} /></div>
 												:	''
 											}
 											<div className="sponsor-desc">
