@@ -23,7 +23,12 @@ module.exports = React.createClass({
 				<ul className="sponsors-list">
 					{this.props.posts.sponsors.map( sponsor => {
 						return <li key={sponsor.id}>
-							<Link to="/sponsors/"><img src={sponsor._embedded['https://api.w.org/featuredmedia'][0].source_url} /></Link>
+							<Link to="/sponsors/">
+								{sponsor.white_logo
+									?	<img src={sponsor._embedded['wp:whitelogo'][0].source_url} />
+									:	<img src={sponsor._embedded['https://api.w.org/featuredmedia'][0].source_url} />
+									}
+							</Link>
 						</li>
 					})}
 				</ul>
