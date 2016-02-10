@@ -23,7 +23,6 @@ module.exports = React.createClass({
 						return <li className={this.props.currentPath === item.url ? 'current' : ''} key={item.name}><Link to={item.url}>{item.name}</Link></li>
 					})}
 					
-					<li className="buy-ticket"><Link to="/tickets">Buy Tickets</Link></li>
 				</ul>
 			</div>
 		)
