@@ -1,5 +1,4 @@
 import React from 'react'
-import BuyTicketsButton from '../BuyTicketsButton'
 import { fetchSponsors } from '../../actions'
 import { Link } from 'react-router'
 
@@ -15,7 +14,6 @@ module.exports = React.createClass({
 				<h1>A DAY OF REST</h1>
 				<h2>Learn about the <a href="http://wp-api.org/" target="_blank" className="highlight">WordPress REST API</a> from the team building it and the people using it.<br />
 				28th January 2016, Conway Hall, London</h2>
-				<BuyTicketsButton>Get your ticket</BuyTicketsButton>
 				<video webkit-playsinline="" autoPlay="yes" loop="yes">
 					<source src="/content/themes/endurance/videos/dayofrest.mp4" type="video/mp4" />
 				</video>

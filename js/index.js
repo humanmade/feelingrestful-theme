@@ -28,7 +28,6 @@ var AppWithReduxConnected = connect(state => state )(App)
 const routes = (
 	<ReduxRouter>
 		<Route path="/" component={AppWithReduxConnected}>
-			<Route path="tickets" component={BuyTickets} />
 			<Route path="/page/:slug" component={connect(state=>state)(Page)} />
 			<Route path="speakers" component={connect(state=>state)(Speakers)} />
 			<Route path="/speakers/:id" component={connect(state=>state)(Speaker)} />
