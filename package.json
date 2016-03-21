@@ -21,7 +21,7 @@
     "babel-loader": "~5.3.2",
     "grunt-autoprefixer": "^3.0.3",
     "grunt-contrib-watch": "^0.6.1",
-    "grunt-sass": "^1.0.0",
+    "grunt-sass": "^1.1.0",
     "grunt-webpack": "^1.0.11",
     "history": "^1.12.5",
     "jquery": "^2.1.4",
