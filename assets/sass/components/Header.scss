@@ -1,0 +1,9 @@
+.Header {
+	@include outer-container();
+	.headline {
+		line-height: 24px;
+	}
+	.inner {
+		@include content-column;
+	}
+}

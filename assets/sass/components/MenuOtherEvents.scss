@@ -1,0 +1,105 @@
+.menu--other-events {
+	text-align: left;
+	height: 50px;
+	line-height: 1em;
+	float: left;
+	color: white;
+	font-family: $f_sans;
+	text-transform: uppercase;
+	letter-spacing: 0.05rem;
+
+	@media #{$tablet_mq} {
+		position: relative;
+		left: 50px;
+		width: 270px !important;
+	}
+
+	@media #{$mobile_mq} {
+		width: 100%;
+		right: 0;
+		width: 270px;
+	}
+	.location {
+		line-height: 1em;
+		font-weight: bold;
+	}
+	.date,
+	.past-events {
+		display: block;
+		line-height: 1em;
+		font-size: 12px;
+	}
+	.past-events li {
+		border-bottom: none;
+	}
+	.past-events--label {
+		padding: 12px 12px 0 12px;
+	}
+	&.expanded {
+		li {
+			display: block;
+		}
+		li.current a:after {
+			content: "\f106";
+		}
+	}
+	a {
+		text-decoration: none;
+		color: white;
+		text-align: center;
+		display: block;
+		white-space: nowrap;
+		padding: 0 12px;
+		&:hover {
+			background: $primary;
+		}
+	}
+
+	&:hover li {
+		display: block;
+	}
+	ul {
+		margin: 0;
+		padding: 0;
+		li {
+			display: none;
+			list-style: none;
+			line-height: 1em;
+			background: lighten($ador-d-blue, 5%);
+			a {
+				height: 50px;
+				text-align: inherit;
+				padding: 12px;
+
+				&:hover,
+				&:active,
+				&:focus {
+					background: $ador-orange;
+				}
+			}
+		}
+		li:first-child {
+			display: block;
+			background: lighten($ador-d-blue, 5%);
+			a {
+				padding-right: 36px;
+				position: relative;
+				&:after {
+					display: block;
+					width: 16px;
+					height: 50px;
+					font-size: 16px;
+					line-height: 50px;
+					content: "\f107";
+					position: absolute;
+					font-family: "FontAwesome";
+					top: 0;
+					right: 8px;
+					@media #{$mobile_mq} {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,70 @@
+.Speakers {
+	background: white;
+	.inner {
+		padding-bottom: 48px;
+		text-align: center;
+	}
+
+	p {
+		@include content-column;
+		@include omega();
+		line-height: 24px;
+	}
+}
+
+.Page--content {
+	> section.Speakers {
+		padding: 0;
+	}
+}
+
+.SpeakerList {
+	@include display(flex);
+	@include align-items(center);
+	@include justify-content(center);
+	@include flex-flow(row wrap);
+	padding: 0;
+	text-align: center;
+
+	.speaker {
+		@include display(flex);
+		@include align-items(flex-end);
+		@include justify-content(center);
+		width: 20%;
+		background: $ador-d-blue;
+		min-height: 210px;
+		font-size: 24px;
+		font-family: $f_sans;
+		text-transform: uppercase;
+		font-weight: bold;
+		padding-bottom: 1rem;
+
+		@media #{$tablet_mq} {
+			width: 50%;
+		}
+
+		@media #{$mobile_mq} {
+			width: 100%;
+		}
+
+		@include ador-background-image('assets/images/ador-poststatus-41.jpg');
+
+		& + .speaker {
+			@include ador-background-image('assets/images/ador-poststatus-12.jpg');
+		}
+
+		.company {
+			display: block;
+			color: white;
+			font-size: 16px;
+			font-weight: bold;
+			text-shadow: 0 0 2px #262626;
+		}
+	}
+}
+
+.loading-wrap.speakers {
+	@include ador-default-flex();
+	text-align: center;
+	min-height: 420px;
+}

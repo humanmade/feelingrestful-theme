@@ -1,0 +1,145 @@
+.ws-wrap {
+
+	background-color: #fff;
+	padding: 60px 0;
+
+	.ws-overview {
+		background-color: #ac0404;
+		background-image: url('../assets/images/workshops-bg.jpg');
+		background-size: cover;
+		background-repeat: no-repeat;
+		border: 1px solid #fff;
+		overflow: hidden;
+
+		ul, li {
+			margin: 0;
+			padding: 0;
+		}
+	}
+
+	.ws-detail {
+		@include display(flex);
+		@include align-items(start);
+		@include justify-content(flex-start);
+		@include flex-flow(row wrap);
+
+		background-color: rgba(237, 90, 36, 0.7);
+
+		&:hover,
+		&focus {
+			background-color: rgba(0, 160, 129, 0.7);
+			border-bottom: 1px solid #fff;
+		}
+
+		display: block;
+		color: #fff;
+		text-decoration: none;
+		text-align: center;
+		padding: 2em 2em 3em;
+
+		span,
+		.date {
+			display: block;
+			color: inherit;
+			font-family: $f_sans;
+			font-size: em(16);
+			font-weight: 700;
+		}
+
+		.ws-title {
+			font-family: $f_sans;
+			font-size: em(36);
+			text-transform: none;
+			line-height: 1.4;
+			margin: 75px 0 24px;
+			min-height: 50px;
+			outline: 0;
+			font-weight: normal;
+
+			@media #{$tablet_mq} {
+				min-height: 50px;
+			}
+		}
+
+		.ws-instructor {
+			text-transform: uppercase;
+		}
+
+		&.ws-full-day {
+			float: left;
+			display: block;
+			width: 50%;
+			min-height: 240px;
+			margin: 0;
+
+			@media #{$tablet_mq} {
+				width: 100%;
+			}
+
+		}
+
+		&.ws-half-day {
+			float: left;
+			display: block;
+			margin: 0;
+			width: 25%;
+			min-height: 240px;
+
+			.ws-title {
+				font-size: em(24);
+				min-height: 100px;
+			}
+
+			@media #{$tablet_mq} {
+				width: 50%;
+				min-height: 300px;
+			}
+
+			@media #{$mobile_mq} {
+				width: 100%;
+
+				.ws-title {
+					min-height: 50px;
+				}
+			}
+		}
+
+		background-repeat: no-repeat;
+		background-position: center 30px;
+		background-size: auto 48px;
+
+		&.ws-js {
+			background-image: url('../assets/images/icon-js-2x.png');
+		}
+		&.ws-react {
+			background-image: url('../assets/images/icon-react-2x.png');
+		}
+		&.ws-restapi {
+			background-image: url('../assets/images/icon-restapi-2x.png');
+		}
+		&.ws-webpack {
+			background-image: url('../assets/images/icon-webpack-2x.png');
+		}
+		&.ws-backbone {
+			background-image: url('../assets/images/icon-backbone-2x.png');
+		}
+		&.ws-woo {
+			background-image: url('../assets/images/icon-woo-2x.png');
+		}
+
+		border-right: solid 1px #fff;
+		border-bottom: solid 1px #fff;
+
+		.ws-line {
+			width: 100px;
+			margin: 0 auto 24px;
+			border-bottom: 1px solid #fff;
+		}
+	}
+}
+
+.WorkshopPage {
+	.Block--CallToAction img {
+		margin-bottom: 2rem;
+	}
+}

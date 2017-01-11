@@ -1,0 +1,28 @@
+.Posts {
+	margin: 0 auto;
+	padding: 0;
+	list-style: none;
+	> li {
+		padding: rem(48) 0;
+		&:nth-child(odd) {
+			background-color: $ador-l-grey;
+		}
+		&:nth-child(even) {
+			background-color: white;
+		}
+	}
+	.Title {
+		text-align: center;
+		margin: rem(96) 0 rem(48);
+	}
+	.Page--content {
+		background-color: $ador-l-grey;
+	}
+}
+
+.Posts li:first-child .inner {
+	padding-top: 0;
+	h1 {
+		margin-top: 0;
+	}
+}
