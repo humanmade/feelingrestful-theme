@@ -1,0 +1,28 @@
+.Loading {
+	@include ador-default-flex();
+	text-align: center;
+	min-height: 420px;
+	background-color: $primary;
+
+	.spinner {
+		display: block;
+	}
+}
+
+.spinner {
+	width: 40px;
+	height: 40px;
+	background-color: white;
+	border-radius: 100%;
+	animation: sk-scaleout 1.0s infinite ease-in-out;
+}
+
+@keyframes sk-scaleout {
+	0% {
+		transform: scale(0);
+	}
+	100% {
+		transform: scale(2.0);
+		opacity: 0;
+	}
+}

@@ -1,0 +1,189 @@
+.Menu {
+	background: $ador-d-blue;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 50px;
+	line-height: 1;
+	padding: 0;
+	margin: 0;
+	z-index: 100;
+
+	.inner,
+	.menu,
+	.menu ul,
+	.menu ul li {
+		padding: 0;
+		list-style: none;
+	}
+
+	.inner {
+		position: relative;
+	}
+
+	.menu {
+		@include display(flex);
+		@include justify-content(flex-start);
+		position: relative;
+		font-family: $f_sans;
+		list-style: none;
+		height: 50px;
+		line-height: 50px;
+		margin: 0 auto;
+		color: white;
+		letter-spacing: 0.05rem;
+		text-transform: uppercase;
+
+		@media #{$tablet_mq} {
+			display: none;
+			min-height: 50px;
+			position: absolute;
+			top: 50px;
+			left: 0;
+			max-width: 500px;
+			min-width: 320px;
+			&.expanded {
+				display: block;
+			}
+		}
+
+		@media #{$mobile_mq} {
+			max-width: 100%;
+			min-width: 100%;
+			height: 100vh;
+			background-color: $primary;
+		}
+
+		li {
+			@media #{$tablet_mq} {
+				display: block;
+				width: 100%;
+				background: $primary;
+				max-width: 100%;
+
+				&.current a {
+					background-color: $ador-d-blue;
+				}
+
+
+			}
+
+			&.powered-by {
+				@include flex(0 0 50px);
+				font-size: 22px;
+				text-align: center;
+			}
+
+			&.current {
+				background: $primary;
+			}
+
+			a {
+				text-decoration: none;
+				color: white;
+				text-align: center;
+				display: block;
+				white-space: nowrap;
+				padding: 0 12px;
+
+				&:hover,
+				&:focus {
+					background: $primary;
+				}
+
+				@media #{$tablet_mq} {
+					&:hover,
+					&:focus {
+						background: $ador-d-blue;
+					}
+				}
+			}
+		}
+		> li:last-of-type {
+			margin-left: auto;
+		}
+	}
+
+	.has-submenu {
+		position: relative;
+
+		ul.submenu {
+			display: none;
+			background-color: $sec;
+			font-size: 80%;
+			line-height: 40px;
+
+			@media #{$tablet_mq} {
+				display: block;
+			}
+
+			@media #{$mobile_mq} {
+				display: block;
+			}
+
+			li:hover {
+				background-color: $primary;
+			}
+		}
+
+		&:hover > .submenu {
+			display: block;
+		}
+	
+		@media #{ "all and ( min-width: 1200px )" } {
+			li a {
+				text-align: left;
+			}
+
+			&:hover > .submenu {
+				position: absolute;
+			}
+		}
+	}
+}
+
+.menu-wrap {
+	.buy-ticket {
+		display: none;
+		a {
+			text-decoration: none;
+			color: white;
+			position: absolute;
+			right: 0;
+			top: 0;
+			text-align: center;
+			display: block;
+			white-space: nowrap;
+			padding: 0 12px;
+			height: 50px;
+			line-height: 50px;
+			background: $primary;
+			font-family: $f_sans;
+			text-transform: uppercase;
+			font-weight: bold;
+			letter-spacing: 0.05rem;
+		}
+		@media #{$mobile_mq} {
+			position: fixed;
+			max-width: 100%;
+			min-width: 100%;
+		}
+	}
+}
+
+.menu-toggle {
+	display: none;
+	color: white;
+	line-height: 50px;
+	font-size: 20px;
+	padding: 0 16px;
+	cursor: pointer;
+	position: absolute;
+	left: 0;
+	z-index: 5;
+	@media #{$tablet_mq} {
+		display: inline-block;
+		background: $primary;
+	}
+}

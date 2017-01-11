@@ -1,0 +1,268 @@
+/* colours */
+$ador-d-blue: #22303F;
+$ador-orange: #ED5A24;
+$ador-black: #1A1A1A;
+$ador-grey: #C8C8C8;
+$ador-l-grey: #EAEAEA;
+
+$primary: $ador-orange;
+$sec: $ador-d-blue;
+
+/* fonts */
+$f_sans: "Proxima Nova", sans-serif;
+$f_body: "Merriweather", sans-serif;
+$f_mono: "ocr-b-std", monospace;
+
+/* responsive */
+$tablet: 1199px;
+$smallscreen: 850px;
+$phablet: 600px;
+$mobile: 440px;
+$gutter: em(12);
+
+$tablet_mq: "all and ( max-width: #{$tablet})";
+$smallscreen_mq: "all and ( max-width: #{$smallscreen})";
+$phablet_mq: "all and ( max-width: #{$phablet})";
+$larger_than_mobile_mq: "all and ( min-width: #{$mobile} )";
+$mobile_mq: "all and ( max-width: #{$mobile})";
+
+$fa-font-path: "../assets/fonts";
+$h1-font-size: rem(32);
+$h2-font-size: rem(28);
+$h3-font-size: rem(24);
+$h4-font-size: rem(20);
+$h5-font-size: rem(18);
+$h6-font-size: rem(16);
+
+/* universal   */
+body, html {
+  padding: 0;
+  margin: 0;
+  font-family: $f_body;
+  color: white;
+  height: 100%;
+  min-height: 100%;
+  line-height: 24px;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+figure {
+  margin: 1em 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+iframe {
+  display: block;
+  max-width: 100% !important;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin ador-background-image($image-url){
+    background-color: $ador-d-blue;
+    background: linear-gradient(rgba($ador-d-blue, .75), rgba($ador-d-blue, .85)),
+                url($image-url);
+    background-size: cover;
+    background-position: 50% 50%;
+}
+
+.admin-bar {
+	#app {
+		margin-top: 32px;
+	}
+	.Menu {
+		top: 32px;
+  	}
+}
+
+.App, #app {
+	position: relative;
+	height: 100%;
+	min-height: 100%;
+}
+
+.page-content {
+	position: relative;
+	min-height: 100%;
+	@include display(flex);
+	@include flex-direction(column);
+}
+
+.page-transition {
+	position: absolute;
+	flex-grow: 1;
+	height: 100%;
+	width: 100%;
+	background-color: $ador-l-grey;
+
+	> .loading-wrap {
+		width: 30%;
+		margin: 0 auto;
+		display: block;
+		position: fixed;
+		top: 30%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+
+		.loading {
+			font-size: 35px;
+		}
+	}
+}
+
+.loading-wrap {
+	.loading {
+		font-weight: 600;
+		text-align: center;
+		color: $ador-d-blue;
+	}
+}
+
+.card-enter {
+	opacity: 0.1;
+	&.card-enter-active {
+		transition: all 300ms ease-out;
+		opacity: 1;
+	}
+}
+
+.card-leave {
+	z-index: 3;
+	opacity: 1;
+	width: 100%;
+	&.card-leave-active {
+		transition: all 300ms ease-out;
+		opacity: 0;
+	}
+}
+
+.card-back-enter {
+	z-index: 2;
+	opacity: 0.1;
+	&.card-back-enter-active {
+		transition: all 300ms ease-out;
+		opacity: 1;
+	}
+}
+
+.card-back-leave {
+	z-index: 3;
+	opacity: 1;
+	width: 100%;
+	&.card-back-leave-active {
+		transition: all 300ms ease-out;
+	opacity: 0;
+	}
+}
+
+.Page--content > section {
+	padding-top: rem(96);
+	padding-bottom: rem(96);
+}
+
+/* =WordPress Core Alignments
+-------------------------------------------------------------- */
+.alignnone {
+	margin: 5px rem(24) rem(24) 0;
+}
+
+.aligncenter,
+div.aligncenter {
+	display: block;
+	margin: 5px auto 5px auto;
+}
+
+.alignright {
+	float:right;
+	margin: 5px 0 rem(24) rem(48);
+}
+
+.alignleft {
+	float: left;
+	margin: 5px rem(48) rem(24) 0;
+}
+
+a img.alignright {
+	float: right;
+	margin: 5px 0 rem(24) rem(48);
+}
+
+a img.alignnone {
+	margin: 5px rem(24) rem(24) 0;
+}
+
+a img.alignleft {
+	float: left;
+	margin: 5px rem(48) rem(24) 0;
+}
+
+a img.aligncenter {
+	display: block;
+	margin-left: auto;
+	margin-right: auto
+}
+
+.wp-caption {
+	max-width: 99%; /* Image does not overflow the content area */
+}
+
+.wp-caption.alignnone {
+	margin: 5px rem(24) rem(24) 0;
+}
+
+.wp-caption.alignleft {
+	margin: 5px rem(48) rem(24) 0;
+}
+
+.wp-caption.alignright {
+	margin: 5px 0 rem(24) rem(48);
+}
+
+.wp-caption img {
+	border: 0 none;
+	height: auto;
+	margin: 0;
+	padding: 0;
+	width: auto;
+}
+
+.wp-caption-text {
+	margin: 0;
+	padding: rem(10) 0 rem(10);
+}
+
+/* Text meant only for screen readers. */
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+}
+
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	color: #21759b;
+	display: block;
+	font-size: 14px;
+	font-size: 0.875rem;
+	font-weight: bold;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000; /* Above WP toolbar. */
+}

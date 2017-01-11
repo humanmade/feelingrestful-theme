@@ -18,7 +18,7 @@ module.exports = {
 
 	request: function( method, url, data, callback ) {
 
-		this.lastRequest = {
+		var lastRequest = {
 			method: method,
 			url: url,
 			args: data,
@@ -29,6 +29,7 @@ module.exports = {
 		var xhr = jQuery.ajax( this.api_url + url, {
 			data: data,
 			success: ( data ) => {
+				this.lastRequest = lastRequest
 				this.lastRequest.isLoading = false
 				this.lastRequest.data = data
 				if ( ! callback ) {
@@ -43,7 +44,9 @@ module.exports = {
 		} );
 
 		xhr.fail( err => {
+			this.lastRequest = lastRequest
 			this.lastRequest.isLoading = false
+
 			if (xhr.status === 0) {
 				if (xhr.statusText === 'abort') {
 					// Has been aborted

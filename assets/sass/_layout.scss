@@ -1,0 +1,16 @@
+@mixin content-column {
+  @include span-columns(8);
+  @include shift(2);
+
+  @media #{$phablet_mq} {
+    @include span-columns(10);
+    @include shift(1);
+  }
+
+  @media #{$mobile_mq} {
+    width: auto;
+    float: none;
+    margin-left: 15px;
+    margin-right: 15px!important;
+  }
+}

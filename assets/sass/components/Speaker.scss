@@ -1,0 +1,35 @@
+.SpeakerPage .Page--header h1,
+.Speaker {
+	@include outer-container;
+	.inner {
+		@include content-column;
+	}
+
+	h2 {
+		font-size: rem(16);
+		font-weight: bold;
+	}
+
+	img {
+		@media #{$smallscreen_mq} {
+			&.alignleft,
+			&.alignright {
+				float: none;
+				display: block;
+				margin: 1rem 0 1rem;
+			}
+		}
+	}
+}
+
+.Speaker {
+	@media #{$mobile_mq} {
+		padding: 0;
+	}
+}
+
+.SpeakerPage {
+	h1 {
+		text-align: left;
+	}
+}

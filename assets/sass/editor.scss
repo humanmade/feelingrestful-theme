@@ -1,0 +1,15 @@
+/* Editor Styles */
+@import "vendor/bourbon/bourbon";
+@import "settings";
+@import "typography";
+@import "vendor/font-awesome/scss/font-awesome";
+
+html .mceContentBody {
+	margin: 10px 20px;
+	font-size: 100%;
+	max-width: 800px;
+	color: $ador-black;
+	ul, ol {
+		list-style: inherit;
+	}
+}

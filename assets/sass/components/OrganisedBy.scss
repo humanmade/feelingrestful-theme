@@ -1,0 +1,34 @@
+.OrganisedBy {
+	background: white;
+	.inner {
+		padding-bottom: 48px;
+	}
+
+	h2 {
+		text-transform: uppercase;
+	}
+	ul {
+		@include ador-default-flex();
+		padding-left: 0;
+		li {
+			padding: 24px;
+		}
+	}
+
+	a {
+		display: inline;
+
+		@media #{$smallscreen_mq} {
+			display:block;
+			margin-left: 1rem;
+			margin-right: 1rem;
+		}
+
+		@media #{$larger_than_mobile_mq} {
+			img{
+				max-width: 370px;
+				max-height: 75px;
+			}
+		}
+	}
+}

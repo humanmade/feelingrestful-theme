@@ -1,0 +1,75 @@
+.APIConsole {
+	@include display(flex);
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: fade-out(lighten($sec, 2%), 0.05);
+	color: rgba(255, 255, 255, 0.7);
+	line-height: 50px;
+	height: 50px;
+	font-size: 14px;
+	padding: 0;
+	font-family: $f_mono;
+	letter-spacing: -0.1rem;
+	z-index: 110;
+	@include transition(all 100ms linear);
+	.api-cta {
+		@include flex(0 0 200px);
+		text-align: center;
+		background: white;
+		color: $sec;
+		cursor: pointer;
+		&:hover {
+			color: lighten($sec, 10%);
+		}
+	}
+	.api-output {
+		@include flex(1);
+		padding: 0 10px;
+		text-overflow: clip;
+		white-space: nowrap;
+		overflow: hidden;
+	}
+	a {
+		color: white;
+		font-weight: 600;
+	}
+}
+
+.api-display-wrap {
+	position: fixed;
+	top: 50px;
+	left: 0;
+	right: 0;
+	bottom: 50px;
+	background: #22303f;
+	color: white;
+	z-index: 10000;
+	overflow-y: scroll;
+	overflow-wrap: break-word;
+	overflow-x: hidden;
+}
+
+.api-display {
+	list-style: none;
+	padding: 20px 20px;
+
+	p,
+	h2,
+	strong {
+		color: white;
+	}
+
+	pre {
+		background: #22303f;
+		text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+		color: white;
+		font-family: $f_mono;
+		font-size: 14px;
+		line-height: 1.4;
+		letter-spacing: -0.1rem;
+		padding: 10px;
+		overflow: hidden;
+	}
+}

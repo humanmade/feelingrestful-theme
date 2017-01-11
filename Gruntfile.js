@@ -1,18 +1,20 @@
-var webpack = require( 'webpack' );
-var webpackConfig = require( './webpack.config' );
+var webpack = require('webpack');
+var webpackConfig = require('./webpack.config');
 
-module.exports = function( grunt ) {
+module.exports = function (grunt) {
 
 	grunt.initConfig({
 
 		sass: {
 			dist: {
+				options: {
+					outputStyle: 'expanded'
+				},
 				files: {
-					'dist/main.css': 'sass/main.sass'
+					'dist/main.css': 'assets/sass/style.scss',
+					'dist/editor.css': 'assets/sass/editor.scss',
+					'dist/login.css': 'assets/sass/login.scss'
 				}
-			},
-			options: {
-				sourceMap: true
 			}
 		},
 
@@ -39,14 +41,10 @@ module.exports = function( grunt ) {
 			}
 		},
 
-		watch:  {
+		watch: {
 			sass: {
-				files: ['sass/**/*.sass'],
+				files: ['assets/sass/**/*.scss'],
 				tasks: ['sass']
-			},
-			liverelaod: {
-				options: { livereload: true },
-				files: ['dist/main.css']
 			}
 		}
 	});
@@ -55,6 +53,6 @@ module.exports = function( grunt ) {
 	grunt.loadNpmTasks('grunt-webpack');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 
-	grunt.registerTask('default', ['sass', 'watch', 'webpack:watch-dev' ]);
-	grunt.registerTask('build', [ 'sass', 'webpack:build']);
+	grunt.registerTask('default', ['sass', 'watch', 'webpack:watch-dev']);
+	grunt.registerTask('build', ['sass', 'webpack:build']);
 }

@@ -12,14 +12,18 @@ module.exports = React.createClass({
 		if ( ! this.props.posts.speakers.length ) {
 			return (
 				<div className="loading-wrap">
-					<div className="loading"><span className="fa fa-heart"></span> LOADING</div>
+					<div className="loading"><span className="fa fa-heart"></span> Loading</div>
 				</div>
 			)
 		}
 		return (
 			<ul className="Speakers">
 				{this.props.posts.speakers.map( speaker => {
-					return <li key={speaker.id} style={{backgroundImage: 'url(' + speaker._embedded['https://api.w.org/featuredmedia'][0].source_url + ')'}}>
+					var attr = { key: speaker.id }
+					if ( speaker._embedded && speaker._embedded['wp:featuredmedia'] ) {
+						attr.style = { backgroundImage: 'url(' + speaker._embedded['wp:featuredmedia'][0].source_url + ')' }
+					}
+					return <li {...attr}>
 						<Link to={'/speakers/' + speaker.id}>
 							<h2>{speaker.title.rendered}</h2>
 							<h3>{speaker.company}</h3>

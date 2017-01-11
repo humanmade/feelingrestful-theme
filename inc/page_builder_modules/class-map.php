@@ -14,4 +14,6 @@ class Map extends Module {
 		array( 'name' => 'zoom', 'label' => 'Zoom Level', 'type' => 'number', 'value' => '' ),
 		array( 'name' => 'place_id', 'label' => 'Google Place ID', 'type' => 'text', 'value' => '' ),
 	);
+
+	public function render() {}
 }

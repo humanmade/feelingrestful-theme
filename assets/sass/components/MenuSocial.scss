@@ -1,0 +1,80 @@
+.Menu .menu-social {
+	@include display(flex);
+	@include justify-content(center);
+	@include align-items(center);
+	padding: 0;
+
+	@media #{$tablet_mq} {
+		display: none;
+	}
+
+	li {
+		list-style: none;
+		display: inline;
+		a {
+			padding: 0 6px;
+			margin-top: 12px;
+			position: relative;
+		}
+	}
+
+	.twitter,
+	.facebook,
+	.social-link {
+		&:after {
+			display: block;
+			background-color: white;
+			height: 26px;
+			width: 26px;
+			color: $ador-d-blue;
+			border-radius: 50%;
+			line-height:1.6;
+			font-size: 18px;
+			content: "\f099";
+			font-family: "FontAwesome";
+			font-weight: normal;
+		}
+		&:hover {
+			background-color: transparent;
+			&:after {
+				color: white;
+			}
+		}
+	}
+	.twitter{
+		&:hover {
+			&:after {
+				background-color: #1DA1F2;
+			}
+		}
+	}
+	.facebook{
+		&:hover {
+			&:after {
+				background-color: #3B5998;
+			}
+		}
+	}
+	.social-link {
+
+		&:hover {
+			&:after {
+				background-color: #ED5A24;
+			}
+		}
+	}
+
+	.facebook {
+		&:after {
+			content: "\f09a";
+		}
+	}
+
+	.envelope {
+		&:after {
+			content: "\f0e0";
+			font-size: 15px;
+			line-height: 1.7;
+		}
+	}
+}

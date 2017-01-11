@@ -29,6 +29,34 @@ export function fetchSpeaker( id ) {
 	}
 }
 
+export function fetchWorkshops() {
+	return ( dispatch, getStore ) => {
+		Api.get( '/wp/v2/workshops', { _embed: true, per_page: 100 }, ( data, error ) => {
+			if ( ! data.length || error ) {
+				return;
+			}
+			dispatch({
+				type: 'UPDATE_WORKSHOPS',
+				workshops: data
+			})
+		})
+	}
+}
+
+export function fetchWorkshop( id ) {
+	return ( dispatch, getStore ) => {
+		Api.get( '/wp/v2/workshops/' + id, { _embed: true }, ( data, error ) => {
+			if ( ! data || error ) {
+				return;
+			}
+			dispatch({
+				type: 'UPDATE_WORKSHOP',
+				workshop: data
+			})
+		})
+	}
+}
+
 export function fetchSponsors() {
 	return ( dispatch, getStore ) => {
 		Api.get( '/wp/v2/sponsors', { _embed: true, per_page: 100 }, ( data, error ) => {
@@ -85,6 +113,20 @@ export function fetchPostBySlug( slug ) {
 	}
 }
 
+export function fetchPreviewById( id, type ) {
+	return ( dispatch, getStore ) => {
+		Api.get( '/wp/v2/' + type + '/' + id + '/autosave', { _embed: true }, ( data, error ) => {
+			if ( ! data || error ) {
+				return;
+			}
+			dispatch({
+				type: 'UPDATE_PREVIEW',
+				post: data
+			})
+		})
+	}
+}
+
 export function fetchPageBySlug( slug ) {
 	return ( dispatch, getStore ) => {
 		Api.get( '/wp/v2/pages', { filter: { name: slug } }, ( data, error ) => {
@@ -94,6 +136,35 @@ export function fetchPageBySlug( slug ) {
 			dispatch({
 				type: 'UPDATE_PAGE',
 				page: data[0]
+			})
+		})
+	}
+}
+
+export function fetchTestimonials() {
+	return ( dispatch, getStore ) => {
+		Api.get( '/wp/v2/testimonials', { _embed: true, per_page: 100 }, ( data, error ) => {
+			if ( ! data.length || error ) {
+				return;
+			}
+			dispatch({
+				type: 'UPDATE_TESTIMONIALS',
+				testimonials: data
+			})
+		})
+	}
+}
+
+export function fetchMenubyLocation( location = 'primary_navigation' ) {
+	return ( dispatch, getStore ) => {
+		Api.get( '/wp-api-menus/v2/menu-locations/' + location, { _embed: true }, ( data, error ) => {
+			if ( ! data || error ) {
+				return 'error';
+			}
+			dispatch({
+				type: 'UPDATE_MENU',
+				hasData: true,
+				items: data
 			})
 		})
 	}

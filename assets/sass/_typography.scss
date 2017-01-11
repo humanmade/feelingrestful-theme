@@ -1,0 +1,160 @@
+/** Headers **/
+h1, h2, h3, h4, h5, h6 {
+	font-weight: normal;
+	color: $primary;
+	font-family: $f_sans;
+	strong {
+		color: inherit;
+	}
+	a {
+		&:focus,
+		&:hover {
+			text-decoration: none;
+			color: rgba(38, 53, 70, 0.7);
+		}
+	}
+
+}
+h1, h2, h3, .headline {
+	line-height: 1.2;
+	text-transform: uppercase;
+}
+h4, h5, h6 {
+	line-height: 1.1;
+	color: $ador-d-blue;
+}
+
+h1 {
+	font-size: $h1-font-size;
+}
+h2 {
+	font-size: $h2-font-size;
+}
+h3 {
+	font-size: $h3-font-size;
+}
+h4 {
+	font-size: $h4-font-size;
+}
+h5 {
+	font-size: $h5-font-size;
+}
+h6 {
+	font-size: $h6-font-size;
+}
+
+/** Text **/
+b, strong {
+	font-weight: bold;
+}
+
+a {
+	text-decoration: none;
+	color: $primary;
+	&:focus,
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+i, strong, b, p {
+	color: $ador-black;
+}
+
+/** Text Elements **/
+.Button {
+	display: inline-block;
+	font-family: $f_sans;
+	font-size: 16px;
+	padding: 16px 48px;
+	text-transform: uppercase;
+	background-color: $primary;
+	color: white;
+	border: 1px solid transparent;
+	@include transition(all, 0.4s, ease-in-out);
+
+	@media #{$mobile_mq} {
+		padding: 16px;
+	}
+
+	&:hover {
+		background-color: $sec;
+	}
+
+	&.ghost-button {
+		background-color: transparent;
+		border: 1px solid white;
+		color: white;
+
+		.fa {
+			font-size: 20px;
+			margin-right: 4px;
+			position: relative;
+			bottom: -2px;
+		}
+
+		&:hover {
+			background-color: $primary;
+		}
+	}
+
+	&.ghost-button--dark {
+		border-color: $ador-black;
+		color: $ador-black;
+
+		&:hover {
+			background-color: $ador-grey;
+		}
+	}
+}
+
+.ghost-button + .ghost-button {
+	margin-left: 12px;
+}
+
+.share-buttons {
+	padding-top: 24px;
+
+	.Button.ghost-button {
+		padding: 8px 15px;
+		font-size: 14px;
+	}
+}
+
+ul, ol {
+	margin: 0;
+	list-style: none;
+}
+
+.Secondary-Link {
+	font-size: 16px;
+	font-family: $f-body;
+	color: $ador-black;
+	display: block;
+	font-style: italic;
+	padding-top: 24px;
+
+	&:after {
+		content: "\f061";
+		font-family: "FontAwesome";
+		color: $primary;
+		display: inline;
+		padding-left: 12px;
+		font-weight: normal;
+	}
+}
+
+@mixin ador-default-flex() {
+	@include display(flex);
+	@include align-items(center);
+	@include justify-content(center);
+	@include flex-flow(row wrap);
+}
+
+pre {
+	white-space: pre-wrap;       /* css-3 */
+	white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+	white-space: -pre-wrap;      /* Opera 4-6 */
+	white-space: -o-pre-wrap;    /* Opera 7 */
+	word-wrap: break-word;
+}
