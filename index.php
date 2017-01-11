@@ -10,7 +10,7 @@
 			Typekit.load();
 		} catch ( e ) {
 		}</script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClFtma9k9AmWESYtBBrrx6js5QEyKEqo8"></script>
+	<script src="https://maps.googleapis.com/maps/api/js"></script>
 	<?php if ( defined( 'HM_DEV' ) && HM_DEV ) : ?>
 		<script src="//localhost:35729/livereload.js"></script>
 	<?php endif; ?>
