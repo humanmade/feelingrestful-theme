@@ -23,7 +23,7 @@ class Autoloader {
 		// Strip prefix from the start (ala PSR-4)
 		$class = substr( $class, $this->prefix_length + 1 );
 		$class = strtolower( $class );
-		$file = '';
+		$file  = '';
 
 		if ( false !== ( $last_ns_pos = strripos( $class, self::NS_SEPARATOR ) ) ) {
 			$namespace = substr( $class, 0, $last_ns_pos );

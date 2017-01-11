@@ -1,15 +1,15 @@
-import { combineReducers } from 'redux'
+import {combineReducers} from 'redux'
 import ObjectAssign from 'object-assign'
-import { routerStateReducer } from 'redux-router';
-import { findWhere } from 'underscore'
+import {routerStateReducer} from 'redux-router';
+import {findWhere} from 'underscore'
 
-function posts( state = { speakers: [], posts: [], pages: [], pointsOfInterest: [], sponsors: [] }, action ) {
-	switch( action.type ) {
+function posts( state = {speakers: [], posts: [], pages: [], pointsOfInterest: [], sponsors: []}, action ) {
+	switch ( action.type ) {
 		case 'UPDATE_SPEAKERS':
 			state.speakers = action.speakers
 			break
 		case 'UPDATE_SPEAKER':
-			if ( ! findWhere( state.speakers, { id: action.speaker.id } ) ) {
+			if ( ! findWhere( state.speakers, {id: action.speaker.id} ) ) {
 				state.speakers.push( action.speaker );
 			}
 			break
@@ -23,7 +23,7 @@ function posts( state = { speakers: [], posts: [], pages: [], pointsOfInterest: 
 			state.posts = action.posts
 			break
 		case 'UPDATE_POST':
-			if ( ! findWhere( state.posts, { id: action.post.id } ) ) {
+			if ( ! findWhere( state.posts, {id: action.post.id} ) ) {
 				state.posts.push( action.post );
 			}
 			break;
@@ -31,7 +31,7 @@ function posts( state = { speakers: [], posts: [], pages: [], pointsOfInterest: 
 			state.pages = action.pages
 			break
 		case 'UPDATE_PAGE':
-			if ( ! findWhere( state.pages, { id: action.page.id } ) ) {
+			if ( ! findWhere( state.pages, {id: action.page.id} ) ) {
 				state.pages.push( action.page );
 			}
 			break;
@@ -83,9 +83,9 @@ function menu( state = {}, action ) {
 	}
 }
 
-function display( state = { consoleExpanded: false, showingMenu: false, isGoingBack: false }, action ) {
+function display( state = {consoleExpanded: false, showingMenu: false, isGoingBack: false}, action ) {
 
-	switch( action.type ) {
+	switch ( action.type ) {
 		case 'TOGGLED_CONSOLE':
 			state.consoleExpanded = ! state.consoleExpanded
 			break
@@ -100,11 +100,11 @@ function display( state = { consoleExpanded: false, showingMenu: false, isGoingB
 	return state
 }
 
-var reducers = combineReducers({
+var reducers = combineReducers( {
 	menu,
 	router: routerStateReducer,
 	posts,
 	display
-})
+} )
 
 module.exports = reducers

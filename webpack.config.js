@@ -1,4 +1,4 @@
-var path = require('path');
+var path = require( 'path' );
 
 module.exports = {
 	// webpack options
@@ -27,16 +27,14 @@ module.exports = {
 		]
 	},
 
-	plugins: [
-
-	],
+	plugins: [],
 
 	externals: {
 		//don't bundle the 'react' npm package with our bundle.js
 		//but get it from a global 'React' variable
 		//'react': 'React',
 		//'react/addons' : 'React',
-		'google/maps' : 'google.maps'
+		'google/maps': 'google.maps'
 	},
 
 	resolve: {

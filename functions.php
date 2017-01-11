@@ -6,7 +6,7 @@ if ( ! function_exists( 'HM\\Autoloader\\register_class_path' ) ) {
 
 HM\Autoloader\register_class_path( 'FeelingRESTful', dirname( __FILE__ ) . '/inc' );
 
-add_action( 'wp_enqueue_scripts', function() {
+add_action( 'wp_enqueue_scripts', function () {
 	wp_enqueue_script( 'app', get_template_directory_uri() . '/dist/main.js', array(), wp_get_theme()->Version, true );
 	wp_localize_script( 'app', 'app_data', array(
 		'api_url' => untrailingslashit( rest_url() ),
@@ -21,7 +21,7 @@ add_post_type_support( 'page', 'modular-page-builder' );
 
 add_theme_support( 'post-thumbnails' );
 
-add_action( 'admin_init', function() {
+add_action( 'admin_init', function () {
 	remove_post_type_support( 'page', 'editor' );
 	remove_post_type_support( 'page', 'comments' );
 	remove_post_type_support( 'page', 'page-attributes' );
@@ -30,7 +30,7 @@ add_action( 'admin_init', function() {
 	remove_post_type_support( 'page', 'author' );
 } );
 
-add_action( 'init', function() {
+add_action( 'init', function () {
 
 	if ( ! class_exists( 'ModularPageBuilder\\Plugin' ) ) {
 		return;
@@ -47,33 +47,35 @@ add_action( 'init', function() {
 	$opengraph = new FeelingRESTful\OpenGraph();
 } );
 
-add_filter( 'modular_page_builder_allowed_modules_for_page', function( $allowed ) {
+add_filter( 'modular_page_builder_allowed_modules_for_page', function ( $allowed ) {
 	$allowed[] = 'map';
 	$allowed[] = 'twitter_timeline';
+
 	return $allowed;
 } );
 
-add_action( 'init', function() {
+add_action( 'init', function () {
 	global $wp_rewrite;
 	$wp_rewrite->permalink_structure = $wp_rewrite->root . 'news/%postname%';
 	$wp_rewrite->page_structure      = $wp_rewrite->root . 'page/%pagename%';
 } );
 
-add_filter( 'pre_option_permalink_structure', function() {
+add_filter( 'pre_option_permalink_structure', function () {
 	return '/news/%postname%';
 } );
 
 add_filter( 'qm/dispatch/html', '__return_false' );
 
-add_filter( 'mpb_wysiwyg_args', function( $args ) {
+add_filter( 'mpb_wysiwyg_args', function ( $args ) {
 	$args['teeny'] = false;
+
 	return $args;
 } );
 
 /**
  * Send preview data instead.
  */
-add_filter( 'rest_prepare_page', function( WP_REST_Response $response, WP_Post $post, WP_REST_Request $request ) {
+add_filter( 'rest_prepare_page', function ( WP_REST_Response $response, WP_Post $post, WP_REST_Request $request ) {
 
 	$is_preview = false !== strpos( $request->get_header( 'referer' ), 'preview=true' );
 	$post_type  = get_post_type_object( $post->post_type );
@@ -110,7 +112,7 @@ add_filter( 'rest_prepare_page', function( WP_REST_Response $response, WP_Post $
 /**
  * Set preview $_GET / $_POST early as possible.
  */
-add_filter( 'rest_enabled', function( $enabled ) {
+add_filter( 'rest_enabled', function ( $enabled ) {
 
 	if (
 		$enabled &&
@@ -127,11 +129,11 @@ add_filter( 'rest_enabled', function( $enabled ) {
 /**
  * Polyfill for wp_title()
  */
-add_filter( 'wp_title', function( $title, $sep, $seplocation ) {
+add_filter( 'wp_title', function ( $title, $sep, $seplocation ) {
 
 	if ( false !== strpos( $title, __( 'Page not found' ) ) ) {
 		$replacement = ucwords( str_replace( '/', ' ', $_SERVER['REQUEST_URI'] ) );
-		$title = str_replace( __( 'Page not found' ), $replacement, $title );
+		$title       = str_replace( __( 'Page not found' ), $replacement, $title );
 	}
 
 	return $title;

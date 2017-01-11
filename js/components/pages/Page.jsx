@@ -1,6 +1,6 @@
 import React from 'react'
-import { findWhere } from 'underscore'
-import { fetchPageBySlug } from '../../actions'
+import {findWhere} from 'underscore'
+import {fetchPageBySlug} from '../../actions'
 import Text from '../modules/Text'
 import Image from '../modules/Image'
 import Blockquote from '../modules/Blockquote'
@@ -8,14 +8,14 @@ import Header from '../modules/Header'
 import Map from '../modules/Map'
 import TwitterTimeline from '../modules/TwitterTimeline'
 
-module.exports = React.createClass({
+module.exports = React.createClass( {
 
-	componentDidMount: function() {
+	componentDidMount: function () {
 		this.props.dispatch( fetchPageBySlug( this.props.routeParams.slug ) )
 	},
 
-	render: function() {
-		var page = findWhere( this.props.posts.pages, { slug: this.props.routeParams.slug } )
+	render: function () {
+		var page = findWhere( this.props.posts.pages, {slug: this.props.routeParams.slug} )
 
 		if ( ! page ) {
 			return (
@@ -45,9 +45,9 @@ module.exports = React.createClass({
 								return <TwitterTimeline {...Module.data} />
 						}
 						return <div></div>
-					})}
+					} )}
 				</div>
 			</div>
 		)
 	}
-})
+} )

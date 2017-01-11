@@ -38,6 +38,7 @@ class Preview_Postmeta {
 		if ( strlen( $key ) > 50 ) {
 			$key = md5( $key );
 		}
+
 		return "_preview__{$key}";
 	}
 

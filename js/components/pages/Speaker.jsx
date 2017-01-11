@@ -1,22 +1,22 @@
 import React from 'react'
-import { findWhere } from 'underscore'
-import { fetchSpeaker } from '../../actions'
+import {findWhere} from 'underscore'
+import {fetchSpeaker} from '../../actions'
 
-module.exports = React.createClass({
+module.exports = React.createClass( {
 
-	componentDidMount: function() {
+	componentDidMount: function () {
 		this.props.dispatch( fetchSpeaker( Number( this.props.routeParams.id ) ) )
-		window.addEventListener( 'scroll', this.eventListener  = () => {
+		window.addEventListener( 'scroll', this.eventListener = () => {
 			this.refs.parallax.style.backgroundPosition = "0 -" + window.scrollY + 'px'
-		})
+		} )
 	},
 
-	componentWillUnmount: function() {
+	componentWillUnmount: function () {
 		window.removeEventListener( 'scroll', this.eventListener )
 	},
 
-	render: function() {
-		var user = findWhere( this.props.posts.speakers, { id: Number( this.props.routeParams.id ) } )
+	render: function () {
+		var user = findWhere( this.props.posts.speakers, {id: Number( this.props.routeParams.id )} )
 
 		if ( ! user ) {
 			return (
@@ -35,10 +35,10 @@ module.exports = React.createClass({
 						className="parallax-image"
 						ref="parallax"
 						style={{backgroundImage: 'url(' + user._embedded['https://api.w.org/featuredmedia'][0].source_url + ')'}}
-						/>
-					<div dangerouslySetInnerHTML={{__html:user.content.rendered}} />
+					/>
+					<div dangerouslySetInnerHTML={{__html: user.content.rendered}}/>
 				</div>
 			</div>
 		)
 	}
-})
+} )

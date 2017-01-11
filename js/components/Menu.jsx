@@ -1,7 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router'
+import {Link} from 'react-router'
 
-module.exports = React.createClass({
+module.exports = React.createClass( {
 
 	propTypes: {
 		menu: React.PropTypes.object.isRequired,
@@ -11,7 +11,7 @@ module.exports = React.createClass({
 		isExpanded: React.PropTypes.bool
 	},
 
-	render: function() {
+	render: function () {
 
 		return (
 			<div className="menu-wrap Menu">
@@ -20,11 +20,12 @@ module.exports = React.createClass({
 				</div>
 				<ul className={ this.props.isExpanded ? 'menu expanded' : 'menu' }>
 					{this.props.menu.items.map( item => {
-						return <li className={this.props.currentPath === item.url ? 'current' : ''} key={item.name}><Link to={item.url}>{item.name}</Link></li>
-					})}
-					
+						return <li className={this.props.currentPath === item.url ? 'current' : ''} key={item.name}>
+							<Link to={item.url}>{item.name}</Link></li>
+					} )}
+
 				</ul>
 			</div>
 		)
 	}
-})
+} )

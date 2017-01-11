@@ -16,7 +16,7 @@ class OpenGraph {
 
 	public function opengraph() {
 
-		$tags = [ ];
+		$tags = [];
 
 		if ( is_singular() ) {
 			$tags['og:title'] = get_the_title();

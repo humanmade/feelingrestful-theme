@@ -1,15 +1,15 @@
 import React from 'react'
-import { fetchPosts } from '../../actions'
-import { Link } from 'react-router'
+import {fetchPosts} from '../../actions'
+import {Link} from 'react-router'
 import Post from '../Post'
 
-module.exports = React.createClass({
+module.exports = React.createClass( {
 
-	componentDidMount: function() {
+	componentDidMount: function () {
 		this.props.dispatch( fetchPosts() )
 	},
 
-	render: function() {
+	render: function () {
 		if ( ! this.props.posts.posts.length ) {
 			return (
 				<div className="loading-wrap">
@@ -23,8 +23,8 @@ module.exports = React.createClass({
 					return <li key={post.id}>
 						<Post {...post} />
 					</li>
-				})}
+				} )}
 			</ul>
 		)
 	}
-})
+} )
