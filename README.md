@@ -1,13 +1,13 @@
-# Feeling Restful Theme 
+# Feeling RESTful Theme 
 
 **Version 2** 
 
-A WordPress React JS theme designed for [A Day of Rest Boston 2017](https://adayofrest.hm/boston-2017)
+A WordPress React JS theme updated with a design for [A Day of Rest Boston 2017](https://adayofrest.hm/boston-2017)
 
 ---
-Purpose-built theme for the 2017 A Day of Rest Boston conference. 
+Purpose-built theme for the A Day of Rest Boston conference. 
 
-A update of the [FeelingRestful v1 theme](https://github.com/humanmade/feelingrestful-theme/releases/tag/1.1.10). 
+This is an update of the [FeelingRestful v1 theme](https://github.com/humanmade/feelingrestful-theme/releases/tag/1.1.10). 
 
 ## Differences between v1 and v2
 
