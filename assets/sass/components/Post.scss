@@ -42,9 +42,10 @@
 		display: block;
 		margin: 0;
 	}
-}
-
-.wp-caption-text {
-	color: darken($ador-grey, 30%);
-	font-size: rem(12);
+	p {
+		margin: 5px 0 0;
+		color: darken($ador-grey, 30%);
+		font-size: $h6-font-size;
+		font-style: italic;
+	}
 }

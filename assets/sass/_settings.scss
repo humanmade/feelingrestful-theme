@@ -210,7 +210,11 @@ a img.aligncenter {
 }
 
 .wp-caption {
-	max-width: 99%; /* Image does not overflow the content area */
+	background: #fff;
+	border: 1px solid #f0f0f0;
+	max-width: 96%; /* Image does not overflow the content area */
+	padding: 5px 3px 10px;
+	text-align: center;
 }
 
 .wp-caption.alignnone {
@@ -229,13 +233,16 @@ a img.aligncenter {
 	border: 0 none;
 	height: auto;
 	margin: 0;
+	max-width: 98.5%;
 	padding: 0;
 	width: auto;
 }
 
-.wp-caption-text {
+.wp-caption p.wp-caption-text {
+	font-size: 11px;
+	line-height: 17px;
 	margin: 0;
-	padding: rem(10) 0 rem(10);
+	padding: 0 4px 5px;
 }
 
 /* Text meant only for screen readers. */
