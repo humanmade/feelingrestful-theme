@@ -19,13 +19,13 @@
 		display: inline;
 
 		@media #{$smallscreen_mq} {
-			display:block;
+			display: block;
 			margin-left: 1rem;
 			margin-right: 1rem;
 		}
 
 		@media #{$larger_than_mobile_mq} {
-			img{
+			img {
 				max-width: 370px;
 				max-height: 75px;
 			}

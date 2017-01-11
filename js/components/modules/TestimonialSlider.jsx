@@ -1,10 +1,10 @@
 import React from 'react'
-import { fetchTestimonials } from '../../actions'
+import {fetchTestimonials} from '../../actions'
 import Slider from 'react-slick'
 
-module.exports = React.createClass({
+module.exports = React.createClass( {
 
-	componentDidMount: function() {
+	componentDidMount: function () {
 		this.props.dispatch( fetchTestimonials() )
 	},
 
@@ -32,28 +32,29 @@ module.exports = React.createClass({
 				<div className="inner">
 					<ul className="testimonial-slider">
 						<Slider {...settings}>
-						{testimonials.map(testimonial => {
-							return (
-									<li className="testimonial" key={testimonial.title.rendered}>
-										<img src={testimonial.avatar_image_url} alt="" className="avatar" />
-										<blockquote dangerouslySetInnerHTML={{__html:testimonial.content.rendered}}/>
-										<cite>
-											{testimonial.title.rendered}
-											{ testimonial.byline && ! testimonial.company_url &&
-												<span className="byline">, {testimonial.byline}</span>
-											}
-											{ testimonial.byline && testimonial.company_url &&
-												<span className="byline">, <a href={encodeURI(testimonial.company_url)}>{testimonial.byline}</a></span>
-											}
-										</cite>
-									</li>
-								)
-							}
-						)}
+							{testimonials.map( testimonial => {
+									return (
+										<li className="testimonial" key={testimonial.title.rendered}>
+											<img src={testimonial.avatar_image_url} alt="" className="avatar"/>
+											<blockquote dangerouslySetInnerHTML={{__html: testimonial.content.rendered}}/>
+											<cite>
+												{testimonial.title.rendered}
+												{ testimonial.byline && ! testimonial.company_url &&
+												  <span className="byline">, {testimonial.byline}</span>
+												}
+												{ testimonial.byline && testimonial.company_url &&
+												  <span className="byline">, <a
+													  href={encodeURI( testimonial.company_url )}>{testimonial.byline}</a></span>
+												}
+											</cite>
+										</li>
+									)
+								}
+							)}
 						</Slider>
 					</ul>
 				</div>
 			</section>
 		)
 	}
-})
+} )

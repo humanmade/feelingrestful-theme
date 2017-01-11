@@ -4,7 +4,6 @@
 @import "typography";
 @import "vendor/font-awesome/scss/font-awesome";
 
-
 body, html {
 	background-color: $sec;
 }
@@ -26,6 +25,6 @@ body, html {
 }
 
 .wp-core-ui .button-primary {
-	background-color: lighten( $primary, 5%) ;
+	background-color: lighten($primary, 5%);
 	text-shadow: none;
 }

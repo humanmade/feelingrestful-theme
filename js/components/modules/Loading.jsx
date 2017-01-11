@@ -1,6 +1,6 @@
 import React from 'react'
 
-module.exports = React.createClass({
+module.exports = React.createClass( {
 	render: function () {
 		return (
 			<div className="Loading">
@@ -9,4 +9,4 @@ module.exports = React.createClass({
 			</div>
 		)
 	}
-})
+} )

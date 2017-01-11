@@ -15,10 +15,12 @@ h1, h2, h3, h4, h5, h6 {
 	}
 
 }
+
 h1, h2, h3, .headline {
 	line-height: 1.2;
 	text-transform: uppercase;
 }
+
 h4, h5, h6 {
 	line-height: 1.1;
 	color: $ador-d-blue;
@@ -27,18 +29,23 @@ h4, h5, h6 {
 h1 {
 	font-size: $h1-font-size;
 }
+
 h2 {
 	font-size: $h2-font-size;
 }
+
 h3 {
 	font-size: $h3-font-size;
 }
+
 h4 {
 	font-size: $h4-font-size;
 }
+
 h5 {
 	font-size: $h5-font-size;
 }
+
 h6 {
 	font-size: $h6-font-size;
 }
@@ -152,9 +159,9 @@ ul, ol {
 }
 
 pre {
-	white-space: pre-wrap;       /* css-3 */
-	white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
-	white-space: -pre-wrap;      /* Opera 4-6 */
-	white-space: -o-pre-wrap;    /* Opera 7 */
+	white-space: pre-wrap; /* css-3 */
+	white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+	white-space: -pre-wrap; /* Opera 4-6 */
+	white-space: -o-pre-wrap; /* Opera 7 */
 	word-wrap: break-word;
 }

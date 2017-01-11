@@ -6,17 +6,17 @@ module.exports = {
 
 	lastRequest: null,
 
-	get: function( url, data, callback ) {
+	get: function ( url, data, callback ) {
 
 		return this.request( 'GET', url, data, callback );
 	},
 
-	post: function( url, data, callback ) {
+	post: function ( url, data, callback ) {
 
 		return this.request( 'POST', url, data, callback );
 	},
 
-	request: function( method, url, data, callback ) {
+	request: function ( method, url, data, callback ) {
 
 		var lastRequest = {
 			method: method,
@@ -47,12 +47,12 @@ module.exports = {
 			this.lastRequest = lastRequest
 			this.lastRequest.isLoading = false
 
-			if (xhr.status === 0) {
-				if (xhr.statusText === 'abort') {
+			if ( xhr.status === 0 ) {
+				if ( xhr.statusText === 'abort' ) {
 					// Has been aborted
 					return;
 				} else {
-				  	// Offline mode
+					// Offline mode
 				}
 			}
 

@@ -13,5 +13,6 @@ class Twitter_Timeline extends Module {
 		array( 'name' => 'widget_id', 'label' => 'Twitter Widget ID', 'type' => 'text', 'value' => '' ),
 	);
 
-	public function render() {}
+	public function render() {
+	}
 }

@@ -1,21 +1,21 @@
 import React from 'react'
-import { fetchWorkshops } from '../../actions'
-import { Link } from 'react-router'
+import {fetchWorkshops} from '../../actions'
+import {Link} from 'react-router'
 import Loading from './Loading'
 import Header from './Header'
 
-module.exports = React.createClass({
+module.exports = React.createClass( {
 
-	componentDidMount: function() {
+	componentDidMount: function () {
 		this.props.dispatch( fetchWorkshops() )
 	},
 
 	render: function () {
 
-		if (!this.props.posts.workshops.length) {
+		if ( ! this.props.posts.workshops.length ) {
 			return (
 				<div className="loading-wrap workshops">
-					<div className="loading"><span className="fa fa-heart"></span> Gathering workshops... </div>
+					<div className="loading"><span className="fa fa-heart"></span> Gathering workshops...</div>
 				</div>
 			)
 		}
@@ -28,14 +28,15 @@ module.exports = React.createClass({
 
 					<h2 className="headline">{this.props.heading}</h2>
 					{ this.props.subheading ?
-					<p>{this.props.subheading}</p>
-					: '' }
+						<p>{this.props.subheading}</p>
+						: '' }
 
 					<div className="ws-overview">
 
 						<ul className="ws-row">
 
-							<li><a href="https://adayofrest.hm/boston-2017/page/introduction-to-javascript/"  className="ws-detail ws-full-day ws-js">
+							<li><a href="https://adayofrest.hm/boston-2017/page/introduction-to-javascript/"
+							       className="ws-detail ws-full-day ws-js">
 
 								<span className="ws-title">Introduction to JavaScript</span>
 								<span className="ws-line"></span>
@@ -46,7 +47,8 @@ module.exports = React.createClass({
 							</a></li>
 
 							<li>
-								<a href="https://adayofrest.hm/boston-2017/page/workshop-intoduction-to-reactjs-wes-bos/" className="ws-detail ws-full-day ws-react">
+								<a href="https://adayofrest.hm/boston-2017/page/workshop-intoduction-to-reactjs-wes-bos/"
+								   className="ws-detail ws-full-day ws-react">
 									<span className="ws-title">Intro to ReactJS</span>
 									<span className="ws-line"></span>
 									<span className="ws-instructor">Wes Bos</span>
@@ -55,12 +57,13 @@ module.exports = React.createClass({
 								</a>
 							</li>
 
-							</ul>
+						</ul>
 
 						<ul className="ws-row">
 
 							<li>
-								<a href="https://adayofrest.hm/boston-2017/page/a-day-of-rest-workshop-woocommerce-and-the-rest-api/" className="ws-detail ws-half-day ws-woo">
+								<a href="https://adayofrest.hm/boston-2017/page/a-day-of-rest-workshop-woocommerce-and-the-rest-api/"
+								   className="ws-detail ws-half-day ws-woo">
 
 									<span className="ws-title">WooCommerce and the REST API</span>
 									<span className="ws-line"></span>
@@ -72,7 +75,8 @@ module.exports = React.createClass({
 							</li>
 
 							<li>
-								<a href="https://adayofrest.hm/boston-2017/page/workshop-wordpress-rest-api-authentication/" className="ws-detail ws-half-day ws-restapi">
+								<a href="https://adayofrest.hm/boston-2017/page/workshop-wordpress-rest-api-authentication/"
+								   className="ws-detail ws-half-day ws-restapi">
 
 									<span className="ws-title">WordPress REST API Authentication</span>
 									<span className="ws-line"></span>
@@ -84,7 +88,8 @@ module.exports = React.createClass({
 							</li>
 
 							<li>
-								<a href="https://adayofrest.hm/boston-2017/page/workshop-packaging-modern-web-applications-with-webpack/" className="ws-detail ws-half-day ws-webpack">
+								<a href="https://adayofrest.hm/boston-2017/page/workshop-packaging-modern-web-applications-with-webpack/"
+								   className="ws-detail ws-half-day ws-webpack">
 
 									<span className="ws-title">Packaging Modern Web Applications with Webpack</span>
 									<span className="ws-line"></span>
@@ -96,7 +101,8 @@ module.exports = React.createClass({
 							</li>
 
 							<li>
-								<a href="https://adayofrest.hm/boston-2017/page/workshop-developing-with-backbone-and-the-rest-api/" className="ws-detail ws-half-day ws-backbone">
+								<a href="https://adayofrest.hm/boston-2017/page/workshop-developing-with-backbone-and-the-rest-api/"
+								   className="ws-detail ws-half-day ws-backbone">
 
 									<span className="ws-title">Developing with Backbone and the REST API</span>
 									<span className="ws-line"></span>
@@ -117,5 +123,5 @@ module.exports = React.createClass({
 
 		)
 	}
-})
+} )
 

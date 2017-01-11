@@ -1,13 +1,13 @@
 import React from 'react'
-import { Link } from 'react-router'
-import { extend } from 'lodash/object'
+import {Link} from 'react-router'
+import {extend} from 'lodash/object'
 
-module.exports = React.createClass({
+module.exports = React.createClass( {
 
-	render: function() {
+	render: function () {
 
 		var ListItem = React.createClass( {
-			render: function() {
+			render: function () {
 				var item = extend( {
 					url: false,
 					text: false,
@@ -25,27 +25,27 @@ module.exports = React.createClass({
 				}
 
 				return item.url && (
-					<li key={item.text} className={ classNames.join( ' ' ) }  >
-						{ item.url.match(/^http/) ?
-							<a href={item.url}><span className="location">{item.text}</span>
-								{ item.date && <span className="date">{item.date}</span> }
-							</a> :
-							<Link to={item.url}><span className="location">{item.text}</span>
-								{ item.date && <span className="date">{item.date}</span> }
-							</Link> }
-						{ item.children &&
-							<ul className="submenu">
-								{ item.children.map( item => {
-									return <ListItem item={item} key={item.text} />
-								} ) }
-							</ul> }
-					</li>
-				)
+						<li key={item.text} className={ classNames.join( ' ' ) }>
+							{ item.url.match( /^http/ ) ?
+								<a href={item.url}><span className="location">{item.text}</span>
+									{ item.date && <span className="date">{item.date}</span> }
+								</a> :
+								<Link to={item.url}><span className="location">{item.text}</span>
+									{ item.date && <span className="date">{item.date}</span> }
+								</Link> }
+							{ item.children &&
+							  <ul className="submenu">
+								  { item.children.map( item => {
+									  return <ListItem item={item} key={item.text}/>
+								  } ) }
+							  </ul> }
+						</li>
+					)
 			}
 		} )
 
 		return (
-			<ListItem item={this.props} key={this.props.text} />
+			<ListItem item={this.props} key={this.props.text}/>
 		);
 	}
-})
+} )

@@ -12,7 +12,7 @@
 	}
 }
 
-.Page--content  {
+.Page--content {
 	> section.Speakers {
 		padding: 0;
 	}
@@ -47,10 +47,10 @@
 			width: 100%;
 		}
 
-		@include ador-background-image( 'assets/images/ador-poststatus-41.jpg' );
+		@include ador-background-image('assets/images/ador-poststatus-41.jpg');
 
 		& + .speaker {
-			@include ador-background-image( 'assets/images/ador-poststatus-12.jpg' );
+			@include ador-background-image('assets/images/ador-poststatus-12.jpg');
 		}
 
 		.company {

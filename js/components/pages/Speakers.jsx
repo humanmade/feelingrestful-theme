@@ -1,14 +1,14 @@
 import React from 'react'
-import { fetchSpeakers } from '../../actions'
-import { Link } from 'react-router'
+import {fetchSpeakers} from '../../actions'
+import {Link} from 'react-router'
 
-module.exports = React.createClass({
+module.exports = React.createClass( {
 
-	componentDidMount: function() {
+	componentDidMount: function () {
 		this.props.dispatch( fetchSpeakers() )
 	},
 
-	render: function() {
+	render: function () {
 		if ( ! this.props.posts.speakers.length ) {
 			return (
 				<div className="loading-wrap">
@@ -19,9 +19,9 @@ module.exports = React.createClass({
 		return (
 			<ul className="Speakers">
 				{this.props.posts.speakers.map( speaker => {
-					var attr = { key: speaker.id }
+					var attr = {key: speaker.id}
 					if ( speaker._embedded && speaker._embedded['wp:featuredmedia'] ) {
-						attr.style = { backgroundImage: 'url(' + speaker._embedded['wp:featuredmedia'][0].source_url + ')' }
+						attr.style = {backgroundImage: 'url(' + speaker._embedded['wp:featuredmedia'][0].source_url + ')'}
 					}
 					return <li {...attr}>
 						<Link to={'/speakers/' + speaker.id}>
@@ -29,8 +29,8 @@ module.exports = React.createClass({
 							<h3>{speaker.company}</h3>
 						</Link>
 					</li>
-				})}
+				} )}
 			</ul>
 		)
 	}
-})
+} )

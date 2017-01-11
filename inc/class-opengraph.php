@@ -16,7 +16,7 @@ class OpenGraph {
 
 	public function opengraph() {
 
-		$tags = [ ];
+		$tags = [];
 
 		if ( is_singular() ) {
 			$tags['og:title'] = get_the_title();
@@ -46,11 +46,11 @@ class OpenGraph {
 		}
 
 		$tags = wp_parse_args( $tags, [
-			'og:type'         => 'website',
-			'og:title'        => get_bloginfo( 'name' ),
-			'og:description'  => get_bloginfo( 'description' ),
-			'og:url'          => home_url( '/' ),
-			'images'          => $og_images
+			'og:type'        => 'website',
+			'og:title'       => get_bloginfo( 'name' ),
+			'og:description' => get_bloginfo( 'description' ),
+			'og:url'         => home_url( '/' ),
+			'images'         => $og_images
 		] );
 
 		$tags = array_filter( $tags );
@@ -59,8 +59,8 @@ class OpenGraph {
 
 		foreach ( $tags as $property => $content ) {
 
-			if( 'images' === $property ){
-				foreach ( $content as $image ){
+			if ( 'images' === $property ) {
+				foreach ( $content as $image ) {
 					foreach ( $image as $image_property => $image_content ) {
 						printf( '
 							<meta property="%s" content="%s">',
@@ -69,7 +69,7 @@ class OpenGraph {
 						);
 					}
 				}
-				
+
 			} else {
 				printf( '
 					<meta property="%s" content="%s">',

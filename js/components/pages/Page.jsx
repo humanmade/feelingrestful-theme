@@ -1,6 +1,6 @@
 import React from 'react'
-import { findWhere } from 'underscore'
-import { fetchPageBySlug } from '../../actions'
+import {findWhere} from 'underscore'
+import {fetchPageBySlug} from '../../actions'
 import Text from '../modules/Text'
 import Image from '../modules/Image'
 import Blockquote from '../modules/Blockquote'
@@ -17,9 +17,9 @@ import OrganisedBy from '../modules/OrganisedBy'
 import Tickets from '../modules/Tickets'
 import SponsorsDetail from '../modules/SponsorsDetail'
 
-module.exports = React.createClass({
+module.exports = React.createClass( {
 
-	componentDidMount: function() {
+	componentDidMount: function () {
 		if ( ! this.props.posts.preview ) {
 			'/' !== this.props.location.pathname
 				? this.props.dispatch( fetchPageBySlug( this.props.routeParams.slug ) )
@@ -27,13 +27,13 @@ module.exports = React.createClass({
 		}
 	},
 
-	render: function() {
+	render: function () {
 		var slugToFind = this.props.routeParams.slug
 		if ( '/' === this.props.location.pathname ) {
 			slugToFind = 'home-page'
 		}
 
-		var page = this.props.posts.preview || findWhere( this.props.posts.pages, { slug: slugToFind } )
+		var page = this.props.posts.preview || findWhere( this.props.posts.pages, {slug: slugToFind} )
 
 		if ( ! page ) {
 			return (
@@ -50,9 +50,9 @@ module.exports = React.createClass({
 					<h1>{page.title.rendered}</h1>
 				</div>
 				<div className="Page--content">
-					{page.page_builder && page.page_builder.modules.map((Module, i) => {
+					{page.page_builder && page.page_builder.modules.map( ( Module, i ) => {
 						Module.data.key = Module.type + '-' + i
-						switch (Module.type) {
+						switch ( Module.type ) {
 							case 'text':
 								return <Text {...Module.data} />
 							case 'blockquote':
@@ -86,9 +86,9 @@ module.exports = React.createClass({
 								return <Tickets {...Module.data} />
 						}
 						return <div></div>
-					})}
+					} )}
 				</div>
 			</div>
 		)
 	}
-})
+} )

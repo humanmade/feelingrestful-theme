@@ -1,9 +1,9 @@
-var webpack = require('webpack');
-var webpackConfig = require('./webpack.config');
+var webpack = require( 'webpack' );
+var webpackConfig = require( './webpack.config' );
 
-module.exports = function (grunt) {
+module.exports = function ( grunt ) {
 
-	grunt.initConfig({
+	grunt.initConfig( {
 
 		sass: {
 			dist: {
@@ -47,12 +47,12 @@ module.exports = function (grunt) {
 				tasks: ['sass']
 			}
 		}
-	});
+	} );
 
-	grunt.loadNpmTasks('grunt-sass');
-	grunt.loadNpmTasks('grunt-webpack');
-	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks( 'grunt-sass' );
+	grunt.loadNpmTasks( 'grunt-webpack' );
+	grunt.loadNpmTasks( 'grunt-contrib-watch' );
 
-	grunt.registerTask('default', ['sass', 'watch', 'webpack:watch-dev']);
-	grunt.registerTask('build', ['sass', 'webpack:build']);
+	grunt.registerTask( 'default', ['sass', 'watch', 'webpack:watch-dev'] );
+	grunt.registerTask( 'build', ['sass', 'webpack:build'] );
 }

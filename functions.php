@@ -14,7 +14,7 @@ define( 'HM_VERSION', defined( 'HM_DEPLOYMENT_REVISION' ) ?
 	HM_DEPLOYMENT_REVISION :
 	wp_get_theme()->version );
 
-add_action( 'wp_enqueue_scripts', function() {
+add_action( 'wp_enqueue_scripts', function () {
 
 	$post_type_object = get_post_type_object( get_post_type() ?: 'post' );
 
@@ -32,7 +32,7 @@ add_action( 'wp_enqueue_scripts', function() {
 /**
  * Add login Styling
  */
-add_action( 'login_enqueue_scripts', function() {
+add_action( 'login_enqueue_scripts', function () {
 	wp_enqueue_style( 'ador-boston-login', get_template_directory_uri() . '/dist/login.css', array(), HM_VERSION );
 } );
 
@@ -43,20 +43,20 @@ add_post_type_support( 'workshop', 'modular-page-builder' );
 add_theme_support( 'post-thumbnails' );
 add_theme_support( 'menus' );
 
-add_action( 'after_setup_theme', function() {
+add_action( 'after_setup_theme', function () {
 	register_nav_menus(
 		array(
 			'primary_navigation' => 'Primary Navigation',
-			'events_navigation' => 'Events Navigation',
-			'social_navigation' => 'Social Navigation',
-			'buy_navigation' => 'Buy Navigation'
+			'events_navigation'  => 'Events Navigation',
+			'social_navigation'  => 'Social Navigation',
+			'buy_navigation'     => 'Buy Navigation'
 		)
 	);
 } );
 
-add_action( 'admin_init', function() {
+add_action( 'admin_init', function () {
 
-	foreach( array( 'page', 'workshop' ) as $post_type ) {
+	foreach ( array( 'page', 'workshop' ) as $post_type ) {
 		remove_post_type_support( $post_type, 'editor' );
 		remove_post_type_support( $post_type, 'comments' );
 		remove_post_type_support( $post_type, 'page-attributes' );
@@ -66,7 +66,7 @@ add_action( 'admin_init', function() {
 	}
 } );
 
-add_action( 'init', function() {
+add_action( 'init', function () {
 
 	if ( class_exists( 'FeelingRESTful\\OpenGraph' ) ) {
 		$opengraph = new FeelingRESTful\OpenGraph();
@@ -90,7 +90,7 @@ add_action( 'init', function() {
 	$plugin->register_module( 'tickets', 'FeelingRESTful\\Page_Builder_Modules\\Tickets' );
 } );
 
-add_filter( 'modular_page_builder_allowed_modules_for_page', function( $allowed ) {
+add_filter( 'modular_page_builder_allowed_modules_for_page', function ( $allowed ) {
 	$allowed[] = 'map';
 	$allowed[] = 'twitter_timeline';
 	$allowed[] = 'intro';
@@ -102,60 +102,62 @@ add_filter( 'modular_page_builder_allowed_modules_for_page', function( $allowed 
 	$allowed[] = 'cta_block';
 	$allowed[] = 'organised_by';
 	$allowed[] = 'tickets';
+
 	return $allowed;
 } );
 
-add_action( 'after_setup_theme', function() {
+add_action( 'after_setup_theme', function () {
 	global $wp_rewrite;
 	$wp_rewrite->permalink_structure = $wp_rewrite->root . 'news/%postname%';
 	$wp_rewrite->page_structure      = $wp_rewrite->root . 'page/%pagename%';
 	$wp_rewrite->front               = $wp_rewrite->root;
 } );
 
-add_action( 'after_setup_theme', function() {
-	add_editor_style(  'dist/editor.css' );
-});
+add_action( 'after_setup_theme', function () {
+	add_editor_style( 'dist/editor.css' );
+} );
 
 // Overwrite permastructs where we fetch by ID rather than name
-add_action( 'init', function() {
-	foreach( array( 'speaker', 'workshop' ) as $post_type ) {
+add_action( 'init', function () {
+	foreach ( array( 'speaker', 'workshop' ) as $post_type ) {
 		$post_type = get_post_type_object( $post_type );
 
 		if ( is_object( $post_type ) ) {
 
 			add_rewrite_tag(
-                "%{$post_type->name}_id%",
-                '(\d+)',
-                "post_type={$post_type->name}&p="
-            );
+				"%{$post_type->name}_id%",
+				'(\d+)',
+				"post_type={$post_type->name}&p="
+			);
 
 			add_permastruct(
-                $post_type->name,
-                "{$post_type->rewrite['slug']}/%{$post_type->name}_id%",
-                array(
-                    'with_front' => false,
-                    'ep_mask' => EP_PERMALINK,
-                    'paged' => false,
-                    'feed' => false,
-                    'forcomments' => false,
-                    'walk_dirs' => false,
-                    'endpoints' => true,
-                )
-            );
+				$post_type->name,
+				"{$post_type->rewrite['slug']}/%{$post_type->name}_id%",
+				array(
+					'with_front'  => false,
+					'ep_mask'     => EP_PERMALINK,
+					'paged'       => false,
+					'feed'        => false,
+					'forcomments' => false,
+					'walk_dirs'   => false,
+					'endpoints'   => true,
+				)
+			);
 
-        }
+		}
 
 	}
 }, 11 );
 
-add_filter( 'post_type_link', function( $post_link, $post, $leavename, $sample ) {
+add_filter( 'post_type_link', function ( $post_link, $post, $leavename, $sample ) {
 	if ( $sample ) {
 		return str_replace( "%{$post->post_type}_id%", 'NNN', $post_link );
 	}
+
 	return str_replace( "%{$post->post_type}_id%", $post->ID, $post_link );
 }, 10, 4 );
 
-add_action( 'rest_api_init', function() {
+add_action( 'rest_api_init', function () {
 
 	if ( ! class_exists( 'HM\\REST\\Post_Autosave_Controller' ) ) {
 		return;
@@ -172,7 +174,7 @@ add_action( 'rest_api_init', function() {
 	}
 } );
 
-add_filter( 'pre_option_permalink_structure', function() {
+add_filter( 'pre_option_permalink_structure', function () {
 	return '/news/%postname%';
 } );
 
@@ -181,11 +183,11 @@ add_filter( 'qm/dispatch/html', '__return_false' );
 /**
  * Polyfill for wp_title()
  */
-add_filter( 'wp_title', function( $title, $sep, $seplocation ) {
+add_filter( 'wp_title', function ( $title, $sep, $seplocation ) {
 
 	if ( false !== strpos( $title, __( 'Page not found' ) ) ) {
 		$replacement = ucwords( str_replace( '/', ' ', $_SERVER['REQUEST_URI'] ) );
-		$title = str_replace( __( 'Page not found' ), $replacement, $title );
+		$title       = str_replace( __( 'Page not found' ), $replacement, $title );
 	}
 
 	return $title;
@@ -194,21 +196,21 @@ add_filter( 'wp_title', function( $title, $sep, $seplocation ) {
 /**
  * Add Woothemes Testimonial API endpoint
  */
-add_filter( 'woothemes_testimonials_post_type_args', function( $args ) {
+add_filter( 'woothemes_testimonials_post_type_args', function ( $args ) {
 
-	$args['show_in_rest'] = true;
-	$args['rest_base'] = 'testimonials';
+	$args['show_in_rest']          = true;
+	$args['rest_base']             = 'testimonials';
 	$args['rest_controller_class'] = 'WP_REST_Posts_Controller';
 
 	return $args;
-});
+} );
 
-add_filter( 'rest_prepare_testimonial', function( $data, $post ) {
+add_filter( 'rest_prepare_testimonial', function ( $data, $post ) {
 
 	$_data = $data->data;
 
 	if ( ! empty( get_post_meta( $post->ID, '_gravatar_email', true ) ) ) {
-        $_data['avatar_image_url'] = get_avatar_url( get_post_meta( $post->ID, '_gravatar_email', true ) );
+		$_data['avatar_image_url'] = get_avatar_url( get_post_meta( $post->ID, '_gravatar_email', true ) );
 	} else if ( has_post_thumbnail( $post->ID ) ) {
 		$_data['avatar_image_url'] = get_the_post_thumbnail_url( $post->ID, 'thumbnail' );
 	}
@@ -222,15 +224,17 @@ add_filter( 'rest_prepare_testimonial', function( $data, $post ) {
 	}
 
 	$data->data = $_data;
+
 	return $data;
 
-}, 10, 2);
+}, 10, 2 );
 
 /**
  * TinyMce needs more options
  */
 add_filter( 'mpb_wysiwyg_args', function ( $args ) {
 	$args['teeny'] = false;
+
 	return $args;
 } );
 
@@ -242,6 +246,7 @@ add_filter( 'body_class', function ( $classes ) {
 	if ( is_page() ) {
 		$classes[] = sanitize_title_with_dashes( get_the_title() );
 	}
+
 	return $classes;
 } );
 
@@ -266,24 +271,28 @@ add_action( 'wp_footer', function () {
 /**
  * Add Twitter js
  */
-add_action( 'wp_footer', function() {
+add_action( 'wp_footer', function () {
 	?>
-	<script>window.twttr = (function(d, s, id) {
-	  var js, fjs = d.getElementsByTagName(s)[0],
-	    t = window.twttr || {};
-	  if (d.getElementById(id)) return t;
-	  js = d.createElement(s);
-	  js.id = id;
-	  js.src = "https://platform.twitter.com/widgets.js";
-	  fjs.parentNode.insertBefore(js, fjs);
+	<script>window.twttr = (
+			function ( d, s, id ) {
+				var js, fjs = d.getElementsByTagName( s )[0],
+					t = window.twttr || {};
+				if ( d.getElementById( id ) ) {
+					return t;
+				}
+				js = d.createElement( s );
+				js.id = id;
+				js.src = "https://platform.twitter.com/widgets.js";
+				fjs.parentNode.insertBefore( js, fjs );
 
-	  t._e = [];
-	  t.ready = function(f) {
-		  t._e.push(f);
-	  };
+				t._e = [];
+				t.ready = function ( f ) {
+					t._e.push( f );
+				};
 
-	  return t;
-	}(document, "script", "twitter-wjs"));</script>
+				return t;
+			}( document, "script", "twitter-wjs" )
+		);</script>
 	<?php
 } );
 
@@ -291,21 +300,38 @@ add_action( 'wp_footer', function() {
 /**
  * Add Facebook tracking pixel
  */
-add_action( 'wp_footer', function() {
+add_action( 'wp_footer', function () {
 	?>
 	<!-- Facebook Pixel Code -->
 	<script>
-	!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-	n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-	n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-	t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-	document,'script','https://connect.facebook.net/en_US/fbevents.js');
-	fbq('init', '789818907754412');
-	fbq('track', 'PageView');
+		! function ( f, b, e, v, n, t, s ) {
+			if ( f.fbq ) {
+				return;
+			}
+			n = f.fbq = function () {
+				n.callMethod ?
+					n.callMethod.apply( n, arguments ) : n.queue.push( arguments )
+			};
+			if ( ! f._fbq ) {
+				f._fbq = n;
+			}
+			n.push = n;
+			n.loaded = ! 0;
+			n.version = '2.0';
+			n.queue = [];
+			t = b.createElement( e );
+			t.async = ! 0;
+			t.src = v;
+			s = b.getElementsByTagName( e )[0];
+			s.parentNode.insertBefore( t, s )
+		}( window,
+			document, 'script', 'https://connect.facebook.net/en_US/fbevents.js' );
+		fbq( 'init', '789818907754412' );
+		fbq( 'track', 'PageView' );
 	</script>
 	<noscript><img height="1" width="1" style="display:none"
-	src="https://www.facebook.com/tr?id=789818907754412&ev=PageView&noscript=1"
-	/></noscript>
+	               src="https://www.facebook.com/tr?id=789818907754412&ev=PageView&noscript=1"
+		/></noscript>
 	<!-- DO NOT MODIFY -->
 	<!-- End Facebook Pixel Code -->
 	<?php
@@ -325,12 +351,12 @@ add_filter( 'opengraph_tags', function ( $tags ) {
 	$tags['fb:app_id'] = '1091317897580509';
 
 	// Fallback images
-	$tags['images'][] = array (
+	$tags['images'][] = array(
 		'og:image'        => get_template_directory_uri() . '/assets/images/ador-og.png',
 		'og:image:width'  => '512',
 		'og:image:height' => '512'
 	);
-	$tags['images'][] = array (
+	$tags['images'][] = array(
 		'og:image'        => get_template_directory_uri() . '/assets/images/ador-og.png',
 		'og:image:width'  => '500',
 		'og:image:height' => '215'
@@ -342,24 +368,29 @@ add_filter( 'opengraph_tags', function ( $tags ) {
 /**
  * FB SDK
  */
-add_action( 'wp_body', function() {
+add_action( 'wp_body', function () {
 	?>
 	<script>
-	  window.fbAsyncInit = function() {
-		  FB.init({
-			  appId      : '1091317897580509',
-			  xfbml      : true,
-			  version    : 'v2.6'
-		  });
-	  };
+		window.fbAsyncInit = function () {
+			FB.init( {
+				appId: '1091317897580509',
+				xfbml: true,
+				version: 'v2.6'
+			} );
+		};
 
-	  (function(d, s, id){
-		  var js, fjs = d.getElementsByTagName(s)[0];
-		  if (d.getElementById(id)) {return;}
-		  js = d.createElement(s); js.id = id;
-		  js.src = "//connect.facebook.net/en_US/sdk.js";
-		  fjs.parentNode.insertBefore(js, fjs);
-	  }(document, 'script', 'facebook-jssdk'));
+		(
+			function ( d, s, id ) {
+				var js, fjs = d.getElementsByTagName( s )[0];
+				if ( d.getElementById( id ) ) {
+					return;
+				}
+				js = d.createElement( s );
+				js.id = id;
+				js.src = "//connect.facebook.net/en_US/sdk.js";
+				fjs.parentNode.insertBefore( js, fjs );
+			}( document, 'script', 'facebook-jssdk' )
+		);
 	</script>
 	<div class="fb-quote"></div>
 	<?php

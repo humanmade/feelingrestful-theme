@@ -30,7 +30,7 @@
 		bottom: 0;
 		left: 0;
 		right: 0;
-		background-color: fade-out( darken( saturate($sec, 6%), 10%), 0.15);
+		background-color: fade-out(darken(saturate($sec, 6%), 10%), 0.15);
 		z-index: 2;
 	}
 

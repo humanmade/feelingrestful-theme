@@ -1,6 +1,6 @@
 import React from 'react'
-import { findWhere } from 'underscore'
-import { fetchWorkshop } from '../../actions'
+import {findWhere} from 'underscore'
+import {fetchWorkshop} from '../../actions'
 import Text from '../modules/Text'
 import Image from '../modules/Image'
 import Blockquote from '../modules/Blockquote'
@@ -17,16 +17,16 @@ import OrganisedBy from '../modules/OrganisedBy'
 import Tickets from '../modules/Tickets'
 import SponsorsDetail from '../modules/SponsorsDetail'
 
-module.exports = React.createClass({
+module.exports = React.createClass( {
 
-	componentDidMount: function() {
+	componentDidMount: function () {
 		if ( ! this.props.posts.preview ) {
 			this.props.dispatch( fetchWorkshop( Number( this.props.routeParams.id ) ) )
 		}
 	},
 
-	render: function() {
-		var workshop = this.props.posts.preview || findWhere( this.props.posts.workshops, { id: Number( this.props.routeParams.id ) } )
+	render: function () {
+		var workshop = this.props.posts.preview || findWhere( this.props.posts.workshops, {id: Number( this.props.routeParams.id )} )
 
 		if ( ! workshop ) {
 			return (
@@ -43,9 +43,9 @@ module.exports = React.createClass({
 					<h1>{workshop.title.rendered}</h1>
 				</div>
 				<div className="Page--content">
-					{workshop.page_builder && workshop.page_builder.modules.map((Module, i) => {
+					{workshop.page_builder && workshop.page_builder.modules.map( ( Module, i ) => {
 						Module.data.key = Module.type + '-' + i
-						switch (Module.type) {
+						switch ( Module.type ) {
 							case 'text':
 								return <Text {...Module.data} />
 							case 'blockquote':
@@ -79,10 +79,10 @@ module.exports = React.createClass({
 								return <Tickets {...Module.data} />
 						}
 						return <div></div>
-					})}
+					} )}
 
 				</div>
 			</div>
 		)
 	}
-})
+} )

@@ -15,10 +15,11 @@ class Tickets extends Module {
 	public $name = 'tickets';
 	public $label = 'Tickets';
 	public $attr = array(
-		array( 'name' => 'heading',  'label' => 'Heading', 'type' => 'text', 'value' => '' ),
-		array( 'name' => 'subheading',  'label' => 'Subheading', 'type' => 'text', 'value' => '' ),
+		array( 'name' => 'heading', 'label' => 'Heading', 'type' => 'text', 'value' => '' ),
+		array( 'name' => 'subheading', 'label' => 'Subheading', 'type' => 'text', 'value' => '' ),
 	);
 
-	public function render() {}
+	public function render() {
+	}
 }
 

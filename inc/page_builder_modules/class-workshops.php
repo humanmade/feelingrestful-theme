@@ -19,5 +19,6 @@ class Workshops extends Module {
 		array( 'name' => 'subheading', 'label' => 'Subheading', 'type' => 'text', 'value' => '' ),
 	);
 
-	public function render() {}
+	public function render() {
+	}
 }

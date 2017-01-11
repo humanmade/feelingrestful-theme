@@ -9,11 +9,11 @@ function feelingrestful_menu_item( $menu_item ) {
 	}
 
 	// regex remove domain from
-	$domain = get_home_url();
+	$domain           = get_home_url();
 	$menu_item['url'] = str_replace( $domain, '', $menu_item['url'] );
 
 	// add in Event and pastEvent settings
-	$menu_item['event'] = false;
+	$menu_item['event']     = false;
 	$menu_item['pastEvent'] = false;
 
 	if ( preg_match( '/\bevent\b/', $menu_item['attr'] ) ) {
@@ -25,6 +25,6 @@ function feelingrestful_menu_item( $menu_item ) {
 	}
 
 	$menu_item['text'] = $menu_item['title'];
-	
+
 	return $menu_item;
 }

@@ -1,14 +1,25 @@
-import { combineReducers } from 'redux'
-import { routerStateReducer } from 'redux-router';
-import { findWhere } from 'underscore'
+import {combineReducers} from 'redux'
+import {routerStateReducer} from 'redux-router';
+import {findWhere} from 'underscore'
 
-function posts( state = { speakers: [], workshops: [], posts: [], pages: [], pointsOfInterest: [], sponsors: [], testimonials: [], preview: null }, action ) {
-	switch( action.type ) {
+function posts(
+	state = {
+		speakers: [],
+		workshops: [],
+		posts: [],
+		pages: [],
+		pointsOfInterest: [],
+		sponsors: [],
+		testimonials: [],
+		preview: null
+	}, action
+) {
+	switch ( action.type ) {
 		case 'UPDATE_SPEAKERS':
 			state.speakers = action.speakers
 			break
 		case 'UPDATE_SPEAKER':
-			if ( ! findWhere( state.speakers, { id: action.speaker.id } ) ) {
+			if ( ! findWhere( state.speakers, {id: action.speaker.id} ) ) {
 				state.speakers.push( action.speaker );
 			}
 			break
@@ -16,7 +27,7 @@ function posts( state = { speakers: [], workshops: [], posts: [], pages: [], poi
 			state.workshops = action.workshops
 			break
 		case 'UPDATE_WORKSHOP':
-			if ( ! findWhere( state.workshops, { id: action.workshop.id } ) ) {
+			if ( ! findWhere( state.workshops, {id: action.workshop.id} ) ) {
 				state.workshops.push( action.workshop )
 			}
 			break
@@ -30,7 +41,7 @@ function posts( state = { speakers: [], workshops: [], posts: [], pages: [], poi
 			state.posts = action.posts
 			break
 		case 'UPDATE_POST':
-			if ( action.post && ! findWhere( state.posts, { id: action.post.id } ) ) {
+			if ( action.post && ! findWhere( state.posts, {id: action.post.id} ) ) {
 				state.posts.push( action.post );
 			}
 			break
@@ -38,7 +49,7 @@ function posts( state = { speakers: [], workshops: [], posts: [], pages: [], poi
 			state.pages = action.pages
 			break
 		case 'UPDATE_PAGE':
-			if ( ! findWhere( state.pages, { id: action.page.id } ) ) {
+			if ( ! findWhere( state.pages, {id: action.page.id} ) ) {
 				state.pages.push( action.page );
 			}
 			break
@@ -49,23 +60,23 @@ function posts( state = { speakers: [], workshops: [], posts: [], pages: [], poi
 			state.testimonials = action.testimonials
 			break
 	}
-	return { ...state }
+	return {...state}
 }
 
-function menu( state = { items : [] }, action ) {
+function menu( state = {items: []}, action ) {
 
-	switch( action.type ) {
+	switch ( action.type ) {
 		case 'UPDATE_MENU':
-			return { ...state, items: action.items }
+			return {...state, items: action.items}
 	}
 
-	return { ...state }
+	return {...state}
 }
 
 
-function display( state = { consoleExpanded: false, showingMenu: false, isGoingBack: false }, action ) {
+function display( state = {consoleExpanded: false, showingMenu: false, isGoingBack: false}, action ) {
 
-	switch( action.type ) {
+	switch ( action.type ) {
 		case 'TOGGLED_CONSOLE':
 			state.consoleExpanded = ! state.consoleExpanded
 			break
@@ -77,14 +88,14 @@ function display( state = { consoleExpanded: false, showingMenu: false, isGoingB
 			break
 	}
 
-	return { ...state }
+	return {...state}
 }
 
-var reducers = combineReducers({
+var reducers = combineReducers( {
 	menu,
 	router: routerStateReducer,
 	posts,
 	display
-})
+} )
 
 module.exports = reducers

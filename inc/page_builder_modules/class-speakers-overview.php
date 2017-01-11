@@ -15,9 +15,10 @@ class Speakers_Overview extends Module {
 	public $name = 'speakers_overview';
 	public $label = 'Speakers Overview';
 	public $attr = array(
-		array( 'name' => 'heading',  'label' => 'Heading', 'type' => 'text', 'value' => '' ),
+		array( 'name' => 'heading', 'label' => 'Heading', 'type' => 'text', 'value' => '' ),
 		array( 'name' => 'subheading', 'label' => 'Subheading', 'type' => 'text', 'value' => '' ),
 	);
 
-	public function render() {}
+	public function render() {
+	}
 }

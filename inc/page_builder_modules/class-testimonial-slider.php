@@ -17,5 +17,6 @@ class Testimonial_Slider extends Module {
 	public $label = 'Testimonial Slider';
 	public $attr = array();
 
-	public function render() {}
+	public function render() {
+	}
 }

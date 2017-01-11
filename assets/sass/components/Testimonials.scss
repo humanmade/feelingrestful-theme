@@ -1,7 +1,7 @@
 .Testimonials {
 	max-width: 100%;
 	text-align: center;
-	@include ador-background-image( '../assets/images/ador-poststatus-12.jpg' );
+	@include ador-background-image('../assets/images/ador-poststatus-12.jpg');
 
 	.testimonial-slider {
 		@include span-columns(10);

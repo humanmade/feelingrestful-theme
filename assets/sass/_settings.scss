@@ -36,41 +36,41 @@ $h6-font-size: rem(16);
 
 /* universal   */
 body, html {
-  padding: 0;
-  margin: 0;
-  font-family: $f_body;
-  color: white;
-  height: 100%;
-  min-height: 100%;
-  line-height: 24px;
+	padding: 0;
+	margin: 0;
+	font-family: $f_body;
+	color: white;
+	height: 100%;
+	min-height: 100%;
+	line-height: 24px;
 }
 
 body {
-  -webkit-font-smoothing: antialiased;
+	-webkit-font-smoothing: antialiased;
 }
 
 figure {
-  margin: 1em 0;
+	margin: 1em 0;
 }
 
 img {
-  max-width: 100%;
-  height: auto;
+	max-width: 100%;
+	height: auto;
 }
 
 iframe {
-  display: block;
-  max-width: 100% !important;
-  margin-left: auto;
-  margin-right: auto;
+	display: block;
+	max-width: 100% !important;
+	margin-left: auto;
+	margin-right: auto;
 }
 
-@mixin ador-background-image($image-url){
-    background-color: $ador-d-blue;
-    background: linear-gradient(rgba($ador-d-blue, .75), rgba($ador-d-blue, .85)),
-                url($image-url);
-    background-size: cover;
-    background-position: 50% 50%;
+@mixin ador-background-image($image-url) {
+	background-color: $ador-d-blue;
+	background: linear-gradient(rgba($ador-d-blue, .75), rgba($ador-d-blue, .85)),
+	url($image-url);
+	background-size: cover;
+	background-position: 50% 50%;
 }
 
 .admin-bar {
@@ -79,7 +79,7 @@ iframe {
 	}
 	.Menu {
 		top: 32px;
-  	}
+	}
 }
 
 .App, #app {
@@ -158,7 +158,7 @@ iframe {
 	width: 100%;
 	&.card-back-leave-active {
 		transition: all 300ms ease-out;
-	opacity: 0;
+		opacity: 0;
 	}
 }
 
@@ -180,7 +180,7 @@ div.aligncenter {
 }
 
 .alignright {
-	float:right;
+	float: right;
 	margin: 5px 0 rem(24) rem(48);
 }
 

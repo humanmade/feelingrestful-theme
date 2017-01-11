@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Organised by 
+ * Organised by
  * @package FeelingRESTful\Page_Builder_Modules
  *
  * Displays post status and human made organiser logos
@@ -15,9 +15,10 @@ class Organised_By extends Module {
 	public $name = 'organised_by';
 	public $label = 'Organised By';
 	public $attr = array(
-		array( 'name' => 'heading',  'label' => 'Heading', 'type' => 'text', 'value' => '' ),
+		array( 'name' => 'heading', 'label' => 'Heading', 'type' => 'text', 'value' => '' ),
 	);
 
-	public function render() {}
+	public function render() {
+	}
 }
 

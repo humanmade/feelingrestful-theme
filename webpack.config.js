@@ -1,6 +1,6 @@
-var path = require('path');
-var LiveReloadPlugin = require('webpack-livereload-plugin');
-var webpack = require('webpack')
+var path = require( 'path' );
+var LiveReloadPlugin = require( 'webpack-livereload-plugin' );
+var webpack = require( 'webpack' )
 
 module.exports = {
 	// webpack options
@@ -30,12 +30,12 @@ module.exports = {
 	},
 
 	plugins: [
-		new webpack.DefinePlugin({
+		new webpack.DefinePlugin( {
 			'process.env': {
-				'NODE_ENV': JSON.stringify('production')
+				'NODE_ENV': JSON.stringify( 'production' )
 			}
-		}),
-	    new LiveReloadPlugin()
+		} ),
+		new LiveReloadPlugin()
 	],
 
 	externals: {
@@ -43,7 +43,7 @@ module.exports = {
 		//but get it from a global 'React' variable
 		//'react': 'React',
 		//'react/addons' : 'React',
-		'google/maps' : 'google.maps'
+		'google/maps': 'google.maps'
 	},
 
 	resolve: {

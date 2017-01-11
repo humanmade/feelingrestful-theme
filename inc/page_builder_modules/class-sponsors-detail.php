@@ -17,5 +17,6 @@ class Sponsors_Detail extends Module {
 	public $label = 'Sponsors - Detailed List';
 	public $attr = array();
 
-	public function render() {}
+	public function render() {
+	}
 }

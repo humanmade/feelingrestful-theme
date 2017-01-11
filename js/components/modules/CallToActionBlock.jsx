@@ -1,7 +1,7 @@
 import React from 'react'
 import Button from '../Button'
 
-module.exports = React.createClass({
+module.exports = React.createClass( {
 
 	render: function () {
 		var divStyle
@@ -17,22 +17,22 @@ module.exports = React.createClass({
 			<section className="Block Block--CallToAction" style={divStyle}>
 				<div className="inner">
 					{ this.props.image.length > 0 &&
-						<img src={this.props.image[0][0]} title="A Day of Rest Boston"/>
+					  <img src={this.props.image[0][0]} title="A Day of Rest Boston"/>
 					}
-					<section className={ ! this.props.subheading ? 'text-wrap text-wrap--no-subheading' : 'text-wrap' } >
+					<section className={ ! this.props.subheading ? 'text-wrap text-wrap--no-subheading' : 'text-wrap' }>
 						{this.props.heading &&
-							<h2 className="headline">{this.props.heading}</h2>
+						 <h2 className="headline">{this.props.heading}</h2>
 						}
 						{ this.props.subheading &&
-							<p>{this.props.subheading}</p>
+						  <p>{this.props.subheading}</p>
 						}
 					</section>
 					{ this.props.button.link && this.props.button.text ?
 						<Button url={ this.props.button.link } text={ this.props.button.text } classes="ghost-button"/>
-					: '' }
+						: '' }
 				</div>
 			</section>
 		)
 	}
 
-});
+} );

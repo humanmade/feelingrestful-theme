@@ -28,7 +28,7 @@
 			width: 26px;
 			color: $ador-d-blue;
 			border-radius: 50%;
-			line-height:1.6;
+			line-height: 1.6;
 			font-size: 18px;
 			content: "\f099";
 			font-family: "FontAwesome";
@@ -41,14 +41,14 @@
 			}
 		}
 	}
-	.twitter{
+	.twitter {
 		&:hover {
 			&:after {
 				background-color: #1DA1F2;
 			}
 		}
 	}
-	.facebook{
+	.facebook {
 		&:hover {
 			&:after {
 				background-color: #3B5998;
