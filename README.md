@@ -16,12 +16,13 @@ There are some differences between the two.
 Please note that [version 1 has been release tagged]((https://github.com/humanmade/feelingrestful-theme/releases/tag/1.1.10)).
  
 ### Changes
- - Dynamic Menu system
- - Design Modifications: ADOR Boston website which was a design change.
+ - Added dynamic menu capabilities. Works with WordPress Menu settings. Has a built in menu walker in React.
+ - Updated design modifications: ADOR Boston website which was a design change.
     
     This theme has been visually redesigned for ADOR Boston. Therefore, there are CSS and HTML changes to enable that.
     
  - Removal of Preview_Postmeta
+ - Bug fixes
  
 
 ## Requirements
