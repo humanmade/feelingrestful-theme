@@ -1,0 +1,30 @@
+/* Editor Styles */
+@import "vendor/bourbon/bourbon";
+@import "settings";
+@import "typography";
+@import "vendor/font-awesome/scss/font-awesome";
+
+body, html {
+	background-color: $sec;
+}
+
+.login #backtoblog a, .login #nav a {
+	color: $ador-l-grey;
+}
+
+.login #backtoblog a:hover, .login #nav a:hover, .login h1 a:hover {
+	color: $primary;
+}
+
+#login h1 a, .login h1 a {
+	background-image: url("../assets/images/ador-boston-logo 2.png");
+	background-size: 100%;
+	margin-bottom: 0;
+	width: 100%;
+	height: 170px;
+}
+
+.wp-core-ui .button-primary {
+	background-color: lighten($primary, 5%);
+	text-shadow: none;
+}

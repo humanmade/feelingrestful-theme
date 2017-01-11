@@ -1,0 +1,41 @@
+table {
+	border-spacing: 0;
+	text-align: left;
+	vertical-align: top;
+	width: 100%;
+	thead {
+		background-color: #22303f;
+		color: #fff;
+	}
+	tbody {
+		color: #22303f;
+		tr {
+			&:nth-child(odd) {
+				background-color: $ador-l-grey;
+			}
+			&:nth-child(even) {
+				background-color: #fff;
+			}
+		}
+	}
+	th, td {
+		padding: 0.5rem 1rem;
+	}
+}
+
+@media #{$mobile_mq} {
+	.table-wrapper {
+		width: auto;
+		margin-left: -15px;
+		margin-right: -15px;
+		table {
+			margin-left: 0;
+			margin-right: 0;
+		}
+	}
+}
+
+// Responsive tables
+.table-wrapper {
+	overflow: auto;
+}

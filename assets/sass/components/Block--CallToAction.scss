@@ -1,0 +1,29 @@
+.Block--CallToAction {
+	@include ador-background-image('../assets/images/ador-poststatus-41.jpg');
+
+	color: white;
+
+	.text-wrap {
+		padding: 0 48px 48px;
+	}
+	.text-wrap--no-subheading {
+		padding-top: 0;
+	}
+
+	h2, p {
+		color: inherit;
+	}
+
+	h2 {
+		text-transform: uppercase;
+		margin: 0;
+	}
+
+	p {
+		margin: 24px 0 0 0;
+	}
+
+	img + .text-wrap--no-subheading {
+		padding-top: 24px;
+	}
+}

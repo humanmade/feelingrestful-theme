@@ -1,0 +1,60 @@
+.Page {
+	background-color: $ador-l-grey;
+	color: $ador-black;
+	> * {
+		position: relative;
+		z-index: 4;
+	}
+	.Page--header {
+		text-align: center;
+		.site-logo {
+			background-color: white;
+			display: block;
+			padding: rem(49) 0;
+
+			&:before {
+				background: url('../assets/images/ador-boston-logo-color-2x.png') center center no-repeat;
+				display: block;
+				content: '';
+				height: 130px;
+				background-repeat: no-repeat;
+				background-size: contain;
+				background-position: center;
+			}
+		}
+		h1 {
+			padding: rem(98) 0 0;
+			margin: 0;
+		}
+	}
+}
+
+.Page--content {
+	padding: 0;
+	margin-bottom: 50px;
+	min-height: 100%;
+	figure {
+		text-align: center;
+	}
+}
+
+/** Components **/
+.Page {
+	.BuyYourTicket,
+	.Block--CallToAction,
+	.Intro,
+	.Testimonials,
+	.OrganisedBy,
+	.Speakers,
+	.Sponsors,
+	.Workshop {
+		.inner {
+			text-align: center;
+			padding: 0;
+		}
+	}
+}
+
+.page-content {
+	margin-top: 50px;
+}

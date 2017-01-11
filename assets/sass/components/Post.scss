@@ -1,0 +1,51 @@
+.Post {
+	margin: 0 auto;
+	@include outer-container();
+	* {
+		text-align: left;
+	}
+	.inner {
+		padding: 0;
+		@include content-column;
+	}
+	.headline {
+		margin-bottom: 2rem;
+		text-align: left;
+		h1 {
+			line-height: 1.3;
+			margin: 0 0 1rem 0;
+		}
+	}
+	.date {
+		color: $ador-black;
+		text-transform: none;
+	}
+	img {
+		margin: 15px auto;
+	}
+	.alignnone {
+		margin-left: 0;
+		margin-right: 0;
+	}
+	[class^="wp-image"] {
+		display: block;
+	}
+	ul {
+		list-style: circle;
+	}
+}
+
+.wp-caption {
+	width: auto !important;
+	margin: 15px 0 30px;
+	img {
+		display: block;
+		margin: 0;
+	}
+	p {
+		margin: 5px 0 0;
+		color: darken($ador-grey, 30%);
+		font-size: $h6-font-size;
+		font-style: italic;
+	}
+}

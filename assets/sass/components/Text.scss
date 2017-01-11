@@ -1,0 +1,13 @@
+.Text {
+	@include outer-container();
+	.inner {
+		color: $ador-black;
+		@include content-column;
+	}
+
+	ul, li {
+		list-style: initial;
+		margin-left: 16px;
+		padding: 0;
+	}
+}

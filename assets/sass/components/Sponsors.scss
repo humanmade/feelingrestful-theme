@@ -1,0 +1,128 @@
+.Sponsors {
+	background: white;
+	padding-top: 6rem;
+	padding-bottom: 6rem;
+
+	.inner {
+		padding: 48px 0;
+		text-align: center;
+	}
+
+	h2 {
+		text-transform: uppercase;
+		padding-bottom: 48px;
+		margin-top: 0;
+	}
+
+	.headline {
+		padding: 0;
+	}
+
+	.sponsor-level h3 {
+		font-size: 18px;
+		color: $ador-black;
+		position: relative;
+		z-index: 1;
+		background: white;
+
+		&:before {
+			border-top: 2px solid $ador-l-grey;
+			content: "";
+			margin: 0 auto; /* this centers the line to the full width specified */
+			position: absolute; /* positioning must be absolute here, and relative positioning must be applied to the parent */
+			top: 50%;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			width: 80%;
+			z-index: -1;
+		}
+
+		span {
+			background: white;
+			padding: 0 15px;
+		}
+	}
+	.sponsor-level ul {
+		@include display(flex);
+		@include align-items(center);
+		@include justify-content(center);
+		@include flex-flow(row wrap);
+		padding: 24px 0;
+
+		li {
+			padding: 12px;
+		}
+
+		img {
+			max-height: 100px;
+		}
+	}
+
+	.sponsor-level.platinum {
+		padding: 24px 24px 0 24px;
+
+		li {
+			@include span-columns(6);
+		}
+	}
+
+	.sponsor-level.gold {
+		margin: 0 auto;
+		li {
+			max-width: 25%;
+			padding: 12px;
+		}
+	}
+}
+
+.Sponsors--full {
+	text-align: center;
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	.sponsor-tiers {
+		h3 {
+			background-color: $ador-d-blue;
+			color: white;
+			padding: 6px;
+		}
+	}
+	.sponsor-desc {
+		@include span-columns(10);
+		@include shift(1);
+	}
+	.sponsors li {
+		@include outer-container();
+		text-align: center;
+		img {
+			max-height: 70px;
+		}
+	}
+
+	.platinum .patron-logo img {
+		max-height: 100px;
+	}
+
+	.sponsors {
+		padding: 48px 0;
+	}
+
+	.sponsors li + li {
+		padding-top: 48px;
+	}
+}
+
+.Page.sponsors-test, .Page.sponsors {
+	.Sponsors--full {
+		margin-top: rem(98);
+	}
+}
+
+.loading.sponsors {
+	@include ador-default-flex();
+	text-align: center;
+	min-height: 420px;
+}

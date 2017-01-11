@@ -1,0 +1,38 @@
+.Page.home-page {
+	padding-top: 0;
+	background-color: white;
+	.inner {
+		text-align: center;
+	}
+	.Page--header {
+		display: none;
+	}
+	.Page--content {
+		padding: 0;
+	}
+	.Menu .inner {
+		padding: 0;
+	}
+	.Intro {
+		img {
+			max-height: 170px;
+		}
+	}
+	.Speakers .inner {
+		padding-bottom: 24px;
+
+		p {
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+	}
+	.Sponsors {
+		h2 {
+			padding-bottom: 0;
+		}
+		.Button {
+			margin-top: 24px;
+		}
+	}
+
+}
