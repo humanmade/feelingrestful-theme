@@ -89,13 +89,14 @@ module.exports = React.createClass( {
 										<li key={sponsor.id}>
 											{ sponsor._embedded && sponsor._embedded['wp:featuredmedia']
 												? sponsor.url
-													? <div className="patron-logo"><a href={sponsor.url}
-													                                  target="_blank"><img
-														src={sponsor._embedded['wp:featuredmedia'][0].source_url}/></a>
-													</div>
-													: <div className="patron-logo"><img
-														src={sponsor._embedded['wp:featuredmedia'][0].source_url}/>
-													</div>
+													 ? <div className="patron-logo">
+														<a href={sponsor.url} target="_blank">
+															<img src={sponsor._embedded['wp:featuredmedia'][0].source_url}/>
+														</a>
+													 </div>
+													 : <div className="patron-logo">
+														<img src={sponsor._embedded['wp:featuredmedia'][0].source_url}/>
+													 </div>
 												: ''
 											}
 											<div className="sponsor-desc">

@@ -2,6 +2,13 @@
 
 add_filter( 'rest_menus_format_menu_item', 'feelingrestful_menu_item' );
 
+/**
+ * Filter and format menu items.
+ * Taking descriptions from different boxes in menu item meta and converting it ready to be used via the Rest API.
+ *
+ * @param  array $menu_item The menu item
+ * @return array $menu_item The menu item
+ */
 function feelingrestful_menu_item( $menu_item ) {
 
 	if ( ! is_array( $menu_item ) ) {

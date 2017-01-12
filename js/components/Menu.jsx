@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router'
 import MenuItem from './MenuItem.jsx'
-import {fetchMenubyLocation} from '../actions'
+import {fetchMenuByLocation} from '../actions'
 
 module.exports = React.createClass( {
 
@@ -15,7 +15,7 @@ module.exports = React.createClass( {
 	},
 
 	componentDidMount: function () {
-		this.props.dispatch( fetchMenubyLocation( 'primary_navigation' ) )
+		this.props.dispatch( fetchMenuByLocation( 'primary_navigation' ) )
 	},
 
 	render: function () {

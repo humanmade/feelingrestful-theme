@@ -43,8 +43,9 @@ module.exports = React.createClass( {
 												  <span className="byline">, {testimonial.byline}</span>
 												}
 												{ testimonial.byline && testimonial.company_url &&
-												  <span className="byline">, <a
-													  href={encodeURI( testimonial.company_url )}>{testimonial.byline}</a></span>
+												  <span className="byline">,
+													  <a href={encodeURI( testimonial.company_url )}>{testimonial.byline}</a>
+												  </span>
 												}
 											</cite>
 										</li>

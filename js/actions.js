@@ -155,7 +155,7 @@ export function fetchTestimonials() {
 	}
 }
 
-export function fetchMenubyLocation( location = 'primary_navigation' ) {
+export function fetchMenuByLocation( location = 'primary_navigation' ) {
 	return ( dispatch, getStore ) => {
 		Api.get( '/wp-api-menus/v2/menu-locations/' + location, {_embed: true}, ( data, error ) => {
 			if ( ! data || error ) {

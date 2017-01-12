@@ -77,7 +77,6 @@ module.exports = React.createClass( {
 								return <SponsorsBlock {...Module.data} {...this.props} />
 							case 'sponsors_detail':
 								return <SponsorsDetail {...Module.data} {...this.props} />
-
 							case 'cta_block':
 								return <CallToActionBlock {...Module.data} />
 							case 'organised_by':
