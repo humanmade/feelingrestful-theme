@@ -7,12 +7,14 @@ module.exports = function ( grunt ) {
 
 		sass: {
 			dist: {
+				options: {
+					outputStyle: 'expanded'
+				},
 				files: {
-					'dist/main.css': 'sass/main.sass'
+					'dist/main.css': 'assets/sass/style.scss',
+					'dist/editor.css': 'assets/sass/editor.scss',
+					'dist/login.css': 'assets/sass/login.scss'
 				}
-			},
-			options: {
-				sourceMap: true
 			}
 		},
 
@@ -41,12 +43,8 @@ module.exports = function ( grunt ) {
 
 		watch: {
 			sass: {
-				files: ['sass/**/*.sass'],
+				files: ['assets/sass/**/*.scss'],
 				tasks: ['sass']
-			},
-			liverelaod: {
-				options: {livereload: true},
-				files: ['dist/main.css']
 			}
 		}
 	} );

@@ -1,6 +1,5 @@
 import React from 'react'
 import {fetchSponsors} from '../../actions'
-import {Link} from 'react-router'
 import {findWhere} from 'underscore'
 
 module.exports = React.createClass( {
@@ -26,18 +25,18 @@ module.exports = React.createClass( {
 	render: function () {
 		if ( ! this.props.posts.sponsors.length ) {
 			return (
-				<div className="loading-wrap">
-					<div className="loading"><span className="fa fa-heart"></span> LOADING</div>
+				<div className="loading-wrap sponsors">
+					<div className="loading"><span className="fa fa-heart"></span> Finding sponsors...</div>
 				</div>
 			)
 		}
 
 		var sponsorTiers = this.props.posts.sponsors.reduce( ( carry, sponsor ) => {
 
-			if ( ! sponsor._embedded['https://api.w.org/term'] ) {
+			if ( ! sponsor._embedded['wp:term'] ) {
 				var tier = ''
 			} else {
-				var tier = sponsor._embedded['https://api.w.org/term'][0][0].name
+				var tier = sponsor._embedded['wp:term'][0][0].name
 			}
 
 			if ( findWhere( carry, {name: tier} ) ) {
@@ -53,12 +52,13 @@ module.exports = React.createClass( {
 		}, [] )
 
 		var levelOrder = [
-			'Titanium',
 			'Platinum',
-			'Diamon',
+			'Diamond',
 			'Gold',
 			'Silver',
-			'Bronze'
+			'After Party',
+			'Bronze',
+			'Microsponsor'
 		]
 
 		sponsorTiers.sort( ( a, b ) => {
@@ -75,37 +75,31 @@ module.exports = React.createClass( {
 		} )
 
 		return (
-			<div className="Sponsors">
-				<h1>Meet Our Fabulous Sponsors</h1>
-
-				<p className="sponsor-message clear">
-					Interested in sponsoring A DAY OF REST? <a
-					href="https://hmn-uploads.s3.amazonaws.com/humanmade-production/uploads/sites/27/2015/11/DAYRESTSponsor.pdf"
-					title="Download sponsorship PDF">Download The Sponsorship packages</a>
-				</p>
-
+			<div className="Sponsors--full">
 				<ul className="sponsor-tiers">
 					{sponsorTiers.map( tier => {
-						return <li key={tier.name}>
+						return <li key={tier.name} className={(
+							tier.name
+						).toLowerCase()}>
 							<h3>{tier.name} Sponsors</h3>
 							<ul className="sponsors">
 
 								{tier.sponsors.map( sponsor => {
 									return (
 										<li key={sponsor.id}>
-											{ sponsor._embedded['https://api.w.org/featuredmedia']
+											{ sponsor._embedded && sponsor._embedded['wp:featuredmedia']
 												? sponsor.url
-													?
-													<div className="sponsor-logo"><a href={sponsor.url} target="_blank"><img
-														src={sponsor._embedded['https://api.w.org/featuredmedia'][0].source_url}/></a>
-													</div>
-													: <div className="sponsor-logo"><img
-														src={sponsor._embedded['https://api.w.org/featuredmedia'][0].source_url}/>
-													</div>
+													 ? <div className="patron-logo">
+														<a href={sponsor.url} target="_blank">
+															<img src={sponsor._embedded['wp:featuredmedia'][0].source_url}/>
+														</a>
+													 </div>
+													 : <div className="patron-logo">
+														<img src={sponsor._embedded['wp:featuredmedia'][0].source_url}/>
+													 </div>
 												: ''
 											}
 											<div className="sponsor-desc">
-												<h4>{sponsor.title.rendered}</h4>
 												<div dangerouslySetInnerHTML={{__html: sponsor.content.rendered}}/>
 											</div>
 										</li>
@@ -116,11 +110,6 @@ module.exports = React.createClass( {
 					} )}
 				</ul>
 
-				<div className="sponsor-packages">We’d love to see your company name here. <a
-					href="https://hmn-uploads.s3.amazonaws.com/humanmade-production/uploads/sites/28/2015/11/DAYRESTSponsor.pdf">Download
-					The Sponsorship packages</a> and <a href="mailto:events@humanmade.co.uk">Get in touch</a> to reserve
-					your preferred sponsor option for A Day of REST.
-				</div>
 			</div>
 		)
 	}

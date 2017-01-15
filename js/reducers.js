@@ -1,9 +1,19 @@
 import {combineReducers} from 'redux'
-import ObjectAssign from 'object-assign'
 import {routerStateReducer} from 'redux-router';
 import {findWhere} from 'underscore'
 
-function posts( state = {speakers: [], posts: [], pages: [], pointsOfInterest: [], sponsors: []}, action ) {
+function posts(
+	state = {
+		speakers: [],
+		workshops: [],
+		posts: [],
+		pages: [],
+		pointsOfInterest: [],
+		sponsors: [],
+		testimonials: [],
+		preview: null
+	}, action
+) {
 	switch ( action.type ) {
 		case 'UPDATE_SPEAKERS':
 			state.speakers = action.speakers
@@ -11,6 +21,14 @@ function posts( state = {speakers: [], posts: [], pages: [], pointsOfInterest: [
 		case 'UPDATE_SPEAKER':
 			if ( ! findWhere( state.speakers, {id: action.speaker.id} ) ) {
 				state.speakers.push( action.speaker );
+			}
+			break
+		case 'UPDATE_WORKSHOPS':
+			state.workshops = action.workshops
+			break
+		case 'UPDATE_WORKSHOP':
+			if ( ! findWhere( state.workshops, {id: action.workshop.id} ) ) {
+				state.workshops.push( action.workshop )
 			}
 			break
 		case 'UPDATE_SPONSORS':
@@ -23,10 +41,10 @@ function posts( state = {speakers: [], posts: [], pages: [], pointsOfInterest: [
 			state.posts = action.posts
 			break
 		case 'UPDATE_POST':
-			if ( ! findWhere( state.posts, {id: action.post.id} ) ) {
+			if ( action.post && ! findWhere( state.posts, {id: action.post.id} ) ) {
 				state.posts.push( action.post );
 			}
-			break;
+			break
 		case 'UPDATE_PAGES':
 			state.pages = action.pages
 			break
@@ -34,54 +52,27 @@ function posts( state = {speakers: [], posts: [], pages: [], pointsOfInterest: [
 			if ( ! findWhere( state.pages, {id: action.page.id} ) ) {
 				state.pages.push( action.page );
 			}
-			break;
+			break
+		case 'UPDATE_PREVIEW':
+			state.preview = action.post
+			break
+		case 'UPDATE_TESTIMONIALS':
+			state.testimonials = action.testimonials
+			break
 	}
-	return state
+	return {...state}
 }
 
-function menu( state = {}, action ) {
+function menu( state = {items: []}, action ) {
 
-	return {
-		items: [
-			{
-				name: "Home",
-				url: "/"
-			},
-			{
-				name: "About",
-				url: "/page/about/"
-			},
-			{
-				name: "Speakers",
-				url: "/speakers/"
-			},
-			{
-				name: "Schedule",
-				url: "/news/schedule/"
-			},
-			{
-				name: "News",
-				url: "/news/"
-			},
-			{
-				name: "Sponsors",
-				url: "/sponsors/"
-			},
-			{
-				name: "Hack Day",
-				url: "/page/hack-day/"
-			},
-			{
-				name: "Press",
-				url: "/page/press/"
-			},
-			{
-				name: "Contact",
-				url: "/page/contact/"
-			}
-		]
+	switch ( action.type ) {
+		case 'UPDATE_MENU':
+			return {...state, items: action.items}
 	}
+
+	return {...state}
 }
+
 
 function display( state = {consoleExpanded: false, showingMenu: false, isGoingBack: false}, action ) {
 
@@ -97,7 +88,7 @@ function display( state = {consoleExpanded: false, showingMenu: false, isGoingBa
 			break
 	}
 
-	return state
+	return {...state}
 }
 
 var reducers = combineReducers( {

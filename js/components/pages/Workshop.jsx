@@ -1,6 +1,6 @@
 import React from 'react'
 import {findWhere} from 'underscore'
-import {fetchPageBySlug} from '../../actions'
+import {fetchWorkshop} from '../../actions'
 import Text from '../modules/Text'
 import Image from '../modules/Image'
 import Blockquote from '../modules/Blockquote'
@@ -21,21 +21,14 @@ module.exports = React.createClass( {
 
 	componentDidMount: function () {
 		if ( ! this.props.posts.preview ) {
-			'/' !== this.props.location.pathname
-				? this.props.dispatch( fetchPageBySlug( this.props.routeParams.slug ) )
-				: this.props.dispatch( fetchPageBySlug( 'home-page' ) )
+			this.props.dispatch( fetchWorkshop( Number( this.props.routeParams.id ) ) )
 		}
 	},
 
 	render: function () {
-		var slugToFind = this.props.routeParams.slug
-		if ( '/' === this.props.location.pathname ) {
-			slugToFind = 'home-page'
-		}
+		var workshop = this.props.posts.preview || findWhere( this.props.posts.workshops, {id: Number( this.props.routeParams.id )} )
 
-		var page = this.props.posts.preview || findWhere( this.props.posts.pages, {slug: slugToFind} )
-
-		if ( ! page ) {
+		if ( ! workshop ) {
 			return (
 				<div className="loading-wrap">
 					<div className="loading"><span className="fa fa-heart"></span> Loading</div>
@@ -44,13 +37,13 @@ module.exports = React.createClass( {
 		}
 
 		return (
-			<div className={'Page SinglePage ' + slugToFind }>
+			<div className="WorkshopPage Page SinglePage">
 				<div className="Page--header">
 					<span className="site-logo"></span>
-					<h1>{page.title.rendered}</h1>
+					<h1>{workshop.title.rendered}</h1>
 				</div>
 				<div className="Page--content">
-					{page.page_builder && page.page_builder.modules.map( ( Module, i ) => {
+					{workshop.page_builder && workshop.page_builder.modules.map( ( Module, i ) => {
 						Module.data.key = Module.type + '-' + i
 						switch ( Module.type ) {
 							case 'text':
@@ -86,6 +79,7 @@ module.exports = React.createClass( {
 						}
 						return <div></div>
 					} )}
+
 				</div>
 			</div>
 		)

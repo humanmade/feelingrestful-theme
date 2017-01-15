@@ -1,4 +1,6 @@
 var path = require( 'path' );
+var LiveReloadPlugin = require( 'webpack-livereload-plugin' );
+var webpack = require( 'webpack' )
 
 module.exports = {
 	// webpack options
@@ -27,7 +29,14 @@ module.exports = {
 		]
 	},
 
-	plugins: [],
+	plugins: [
+		new webpack.DefinePlugin( {
+			'process.env': {
+				'NODE_ENV': JSON.stringify( 'production' )
+			}
+		} ),
+		new LiveReloadPlugin()
+	],
 
 	externals: {
 		//don't bundle the 'react' npm package with our bundle.js

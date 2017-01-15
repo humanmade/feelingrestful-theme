@@ -1,6 +1,5 @@
 import React from 'react'
 import {fetchPosts} from '../../actions'
-import {Link} from 'react-router'
 import Post from '../Post'
 
 module.exports = React.createClass( {
@@ -13,18 +12,27 @@ module.exports = React.createClass( {
 		if ( ! this.props.posts.posts.length ) {
 			return (
 				<div className="loading-wrap">
-					<div className="loading"><span className="fa fa-heart"></span> LOADING</div>
+					<div className="loading"><span className="fa fa-heart"></span> Loading</div>
 				</div>
 			)
 		}
 		return (
-			<ul className="Posts">
-				{this.props.posts.posts.map( post => {
-					return <li key={post.id}>
-						<Post {...post} />
-					</li>
-				} )}
-			</ul>
+			<div className="Page Posts">
+				<div className="Page--header">
+					<span className="site-logo"></span>
+				</div>
+				<div className="Page--content">
+					<h1 className="Title">News</h1>
+					<ul className="Posts Archive">
+						{this.props.posts.posts.map( post => {
+							return <li key={post.id}>
+								<Post {...post} />
+							</li>
+						} )}
+					</ul>
+				</div>
+			</div>
+
 		)
 	}
 } )

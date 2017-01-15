@@ -34,8 +34,15 @@ class OpenGraph {
 			$tags['og:url'] = get_term_link( get_queried_object(), get_queried_object()->taxonomy );
 		}
 
+		$og_images = array();
+
 		if ( is_singular() && has_post_thumbnail() ) {
-			$tags['og:image'] = get_the_post_thumbnail_url( 'full' );
+			$featured_image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' );
+			$og_images[]    = array(
+				'og:image'        => $featured_image[0],
+				'og:image:width'  => $featured_image[1],
+				'og:image:height' => $featured_image[2],
+			);
 		}
 
 		$tags = wp_parse_args( $tags, [
@@ -43,7 +50,7 @@ class OpenGraph {
 			'og:title'       => get_bloginfo( 'name' ),
 			'og:description' => get_bloginfo( 'description' ),
 			'og:url'         => home_url( '/' ),
-			'og:image'       => get_site_icon_url(),
+			'images'         => $og_images
 		] );
 
 		$tags = array_filter( $tags );
@@ -51,11 +58,26 @@ class OpenGraph {
 		$tags = apply_filters( 'opengraph_tags', $tags );
 
 		foreach ( $tags as $property => $content ) {
-			printf( '
-			<meta property="%s" content="%s">',
-				esc_attr( $property ),
-				esc_attr( $content )
-			);
+
+			if ( 'images' === $property ) {
+				foreach ( $content as $image ) {
+					foreach ( $image as $image_property => $image_content ) {
+						printf( '
+							<meta property="%s" content="%s">',
+							esc_attr( $image_property ),
+							esc_attr( $image_content )
+						);
+					}
+				}
+
+			} else {
+				printf( '
+					<meta property="%s" content="%s">',
+					esc_attr( $property ),
+					esc_attr( $content )
+				);
+			}
+
 		}
 
 	}

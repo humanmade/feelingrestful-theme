@@ -22,7 +22,7 @@ module.exports = React.createClass( {
 
 							<h2><strong>Request URL</strong></h2>
 							<pre>{Api.lastRequest.method} <a
-								href={'/wp-json' + Api.lastRequest.url}>{Api.lastRequest.url} {JSON.stringify( Api.lastRequest.args )}</a></pre>
+								href={app_data.base + '/wp-json' + Api.lastRequest.url}>{Api.lastRequest.url} {JSON.stringify( Api.lastRequest.args )}</a></pre>
 
 							<h2><strong>Response Data</strong></h2>
 
@@ -38,7 +38,8 @@ module.exports = React.createClass( {
 						)}></span> View API Request
 					</div>
 					<div className="api-output">
-						{Api.lastRequest.method} <a href={'/wp-json' + Api.lastRequest.url}>{Api.lastRequest.url}</a>
+						{Api.lastRequest.method} <a
+						href={app_data.base + '/wp-json' + Api.lastRequest.url}>{Api.lastRequest.url}</a>
 						{Api.lastRequest.isLoading
 							? 'Loading...'
 							: <span> <span
