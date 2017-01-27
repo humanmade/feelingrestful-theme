@@ -101,7 +101,7 @@ export function fetchPosts() {
 
 export function fetchPostBySlug( slug ) {
 	return ( dispatch, getStore ) => {
-		Api.get( '/wp/v2/posts', {filter: {name: slug}}, ( data, error ) => {
+		Api.get( '/wp/v2/posts', {slug: slug}, ( data, error ) => {
 			if ( ! data || error ) {
 				return;
 			}
@@ -129,7 +129,7 @@ export function fetchPreviewById( id, type ) {
 
 export function fetchPageBySlug( slug ) {
 	return ( dispatch, getStore ) => {
-		Api.get( '/wp/v2/pages', {filter: {name: slug}}, ( data, error ) => {
+		Api.get( '/wp/v2/pages', {slug: slug}, ( data, error ) => {
 			if ( ! data.length || error ) {
 				return;
 			}
