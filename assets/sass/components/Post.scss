@@ -23,6 +23,9 @@
 	img {
 		margin: 15px auto;
 	}
+	.wp-caption img {
+		margin-bottom: 0;
+	}
 	.alignnone {
 		margin-left: 0;
 		margin-right: 0;
@@ -35,17 +38,3 @@
 	}
 }
 
-.wp-caption {
-	width: auto !important;
-	margin: 15px 0 30px;
-	img {
-		display: block;
-		margin: 0;
-	}
-	p {
-		margin: 5px 0 0;
-		color: darken($ador-grey, 30%);
-		font-size: $h6-font-size;
-		font-style: italic;
-	}
-}

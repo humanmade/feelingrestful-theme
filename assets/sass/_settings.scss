@@ -210,39 +210,44 @@ a img.aligncenter {
 }
 
 .wp-caption {
-	background: #fff;
-	border: 1px solid #f0f0f0;
-	max-width: 96%; /* Image does not overflow the content area */
-	padding: 5px 3px 10px;
-	text-align: center;
-}
-
-.wp-caption.alignnone {
-	margin: 5px rem(24) rem(24) 0;
-}
-
-.wp-caption.alignleft {
-	margin: 5px rem(48) rem(24) 0;
-}
-
-.wp-caption.alignright {
-	margin: 5px 0 rem(24) rem(48);
-}
-
-.wp-caption img {
-	border: 0 none;
-	height: auto;
-	margin: 0;
-	max-width: 98.5%;
+	background: transparent;
+	border: 0;
+	max-width: 99%; /* Image does not overflow the content area */
 	padding: 0;
-	width: auto;
-}
+	text-align: center;
 
-.wp-caption p.wp-caption-text {
-	font-size: 11px;
-	line-height: 17px;
-	margin: 0;
-	padding: 0 4px 5px;
+	&.aligncenter,
+	&.alignnone {
+		margin: rem(24) 0 rem(24) 0;
+	}
+
+	&.alignleft {
+		margin: 5px rem(48) rem(24) 0;
+	}
+
+	&.alignright {
+		margin: 5px 0 rem(24) rem(48);
+	}
+
+	img {
+		border: 0 none;
+		height: auto;
+		margin: 0;
+		padding: 0;
+		width: 100%;
+	}
+
+	p {
+		margin: 0;
+	}
+
+	p.wp-caption-text {
+		color: #7c7c7c;
+		font-size: rem(12);
+		line-height: 1.2;
+		margin: 0;
+		padding: 10px 0 10px;
+	}
 }
 
 /* Text meant only for screen readers. */
