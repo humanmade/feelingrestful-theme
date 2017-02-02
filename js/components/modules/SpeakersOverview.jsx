@@ -23,19 +23,23 @@ module.exports = React.createClass( {
 		return (
 			<section className="Speakers">
 				{ this.props.heading && <Header {...this.props} /> }
-				<ul className="SpeakerList">
+				<div className="SpeakerList">
 					{this.props.posts.speakers.map( speaker => {
 						var attr = {key: speaker.id}
 						if ( speaker._embedded && speaker._embedded['wp:featuredmedia'] ) {
 							attr.style = {backgroundImage: 'url(' + speaker._embedded['wp:featuredmedia'][0].source_url + ')'}
 						}
-						return <li className="speaker" {...attr}>
-							<Link to={'/speakers/' + speaker.id}>
-								{speaker.title.rendered}<span className="company">{speaker.company}</span>
+						return <Link to={'/speakers/' + speaker.id} className="speaker" {...attr}>
+								<div className="speaker_hover">
+									<p className="textcontainer">
+										<span className="name">{speaker.title.rendered}</span>
+										<span className="company">{speaker.company}</span>
+									</p>
+								</div>
 							</Link>
-						</li>
+
 					} )}
-				</ul>
+				</div>
 			</section>
 		)
 	}
